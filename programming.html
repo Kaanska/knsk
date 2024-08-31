@@ -1,517 +1,689 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Programlama</title>
-	<link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
-	<style>
-		body {
-			font-family: "Times New Roman", Georgia, Serif;
-			margin: 0;
-			padding: 0;
-			background: url('images/bc.webp') no-repeat center center fixed;
-			background-size: cover;
-			color: #333;
-			display: flex;
-			flex-direction: column;
-			min-height: 100vh;
-		}
-		h1, h2, h3, h4, h5, h6 {
-			font-family: "Playfair Display";
-			letter-spacing: 5px;
-		}
-		.modal-body p {
-			font-size: 18px;
-			line-height: 1.6;
-			color: #555;
-			margin-bottom: 20px;
-			text-align: left;
-			font-weight: 400;
-			letter-spacing: 0.5px;
-			padding: 10px;
-			border-left: 4px solid #0a5579;
-			background-color: rgba(255, 255, 255, 0.9);
-			border-radius: 4px;
-		}
-		.modal-body .advantage {
-			color: green;
-		}
-		.modal-body .disadvantage {
-			color: red;
-		}
-		.w3-top {
-			width: 100%;
-			position: fixed;
-			top: 0;
-			z-index: 1;
-		}
-		.w3-bar {
-			overflow: hidden;
-			background-color: #fff;
-			padding: 10px 0;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		}
-		.w3-bar a {
-			float: left;
-			display: block;
-			color: #333;
-			text-align: center;
-			padding: 14px 20px;
-			text-decoration: none;
-			font-size: 17px;
-			transition: color 0.3s, background-color 0.3s;
-		}
-		.w3-bar a:hover {
-			background-color: #ddd;
-			color: black;
-		}
-		.w3-bar a.active {
-			color: #0a5579;
-			background-color: transparent;
-		}
-		.w3-bar a.active:hover {
-			background-color: transparent;
-			color: #0a5579;
-		}
-		.w3-right {
-			float: right !important;
-		}
-		.w3-hide-small {
-			display: none !important;
-		}
-		@media (max-width: 600px) {
-			.w3-right {
-				float: none;
-				text-align: center;
-			}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programlama</title>
+    <link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Times New Roman", Georgia, Serif;
+            margin: 0;
+            padding: 0;
+            background: url('images/bc.webp') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-			.w3-bar a {
-				float: none;
-				display: block;
-				width: 100%;
-				text-align: center;
-			}
-		}
-		.container {
-			flex: 1;
-			padding: 20px;
-			margin: auto;
-			text-align: center;
-			background-color: rgba(255, 255, 255, 0.0);
-			border-radius: 8px;
-			color: black;
-			max-width: 100%;
-			width: calc(100% - 40px);
-		}
-		.contact-cards {
-			display: flex;
-			justify-content: center;
-			flex-wrap: wrap;
-			gap: 20px;
-		}
-		.contact-card {
-			background: rgba(255, 255, 255, 0.3);
-			padding: 20px;
-			margin: 10px;
-			border-radius: 8px;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			flex: 1 1 300px;
-			max-width: 300px;
-			text-align: center;
-			cursor: pointer;
-			transition: transform 0.3s, box-shadow 0.3s;
-		}
-		.contact-card:hover {
-			transform: translateY(-5px);
-			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-		}
-		.contact-icon {
-			font-size: 36px;
-			color: #0a5579;
-			margin-bottom: 10px;
-		}
-		.contact-card h2 {
-			color: #333;
-			margin-bottom: 10px;
-		}
-		.contact-card p, .contact-card a, .contact-card form {
-			color: #555;
-			text-decoration: none;
-		}
-		.contact-card a:hover {
-			text-decoration: underline;
-		}
-		.contact-card button {
-			background-color: #0a5579;
-			color: white;
-			border: none;
-			padding: 10px 20px;
-			font-size: 16px;
-			border-radius: 4px;
-			cursor: pointer;
-			transition: background-color 0.3s ease;
-			width: 100%;
-			margin-top: 10px;
-		}
-		.contact-card button:hover {
-			background-color: #0056b3;
-		}
-		textarea {
-			width: 100%;
-			height: 100px;
-			padding: 10px;
-			border: 1px solid rgba(255, 255, 255, 0.5);
-			border-radius: 4px;
-			font-size: 16px;
-			resize: vertical;
-			box-sizing: border-box;
-			margin-bottom: 20px;
-			background: rgba(255, 255, 255, 0);
-			color: white;
-		}
-		footer {
-			background: rgba(255, 255, 255, 0);
-			color: #333;
-			padding: 32px 0;
-			text-align: center;
-			box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-			margin-top: auto;
-		}
-		footer p {
-			margin: 0;
-		}
-		.header-title {
-			margin-top: 100px;
-			color: #0a5579;
-		}
-		.modal {
-			display: none;
-			position: fixed;
-			z-index: 1;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			overflow: auto;
-			background-color: rgba(0,0,0,0.4);
-			padding-top: 60px;
-		}
-		.modal-content {
-			background-color: #fefefe;
-			margin: 5% auto;
-			padding: 20px;
-			border: 1px solid #888;
-			width: 80%;
-			max-width: 600px;
-			position: relative;
-			border-radius: 8px;
-		}
-		.close {
-			color: #aaa;
-			float: right;
-			font-size: 28px;
-			font-weight: bold;
-		}
-		.close:hover,
-		.close:focus {
-			color: black;
-			text-decoration: none;
-			cursor: pointer;
-		}
-		.modal-body {
-			text-align: left;
-		}
-	</style>
-	<script>
-		if (window.location.pathname.endsWith('programming.html')) {
-			window.history.replaceState(null, null, 'programming');
-		}
-	</script>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display";
+            letter-spacing: 5px;
+        }
+
+        .modal-body p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: left;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            padding: 10px;
+            border-left: 4px solid #0a5579;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 4px;
+        }
+
+        .modal-body .advantage {
+            color: green;
+        }
+
+        .modal-body .disadvantage {
+            color: red;
+        }
+
+        .w3-top {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+
+        .w3-bar {
+            overflow: hidden;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .w3-bar a {
+            float: left;
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .w3-bar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .w3-bar a.active {
+            color: #0a5579;
+            background-color: transparent;
+        }
+
+        .w3-bar a.active:hover {
+            background-color: transparent;
+            color: #0a5579;
+        }
+
+        .w3-right {
+            float: right !important;
+        }
+
+        .w3-hide-small {
+            display: none !important;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            padding: 14px 20px;
+        }
+
+        .w3-bar {
+            overflow: hidden;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .w3-bar a {
+            float: left;
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .w3-bar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .w3-bar a.active {
+            color: #0a5579;
+            background-color: transparent;
+        }
+
+        .w3-bar a.active:hover {
+            background-color: transparent;
+            color: #0a5579;
+        }
+
+        .w3-right {
+            float: right !important;
+        }
+
+        @media (max-width: 600px) {
+            .menu-icon {
+                display: block;
+                float: left;
+            }
+
+            .w3-right {
+                display: none;
+            }
+
+            .w3-bar a {
+                float: none;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+
+            .w3-bar.open .w3-right {
+                display: block;
+                width: 100%;
+                float: none;
+            }
+
+
+            .w3-right {
+                float: none;
+                text-align: center;
+            }
+
+            .w3-bar a {
+                float: none;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            margin: auto;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.0);
+            border-radius: 8px;
+            color: black;
+            max-width: 100%;
+            width: calc(100% - 40px);
+        }
+
+        .contact-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1 1 300px;
+            max-width: 300px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 36px;
+            color: #0a5579;
+            margin-bottom: 10px;
+        }
+
+        .contact-card h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p, .contact-card a, .contact-card form {
+            color: #555;
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-card button {
+            background-color: #0a5579;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .contact-card button:hover {
+            background-color: #0056b3;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+            font-size: 16px;
+            resize: vertical;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0);
+            color: white;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0);
+            color: #333;
+            padding: 32px 0;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .header-title {
+            margin-top: 100px;
+            color: #0a5579;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            text-align: left;
+        }
+    </style>
+    <script>
+        if (window.location.pathname.endsWith('index.html')) {
+            window.history.replaceState(null, null, 'home');
+        }
+
+        function toggleMenu() {
+            var bar = document.querySelector('.w3-bar');
+            bar.classList.toggle('open');
+        }
+    </script>
 </head>
 <body>
 
 <div class="w3-top">
-	<div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-		<a href="index.html" class="w3-bar-item w3-button active">KNSK</a>
-		<div class="w3-right">
-			<a href="index.html" class="w3-bar-item w3-button">Ana Sayfa</a>
-			<a href="programming.html" class="w3-bar-item w3-button">Programlama</a>
-			<a href="contact.html" class="w3-bar-item w3-button">İletişim</a>
-		</div>
-	</div>
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <a href="index.html" class="w3-bar-item w3-button active">KNSK</a>
+        <div class="w3-right">
+            <a href="index.html" class="w3-bar-item w3-button">Ana Sayfa</a>
+            <a href="programming.html" class="w3-bar-item w3-button">Programlama</a>
+            <a href="contact.html" class="w3-bar-item w3-button">İletişim</a>
+        </div>
+    </div>
 </div>
 
 <div class="container">
-	<h1 class="header-title">Teknik Bilgi Kılavuzu</h1>
-	<div class="contact-cards">
-		<div class="contact-card" onclick="openModal('modal1')">
-			<div class="contact-icon"><i class="fa fa-database"></i></div>
-			<h2>Redis nedir, nasıl çalışır?</h2>
-		</div>
-		<div class="contact-card" onclick="openModal('modal2')">
-			<div class="contact-icon"><i class="fa fa-cogs"></i></div>
-			<h2>RabbitMQ nedir, nasıl çalışır?</h2>
-		</div>
-		<div class="contact-card" onclick="openModal('modal3')">
-			<div class="contact-icon"><i class="fa fa-server"></i></div>
-			<h2>Mikroservis nedir?</h2>
-		</div>
-		<div class="contact-card" onclick="openModal('modal4')">
-			<div class="contact-icon"><i class="fa fa-code"></i></div>
-			<h2>Inheritance, Abstraction, Encapsulation ve Polymorphism nedir?</h2>
-		</div>
-		<div class="contact-card" onclick="openModal('modal5')">
-			<div class="contact-icon"><i class="fa fa-object-group"></i></div>
-			<h2>Abstract Class ve Interface farkı nedir?</h2>
-		</div>
-		<div class="contact-card" onclick="openModal('modal6')">
-			<div class="contact-icon"><i class="fa fa-puzzle-piece"></i></div>
-			<h2>Design Patterns nedir, örnek verebilir misiniz?</h2>
-		</div>
+    <h1 class="header-title">Teknik Bilgi Kılavuzu</h1>
+    <div class="contact-cards">
+        <div class="contact-card" onclick="openModal('modal1')">
+            <div class="contact-icon"><i class="fa fa-database"></i></div>
+            <h2>Redis nedir, nasıl çalışır?</h2>
+        </div>
+        <div class="contact-card" onclick="openModal('modal2')">
+            <div class="contact-icon"><i class="fa fa-cogs"></i></div>
+            <h2>RabbitMQ nedir, nasıl çalışır?</h2>
+        </div>
+        <div class="contact-card" onclick="openModal('modal3')">
+            <div class="contact-icon"><i class="fa fa-server"></i></div>
+            <h2>Mikroservis nedir?</h2>
+        </div>
+        <div class="contact-card" onclick="openModal('modal4')">
+            <div class="contact-icon"><i class="fa fa-code"></i></div>
+            <h2>Inheritance, Abstraction, Encapsulation ve Polymorphism nedir?</h2>
+        </div>
+        <div class="contact-card" onclick="openModal('modal5')">
+            <div class="contact-icon"><i class="fa fa-object-group"></i></div>
+            <h2>Abstract Class ve Interface farkı nedir?</h2>
+        </div>
+        <div class="contact-card" onclick="openModal('modal6')">
+            <div class="contact-icon"><i class="fa fa-puzzle-piece"></i></div>
+            <h2>Design Patterns nedir, örnek verebilir misiniz?</h2>
+        </div>
 
-		<div class="contact-card" onclick="openModal('modal7')">
-			<div class="contact-icon"><i class="fa fa-server"></i></div> <!-- API Gateway için yeni ikon -->
-			<h2>Mikroservis mimarisinde API Gateway'in rolü nedir?</h2>
-		</div>
+        <div class="contact-card" onclick="openModal('modal7')">
+            <div class="contact-icon"><i class="fa fa-server"></i></div> <!-- API Gateway için yeni ikon -->
+            <h2>Mikroservis mimarisinde API Gateway'in rolü nedir?</h2>
+        </div>
 
 
-		<div class="contact-card" onclick="openModal('modal8')">
-			<div class="contact-icon"><i class="fa fa-cogs"></i></div> <!-- Apache Kafka için uygun ikon -->
-			<h2>Apache Kafka nedir ve nasıl çalışır?</h2>
-		</div>
-	</div>
+        <div class="contact-card" onclick="openModal('modal8')">
+            <div class="contact-icon"><i class="fa fa-cogs"></i></div> <!-- Apache Kafka için uygun ikon -->
+            <h2>Apache Kafka nedir ve nasıl çalışır?</h2>
+        </div>
+    </div>
 
 </div>
 
 <!-- Modal 1 -->
 <div id="modal1" class="modal">
-	<div class="modal-content">
-		<span class="close" onclick="closeModal('modal1')">&times;</span>
-		<div class="modal-body">
-			<h2>Redis nedir?</h2>
-			<p>Redis, in-memory bir veri yapısı sunucusudur. Anahtar-değer çiftleri üzerinde yüksek performanslı veri okuma ve yazma işlemleri sağlar.</p>
-			<h3>Avantajlar:</h3>
-			<p class="advantage">- Yüksek performanslı veri okuma ve yazma işlemleri<br>- Verilerin bellek üzerinde saklanması sayesinde düşük gecikme süreleri<br>- Veritabanı yerine veri yapıları kullanarak daha etkili veri yönetimi</p>
-			<h3>Dezavantajlar:</h3>
-			<p class="disadvantage">- Verilerin bellekte saklanması, yüksek bellek kullanımı gerektirir<br>- Kalıcı veri saklama konusunda sınırlamalar<br>- Kötü yapılandırılmış Redis kullanımı performans sorunlarına yol açabilir</p>
-		</div>
-	</div>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <div class="modal-body">
+            <h2>Redis nedir?</h2>
+            <p>Redis, in-memory bir veri yapısı sunucusudur. Anahtar-değer çiftleri üzerinde yüksek performanslı veri
+                okuma ve yazma işlemleri sağlar.</p>
+            <h3>Avantajlar:</h3>
+            <p class="advantage">- Yüksek performanslı veri okuma ve yazma işlemleri<br>- Verilerin bellek üzerinde
+                saklanması sayesinde düşük gecikme süreleri<br>- Veritabanı yerine veri yapıları kullanarak daha etkili
+                veri yönetimi</p>
+            <h3>Dezavantajlar:</h3>
+            <p class="disadvantage">- Verilerin bellekte saklanması, yüksek bellek kullanımı gerektirir<br>- Kalıcı veri
+                saklama konusunda sınırlamalar<br>- Kötü yapılandırılmış Redis kullanımı performans sorunlarına yol
+                açabilir</p>
+        </div>
+    </div>
 </div>
 
 <!-- Modal 2 -->
 <div id="modal2" class="modal">
-	<div class="modal-content">
-		<span class="close" onclick="closeModal('modal2')">&times;</span>
-		<div class="modal-body">
-			<h2>RabbitMQ nedir?</h2>
-			<p>RabbitMQ, mesaj kuyruğu sistemidir ve veri iletimi için asenkron mesajlaşma sağlar. Dağıtık sistemlerde bile mesajların güvenli bir şekilde iletilmesini sağlar.</p>
-			<h3>Avantajlar:</h3>
-			<p class="advantage">- Güvenilir mesaj iletimi ve teslimat garantisi<br>- Esnek yapılandırma ve desteklenen birçok mesajlaşma protokolü<br>- Yüksek performanslı mesaj işleme yeteneği</p>
-			<h3>Dezavantajlar:</h3>
-			<p class="disadvantage">- Karmaşık yapılandırma ve yönetim gerektirebilir<br>- Performans düşüşleri, yüksek yük altında görülebilir<br>- Mesajların işlenmesi zaman alabilir</p>
-		</div>
-	</div>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <div class="modal-body">
+            <h2>RabbitMQ nedir?</h2>
+            <p>RabbitMQ, mesaj kuyruğu sistemidir ve veri iletimi için asenkron mesajlaşma sağlar. Dağıtık sistemlerde
+                bile mesajların güvenli bir şekilde iletilmesini sağlar.</p>
+            <h3>Avantajlar:</h3>
+            <p class="advantage">- Güvenilir mesaj iletimi ve teslimat garantisi<br>- Esnek yapılandırma ve desteklenen
+                birçok mesajlaşma protokolü<br>- Yüksek performanslı mesaj işleme yeteneği</p>
+            <h3>Dezavantajlar:</h3>
+            <p class="disadvantage">- Karmaşık yapılandırma ve yönetim gerektirebilir<br>- Performans düşüşleri, yüksek
+                yük altında görülebilir<br>- Mesajların işlenmesi zaman alabilir</p>
+        </div>
+    </div>
 </div>
 
 <!-- Modal 3 -->
 <div id="modal3" class="modal">
-	<div class="modal-content">
-		<span class="close" onclick="closeModal('modal3')">&times;</span>
-		<div class="modal-body">
-			<h2>Mikroservis nedir, bir servisin mikroservis olması için gerekli şartlar nelerdir?</h2>
-			<h3>Avantajlar:</h3>
-			<p class="advantage">
-				- <b>Bağımsız Dağıtım ve Güncelleme:</b> Mikroservisler bağımsız olarak dağıtılabilir ve güncellenebilir. Bu, bir servisin diğerlerini etkilemeden güncellenmesini ve bakıma alınmasını sağlar.<br>
-				- <b>Esneklik ve Ölçeklenebilirlik:</b> Her mikroservis, ihtiyaç duyduğu kaynaklara göre bağımsız olarak ölçeklenebilir. Bu, uygulamanın belirli bölümlerinin daha fazla kaynak kullanmasını gerektirdiğinde esneklik sağlar.<br>
-				- <b>Teknoloji Çeşitliliği:</b> Farklı mikroservisler farklı teknolojiler, diller ve veri tabanları kullanabilir. Bu, geliştiricilere en uygun araçları seçme özgürlüğü verir.<br>
-				- <b>Hataların İzolasyonu:</b> Hatalar, sadece bir mikroservisi etkiler ve diğer mikroservislere yayılmaz. Bu, genel sistemin daha sağlam ve dayanıklı olmasına yardımcı olabilir.<br>
-				- <b>Geliştirici ve Takım Verimliliği:</b> Her mikroservis genellikle küçük, bağımsız bir ekip tarafından geliştirilir. Bu, ekiplerin belirli alanlarda uzmanlaşmasını ve hızlı bir şekilde geliştirme yapmasını sağlar.<br>
-				- <b>Hızlı Geliştirme ve Dağıtım:</b> Mikroservis mimarisi, yeni özelliklerin daha hızlı bir şekilde geliştirilmesini ve dağıtılmasını sağlar çünkü her servis bağımsız olarak ele alınabilir.
-			</p>
-			<h3>Dezavantajlar:</h3>
-			<p class="disadvantage">
-				- <b>Karmaşıklık:</b> Mikroservisler, sistemin genel karmaşıklığını artırabilir. Servislerin yönetimi, iletişimi ve koordinasyonu, monolitik yapıya göre daha zor olabilir.<br>
-				- <b>Dağıtım Zorlukları:</b> Mikroservislerin dağıtımı ve yönetimi için gelişmiş araçlar ve süreçler gerektirir. CI/CD (Sürekli Entegrasyon ve Sürekli Dağıtım) süreçlerini kurmak karmaşık olabilir.<br>
-				- <b>Veri Yönetimi:</b> Mikroservislerin her biri kendi veri tabanına sahip olabilir, bu da veri yönetimi ve tutarlılığı konularında zorluklar yaratabilir. Verilerin entegrasyonu ve senkronizasyonu karmaşık olabilir.<br>
-				- <b>Ağ Gecikmeleri:</b> Mikroservisler arasında ağ iletişimi gerektirir, bu da performans gecikmelerine ve ağ trafiğine neden olabilir. Servisler arasındaki iletişimde meydana gelen problemler sistemin performansını etkileyebilir.<br>
-				- <b>Dağıtılmış İzleme ve Hata Ayıklama:</b> Mikroservis mimarisi, izleme ve hata ayıklama işlemlerini daha karmaşık hale getirebilir. Merkezi bir izleme sistemi kurmak ve servislerin durumunu izlemek daha zordur.<br>
-				- <b>Güvenlik Riskleri:</b> Daha fazla servis, daha fazla giriş noktası ve potansiyel güvenlik riski anlamına gelebilir. Her mikroservisin güvenliğini sağlamak ve güvenlik açıklarını yönetmek karmaşık olabilir.
-			</p>
-		</div>
-	</div>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <div class="modal-body">
+            <h2>Mikroservis nedir, bir servisin mikroservis olması için gerekli şartlar nelerdir?</h2>
+            <h3>Avantajlar:</h3>
+            <p class="advantage">
+                - <b>Bağımsız Dağıtım ve Güncelleme:</b> Mikroservisler bağımsız olarak dağıtılabilir ve
+                güncellenebilir. Bu, bir servisin diğerlerini etkilemeden güncellenmesini ve bakıma alınmasını
+                sağlar.<br>
+                - <b>Esneklik ve Ölçeklenebilirlik:</b> Her mikroservis, ihtiyaç duyduğu kaynaklara göre bağımsız olarak
+                ölçeklenebilir. Bu, uygulamanın belirli bölümlerinin daha fazla kaynak kullanmasını gerektirdiğinde
+                esneklik sağlar.<br>
+                - <b>Teknoloji Çeşitliliği:</b> Farklı mikroservisler farklı teknolojiler, diller ve veri tabanları
+                kullanabilir. Bu, geliştiricilere en uygun araçları seçme özgürlüğü verir.<br>
+                - <b>Hataların İzolasyonu:</b> Hatalar, sadece bir mikroservisi etkiler ve diğer mikroservislere
+                yayılmaz. Bu, genel sistemin daha sağlam ve dayanıklı olmasına yardımcı olabilir.<br>
+                - <b>Geliştirici ve Takım Verimliliği:</b> Her mikroservis genellikle küçük, bağımsız bir ekip
+                tarafından geliştirilir. Bu, ekiplerin belirli alanlarda uzmanlaşmasını ve hızlı bir şekilde geliştirme
+                yapmasını sağlar.<br>
+                - <b>Hızlı Geliştirme ve Dağıtım:</b> Mikroservis mimarisi, yeni özelliklerin daha hızlı bir şekilde
+                geliştirilmesini ve dağıtılmasını sağlar çünkü her servis bağımsız olarak ele alınabilir.
+            </p>
+            <h3>Dezavantajlar:</h3>
+            <p class="disadvantage">
+                - <b>Karmaşıklık:</b> Mikroservisler, sistemin genel karmaşıklığını artırabilir. Servislerin yönetimi,
+                iletişimi ve koordinasyonu, monolitik yapıya göre daha zor olabilir.<br>
+                - <b>Dağıtım Zorlukları:</b> Mikroservislerin dağıtımı ve yönetimi için gelişmiş araçlar ve süreçler
+                gerektirir. CI/CD (Sürekli Entegrasyon ve Sürekli Dağıtım) süreçlerini kurmak karmaşık olabilir.<br>
+                - <b>Veri Yönetimi:</b> Mikroservislerin her biri kendi veri tabanına sahip olabilir, bu da veri
+                yönetimi ve tutarlılığı konularında zorluklar yaratabilir. Verilerin entegrasyonu ve senkronizasyonu
+                karmaşık olabilir.<br>
+                - <b>Ağ Gecikmeleri:</b> Mikroservisler arasında ağ iletişimi gerektirir, bu da performans gecikmelerine
+                ve ağ trafiğine neden olabilir. Servisler arasındaki iletişimde meydana gelen problemler sistemin
+                performansını etkileyebilir.<br>
+                - <b>Dağıtılmış İzleme ve Hata Ayıklama:</b> Mikroservis mimarisi, izleme ve hata ayıklama işlemlerini
+                daha karmaşık hale getirebilir. Merkezi bir izleme sistemi kurmak ve servislerin durumunu izlemek daha
+                zordur.<br>
+                - <b>Güvenlik Riskleri:</b> Daha fazla servis, daha fazla giriş noktası ve potansiyel güvenlik riski
+                anlamına gelebilir. Her mikroservisin güvenliğini sağlamak ve güvenlik açıklarını yönetmek karmaşık
+                olabilir.
+            </p>
+        </div>
+    </div>
 </div>
 
 <!-- New Modals -->
 <div id="modal4" class="modal">
-	<div class="modal-content">
-		<span class="close" onclick="closeModal('modal4')">&times;</span>
-		<div class="modal-body">
-			<h2>Inheritance, Abstraction, Encapsulation ve Polymorphism nedir?</h2>
-			<h3>Inheritance (Kalıtım)</h3>
-			<p>Inheritance, bir class'ın özelliklerini başka bir class'ın kullanabilmesini sağlar.</p>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal4')">&times;</span>
+        <div class="modal-body">
+            <h2>Inheritance, Abstraction, Encapsulation ve Polymorphism nedir?</h2>
+            <h3>Inheritance (Kalıtım)</h3>
+            <p>Inheritance, bir class'ın özelliklerini başka bir class'ın kullanabilmesini sağlar.</p>
 
-			<h3>Abstraction (Soyutlama)</h3>
-			<p>Abstraction, sadece girdi ve çıktılara odaklanıp diğer detayları düşünmeme işlemidir. Örneğin, arabada gaza basmak girdi iken, arabanın gitmesi çıktıdır; arka planda gerçekleşen işlemlerle ilgilenmezsiniz.</p>
+            <h3>Abstraction (Soyutlama)</h3>
+            <p>Abstraction, sadece girdi ve çıktılara odaklanıp diğer detayları düşünmeme işlemidir. Örneğin, arabada
+                gaza basmak girdi iken, arabanın gitmesi çıktıdır; arka planda gerçekleşen işlemlerle
+                ilgilenmezsiniz.</p>
 
-			<h3>Encapsulation (Kapsülleme)</h3>
-			<p>Encapsulation, bir class'ın property'lerini korumaya almasıdır. Örneğin, private bir property'e sadece o class'dan ulaşılır; protected bir property'e ise o class ve türeyen class'lardan ulaşılabilir.</p>
+            <h3>Encapsulation (Kapsülleme)</h3>
+            <p>Encapsulation, bir class'ın property'lerini korumaya almasıdır. Örneğin, private bir property'e sadece o
+                class'dan ulaşılır; protected bir property'e ise o class ve türeyen class'lardan ulaşılabilir.</p>
 
-			<h3>Polymorphism (Çok Biçimlilik)</h3>
-			<p>Polymorphism, metotların objeye göre farklı çıktılar üretmesi veya farklı işler yapmasıdır. Örneğin, bir hayvan class'ı ve onun sesCikar metodu vardır. Kedi class'ı hayvan class'ından kalıtım yaptığında sesCikar metodu miyav çıktısı üretirken, köpek class'ında bu metod hav hav çıktısı üretir.</p>
-		</div>
-	</div>
+            <h3>Polymorphism (Çok Biçimlilik)</h3>
+            <p>Polymorphism, metotların objeye göre farklı çıktılar üretmesi veya farklı işler yapmasıdır. Örneğin, bir
+                hayvan class'ı ve onun sesCikar metodu vardır. Kedi class'ı hayvan class'ından kalıtım yaptığında
+                sesCikar metodu miyav çıktısı üretirken, köpek class'ında bu metod hav hav çıktısı üretir.</p>
+        </div>
+    </div>
 </div>
 
 
 <div id="modal5" class="modal">
-	<div class="modal-content">
-		<span class="close" onclick="closeModal('modal5')">&times;</span>
-		<div class="modal-body">
-			<h2>Abstract Class ve Interface Farkı Nedir?</h2>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal5')">&times;</span>
+        <div class="modal-body">
+            <h2>Abstract Class ve Interface Farkı Nedir?</h2>
 
-			<h3>Abstract Class</h3>
-			<p>
-				Genellikle base class tanımlamak için kullanılır ve soyutlama yeteneği kazandırır.<br>
-				`new` ile oluşturulamaz.<br>
-				İçinde değişken ve metot bulundurabilir.<br>
-				Constructor ve destructor bulundurabilir.<br>
-				Static olarak tanımlanamaz ancak static üyeler içerebilir.<br>
-				Bir sınıf yalnızca bir abstract class'ı inherit edebilir.<br>
-				Kendisinden kalıtım alacak sınıflarla arasında is-a ilişkisi vardır (örneğin, çarpışan araba bir arabadır).
-			</p>
+            <h3>Abstract Class</h3>
+            <p>
+                Genellikle base class tanımlamak için kullanılır ve soyutlama yeteneği kazandırır.<br>
+                `new` ile oluşturulamaz.<br>
+                İçinde değişken ve metot bulundurabilir.<br>
+                Constructor ve destructor bulundurabilir.<br>
+                Static olarak tanımlanamaz ancak static üyeler içerebilir.<br>
+                Bir sınıf yalnızca bir abstract class'ı inherit edebilir.<br>
+                Kendisinden kalıtım alacak sınıflarla arasında is-a ilişkisi vardır (örneğin, çarpışan araba bir
+                arabadır).
+            </p>
 
-			<h3>Interface</h3>
-			<p>
-				Interface, sadece kendisinden türeyecek olan sınıfların içini dolduracağı metod tanımlarını içerir ve soyutlamaya olanak sağlar.<br>
-				`new` ile oluşturulamaz.<br>
-				Bir sınıfın ne yapması gerektiğini belirtir, nasıl yapması gerektiğini değil.<br>
-				Default olarak tüm interface üyeleri abstract ve public'tir.<br>
-				Static üyeler içeremez.<br>
-				Bir sınıf birden fazla interface'i inherit edebilir.<br>
-				İçi dolu metod bulundurmazlar.<br>
-				Kendisinden kalıtım alacak sınıflarla arasında can-do ilişkisi vardır (örneğin, çarpışan araba hızlanabilir).
-			</p>
-		</div>
+            <h3>Interface</h3>
+            <p>
+                Interface, sadece kendisinden türeyecek olan sınıfların içini dolduracağı metod tanımlarını içerir ve
+                soyutlamaya olanak sağlar.<br>
+                `new` ile oluşturulamaz.<br>
+                Bir sınıfın ne yapması gerektiğini belirtir, nasıl yapması gerektiğini değil.<br>
+                Default olarak tüm interface üyeleri abstract ve public'tir.<br>
+                Static üyeler içeremez.<br>
+                Bir sınıf birden fazla interface'i inherit edebilir.<br>
+                İçi dolu metod bulundurmazlar.<br>
+                Kendisinden kalıtım alacak sınıflarla arasında can-do ilişkisi vardır (örneğin, çarpışan araba
+                hızlanabilir).
+            </p>
+        </div>
 
-	</div>
+    </div>
 </div>
 
 <div id="modal6" class="modal">
-	<div class="modal-content">
-		<span class="close" onclick="closeModal('modal6')">&times;</span>
-		<div class="modal-body">
-			<h2>Design Patterns Nedir, Örnek Verebilir Misiniz?</h2>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal6')">&times;</span>
+        <div class="modal-body">
+            <h2>Design Patterns Nedir, Örnek Verebilir Misiniz?</h2>
 
-			<p>Design patterns, yazılım geliştirme aşamasında karşılaşılan genel sorunların çözümüdür. Bir algoritma ya da kod değildir, dilden bağımsızdır. Örneğin singleton, builder, adapter, observer, facade ve factory gibi pattern lar mevcuttur.</p>
+            <p>Design patterns, yazılım geliştirme aşamasında karşılaşılan genel sorunların çözümüdür. Bir algoritma ya
+                da kod değildir, dilden bağımsızdır. Örneğin singleton, builder, adapter, observer, facade ve factory
+                gibi pattern lar mevcuttur.</p>
 
-			<h3>Singleton</h3>
-			<p>Singleton, bir objeden yalnızca bir tane üretilip sadece onun kullanılmasını sağlar. Bu desen, belirli bir sınıfın sadece bir örneğinin oluşturulmasını garanti eder ve bu örneğe global erişim sağlar.</p>
+            <h3>Singleton</h3>
+            <p>Singleton, bir objeden yalnızca bir tane üretilip sadece onun kullanılmasını sağlar. Bu desen, belirli
+                bir sınıfın sadece bir örneğinin oluşturulmasını garanti eder ve bu örneğe global erişim sağlar.</p>
 
-			<h3>Builder</h3>
-			<p>Builder deseni, bir sınıfı oluştururken kullanılan constructor içindeki parametrelerin esnek bir hale getirilmesini sağlar. Bu desen, karmaşık nesnelerin oluşturulmasını basitleştirir ve temiz bir kod yazılmasını sağlar.</p>
+            <h3>Builder</h3>
+            <p>Builder deseni, bir sınıfı oluştururken kullanılan constructor içindeki parametrelerin esnek bir hale
+                getirilmesini sağlar. Bu desen, karmaşık nesnelerin oluşturulmasını basitleştirir ve temiz bir kod
+                yazılmasını sağlar.</p>
 
-			<h3>Adapter</h3>
-			<p>Adapter deseni, uyumsuz arayüzleri uyumlu hale getirir. Eski ve yeni sistemler arasında köprü işlevi görerek, iki sistemin birbirleriyle çalışmasını sağlar.</p>
+            <h3>Adapter</h3>
+            <p>Adapter deseni, uyumsuz arayüzleri uyumlu hale getirir. Eski ve yeni sistemler arasında köprü işlevi
+                görerek, iki sistemin birbirleriyle çalışmasını sağlar.</p>
 
-			<h3>Observer</h3>
-			<p>Observer deseni, bir observable (gözlemlenen) nesnenin, bir veya daha fazla observer (gözlemci) nesnesine durum değişikliklerini bildirdiği bir yapıdır. Bu desen, gözlemcilerin observable nesnedeki değişikliklerden haberdar olmasını sağlar.</p>
+            <h3>Observer</h3>
+            <p>Observer deseni, bir observable (gözlemlenen) nesnenin, bir veya daha fazla observer (gözlemci) nesnesine
+                durum değişikliklerini bildirdiği bir yapıdır. Bu desen, gözlemcilerin observable nesnedeki
+                değişikliklerden haberdar olmasını sağlar.</p>
 
-			<h3>Facade</h3>
-			<p>Facade deseni, karmaşık alt sistemler için basit bir arayüz sağlar. Örneğin, bir bilgisayarı açıp kapatırken yapılan tek şey güç tuşuna basmaktır, fakat arka planda birçok işlem gerçekleşir. Facade deseni bu karmaşıklığı basit bir arayüzle yönetir.</p>
+            <h3>Facade</h3>
+            <p>Facade deseni, karmaşık alt sistemler için basit bir arayüz sağlar. Örneğin, bir bilgisayarı açıp
+                kapatırken yapılan tek şey güç tuşuna basmaktır, fakat arka planda birçok işlem gerçekleşir. Facade
+                deseni bu karmaşıklığı basit bir arayüzle yönetir.</p>
 
-			<h3>Factory</h3>
-			<p>Factory deseni, nesne oluşturma sürecini bir fabrika sınıfına devreder. Bu desen, nesnelerin oluşturulmasını ve yönetilmesini merkezi bir yerden sağlar ve bu sayede nesne yaratım sürecinde kodun daha düzenli ve bakımı kolay hale gelmesini sağlar.</p>
-		</div>
-	</div>
+            <h3>Factory</h3>
+            <p>Factory deseni, nesne oluşturma sürecini bir fabrika sınıfına devreder. Bu desen, nesnelerin
+                oluşturulmasını ve yönetilmesini merkezi bir yerden sağlar ve bu sayede nesne yaratım sürecinde kodun
+                daha düzenli ve bakımı kolay hale gelmesini sağlar.</p>
+        </div>
+    </div>
 </div>
 
 <div id="modal7" class="modal">
-	<div class="modal-content">
-		<span class="close" onclick="closeModal('modal7')">&times;</span>
-		<div class="modal-body">
-			<h2>Mikroservis Mimarisinde API Gateway'in Rolü Nedir?</h2>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal7')">&times;</span>
+        <div class="modal-body">
+            <h2>Mikroservis Mimarisinde API Gateway'in Rolü Nedir?</h2>
 
-			<h3>Routing</h3>
-			<p>API Gateway, gelen istekleri uygun mikroservislere yönlendirir ve böylece her servisin belirli bir işlevi yerine getirmesini sağlar.</p>
+            <h3>Routing</h3>
+            <p>API Gateway, gelen istekleri uygun mikroservislere yönlendirir ve böylece her servisin belirli bir işlevi
+                yerine getirmesini sağlar.</p>
 
-			<h3>Aggregation</h3>
-			<p>Birden fazla mikroservisin yanıtlarını birleştirerek tek bir yanıt halinde istemciye sunar. Bu, özellikle karmaşık istemci isteklerinde kullanışlıdır.</p>
+            <h3>Aggregation</h3>
+            <p>Birden fazla mikroservisin yanıtlarını birleştirerek tek bir yanıt halinde istemciye sunar. Bu, özellikle
+                karmaşık istemci isteklerinde kullanışlıdır.</p>
 
-			<h3>Authentication ve Authorization</h3>
-			<p>API Gateway, merkezi kimlik doğrulama ve yetkilendirme işlemlerini sağlar. Bu sayede mikroservislerin güvenliği daha kolay yönetilir.</p>
+            <h3>Authentication ve Authorization</h3>
+            <p>API Gateway, merkezi kimlik doğrulama ve yetkilendirme işlemlerini sağlar. Bu sayede mikroservislerin
+                güvenliği daha kolay yönetilir.</p>
 
-			<h3>Rate Limiting</h3>
-			<p>Belirli bir süre içinde bir kullanıcı veya servis tarafından yapılabilecek istek sayısını sınırlar. Bu, sistemin aşırı yüklenmesini önler.</p>
+            <h3>Rate Limiting</h3>
+            <p>Belirli bir süre içinde bir kullanıcı veya servis tarafından yapılabilecek istek sayısını sınırlar. Bu,
+                sistemin aşırı yüklenmesini önler.</p>
 
-			<h3>Caching</h3>
-			<p>Sık kullanılan verileri önbelleğe alarak performansı artırır ve mikroservislerin üzerindeki yükü azaltır.</p>
+            <h3>Caching</h3>
+            <p>Sık kullanılan verileri önbelleğe alarak performansı artırır ve mikroservislerin üzerindeki yükü
+                azaltır.</p>
 
-			<h3>SSL Termination</h3>
-			<p>API Gateway, SSL/TLS şifrelemesini yönetir ve mikroservislerin bu işlemlerle ilgilenmesine gerek kalmaz.</p>
+            <h3>SSL Termination</h3>
+            <p>API Gateway, SSL/TLS şifrelemesini yönetir ve mikroservislerin bu işlemlerle ilgilenmesine gerek
+                kalmaz.</p>
 
-			<h3>Monitoring ve Analytics</h3>
-			<p>API Gateway, trafik ve performans metriklerini toplayarak sistemin sağlığını ve performansını izlemeye yardımcı olur.</p>
+            <h3>Monitoring ve Analytics</h3>
+            <p>API Gateway, trafik ve performans metriklerini toplayarak sistemin sağlığını ve performansını izlemeye
+                yardımcı olur.</p>
 
-			<h3>Transformation</h3>
-			<p>Gelen istek veya yanıt formatlarını dönüştürerek mikroservislerin işini kolaylaştırır.</p>
+            <h3>Transformation</h3>
+            <p>Gelen istek veya yanıt formatlarını dönüştürerek mikroservislerin işini kolaylaştırır.</p>
 
-			<h3>Load Balancing</h3>
-			<p>API Gateway, gelen trafiği mikroservisler arasında dengeler ve böylece her bir servisin aşırı yüklenmesi önlenir.</p>
+            <h3>Load Balancing</h3>
+            <p>API Gateway, gelen trafiği mikroservisler arasında dengeler ve böylece her bir servisin aşırı yüklenmesi
+                önlenir.</p>
 
-			<h3>Circuit Breaking</h3>
-			<p>Belirli bir mikroservis hatalı durumda olduğunda, API Gateway bu servise gelen istekleri durdurarak sistemin geri kalanını korur.</p>
-		</div>
-	</div>
+            <h3>Circuit Breaking</h3>
+            <p>Belirli bir mikroservis hatalı durumda olduğunda, API Gateway bu servise gelen istekleri durdurarak
+                sistemin geri kalanını korur.</p>
+        </div>
+    </div>
 </div>
 
 <div id="modal8" class="modal">
-	<div class="modal-content">
-		<span class="close" onclick="closeModal('modal8')">&times;</span>
-		<div class="modal-body">
-			<h2>Apache Kafka Nedir ve Nasıl Çalışır?</h2>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal8')">&times;</span>
+        <div class="modal-body">
+            <h2>Apache Kafka Nedir ve Nasıl Çalışır?</h2>
 
-			<p>Apache Kafka, yüksek performanslı, dağıtık bir stream processing platformudur. Verileri dayanıklı, ölçeklenebilir ve hızlı bir şekilde işlemek için kullanılır. Kafka, publish-subscribe modeli ile çalışır ve bu sayede birden fazla kaynaktan gelen verileri toplayıp çeşitli sistemlere dağıtabilir.</p>
+            <p>Apache Kafka, yüksek performanslı, dağıtık bir stream processing platformudur. Verileri dayanıklı,
+                ölçeklenebilir ve hızlı bir şekilde işlemek için kullanılır. Kafka, publish-subscribe modeli ile çalışır
+                ve bu sayede birden fazla kaynaktan gelen verileri toplayıp çeşitli sistemlere dağıtabilir.</p>
 
-			<h3>Yüksek Performans</h3>
-			<p>Kafka, büyük veri setlerini düşük gecikme süresiyle işleyerek gerçek zamanlı veri akışlarını yönetir. Yüksek throughput ile verileri hızlı bir şekilde işler.</p>
+            <h3>Yüksek Performans</h3>
+            <p>Kafka, büyük veri setlerini düşük gecikme süresiyle işleyerek gerçek zamanlı veri akışlarını yönetir.
+                Yüksek throughput ile verileri hızlı bir şekilde işler.</p>
 
-			<h3>Dağıtık Mimari</h3>
-			<p>Kafka, birden fazla sunucuda çalışabilen dağıtık bir mimariye sahiptir. Bu, hem veri güvenliğini artırır hem de sistemin ölçeklenebilir olmasını sağlar.</p>
+            <h3>Dağıtık Mimari</h3>
+            <p>Kafka, birden fazla sunucuda çalışabilen dağıtık bir mimariye sahiptir. Bu, hem veri güvenliğini artırır
+                hem de sistemin ölçeklenebilir olmasını sağlar.</p>
 
-			<h3>Publish-Subscribe Modeli</h3>
-			<p>Kullanıcılar veriyi Kafka’ya "publish" eder ve diğer kullanıcılar bu veriyi "subscribe" ederek tüketir. Bu model, verinin birden fazla tüketiciye iletilmesini sağlar.</p>
+            <h3>Publish-Subscribe Modeli</h3>
+            <p>Kullanıcılar veriyi Kafka’ya "publish" eder ve diğer kullanıcılar bu veriyi "subscribe" ederek tüketir.
+                Bu model, verinin birden fazla tüketiciye iletilmesini sağlar.</p>
 
-			<h3>Mikroservis Mimarilerinde Kullanımı</h3>
-			<p>Kafka, mikroservisler arasında veri akışını yönetmek için kullanılır. Servisler arasında gevşek bağlar oluşturarak, yüksek hacimli veri transferlerini etkin bir şekilde gerçekleştirir.</p>
+            <h3>Mikroservis Mimarilerinde Kullanımı</h3>
+            <p>Kafka, mikroservisler arasında veri akışını yönetmek için kullanılır. Servisler arasında gevşek bağlar
+                oluşturarak, yüksek hacimli veri transferlerini etkin bir şekilde gerçekleştirir.</p>
 
-			<h3>Büyük Veri İşleme</h3>
-			<p>Kafka, büyük veri platformlarıyla (Hadoop, Spark gibi) entegre çalışarak, verilerin işlenmesini ve analiz edilmesini sağlar. Bu, özellikle büyük veri uygulamalarında Kafka'yı ideal bir çözüm haline getirir.</p>
+            <h3>Büyük Veri İşleme</h3>
+            <p>Kafka, büyük veri platformlarıyla (Hadoop, Spark gibi) entegre çalışarak, verilerin işlenmesini ve analiz
+                edilmesini sağlar. Bu, özellikle büyük veri uygulamalarında Kafka'yı ideal bir çözüm haline getirir.</p>
 
-			<h3>Gerçek Zamanlı Veri Akışları</h3>
-			<p>Kafka, gerçek zamanlı analiz ve monitoring gerektiren uygulamalar için verileri hızlı bir şekilde işleyip ileterek, anlık veri akışlarını sağlar.</p>
-		</div>
-	</div>
+            <h3>Gerçek Zamanlı Veri Akışları</h3>
+            <p>Kafka, gerçek zamanlı analiz ve monitoring gerektiren uygulamalar için verileri hızlı bir şekilde işleyip
+                ileterek, anlık veri akışlarını sağlar.</p>
+        </div>
+    </div>
 </div>
 
 
-
 <footer>
-	<p>© 2024 Kaan Saka. Tüm hakları saklıdır.</p>
+    <p>© 2024 Kaan Saka. Tüm hakları saklıdır.</p>
 </footer>
 
 <script>
-	function openModal(modalId) {
-		document.getElementById(modalId).style.display = "block";
-	}
-	function closeModal(modalId) {
-		document.getElementById(modalId).style.display = "none";
-	}
-	window.onclick = function(event) {
-		if (event.target.classList.contains('modal')) {
-			event.target.style.display = "none";
-		}
-	}
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+        }
+    }
 </script>
 
 </body>

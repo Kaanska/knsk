@@ -61,7 +61,76 @@
         }
 
 
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            padding: 14px 20px;
+        }
+
+        .w3-bar {
+            overflow: hidden;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .w3-bar a {
+            float: left;
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .w3-bar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .w3-bar a.active {
+            color: #0a5579;
+            background-color: transparent;
+        }
+
+        .w3-bar a.active:hover {
+            background-color: transparent;
+            color: #0a5579;
+        }
+
+        .w3-right {
+            float: right !important;
+        }
+
         @media (max-width: 600px) {
+            .menu-icon {
+                display: block;
+                float: left;
+            }
+
+            .w3-right {
+                display: none;
+            }
+
+            .w3-bar a {
+                float: none;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+
+            .w3-bar.open .w3-right {
+                display: block;
+                width: 100%;
+                float: none;
+            }
+
+
             .w3-right {
                 float: none;
                 text-align: center;
@@ -214,8 +283,13 @@
         }
     </style>
     <script>
-        if (window.location.pathname.endsWith('contact.html')) {
-            window.history.replaceState(null, null, 'contact');
+        if (window.location.pathname.endsWith('index.html')) {
+            window.history.replaceState(null, null, 'home');
+        }
+
+        function toggleMenu() {
+            var bar = document.querySelector('.w3-bar');
+            bar.classList.toggle('open');
         }
     </script>
 </head>
@@ -223,6 +297,7 @@
 
 <div class="w3-top">
     <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
         <a href="index.html" class="w3-bar-item w3-button active">KNSK</a>
         <div class="w3-right">
             <a href="index.html" class="w3-bar-item w3-button">Ana Sayfa</a>
