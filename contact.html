@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim</title>
+    <link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Times New Roman", Georgia, Serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('images/bc.webp') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display";
+            letter-spacing: 5px;
+        }
+
+        .w3-top {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+
+        .w3-bar {
+            overflow: hidden;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .w3-bar a {
+            float: left;
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .w3-bar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .w3-right {
+            float: right !important;
+        }
+
+        .w3-hide-small {
+            display: none !important;
+        }
+
+
+        @media (max-width: 600px) {
+            .w3-right {
+                float: none;
+                text-align: center;
+            }
+
+            .w3-bar a {
+                float: none;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            margin: auto;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.0); /* Hafif şeffaf arka plan */
+            border-radius: 8px;
+            color: black;
+            max-width: 100%;
+            width: calc(100% - 40px); /* Adjust based on the desired spacing */
+        }
+
+        .contact-cards {
+            display: flex;
+            justify-content: center; /* Center align the cards */
+            flex-wrap: wrap;
+            gap: 20px; /* Space between cards */
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.3); /* Hafif şeffaf arka plan */
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1 1 300px; /* Minimum width of card */
+            max-width: 300px; /* Maximum width of card */
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card a {
+            text-decoration: none;
+            color: inherit; /* Inherit color from parent */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .contact-icon {
+            font-size: 80px;
+            color: #0a5579;
+            margin-bottom: 10px;
+        }
+
+        .contact-card h2 {
+            color: #333;
+            margin: 0; /* Remove default margin */
+            font-size: 2em; /* Adjust size as needed */
+        }
+
+        .contact-card button {
+            background-color: #0a5579;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .contact-card button:hover {
+            background-color: #0056b3;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.5); /* Şeffaf kenarlık */
+            border-radius: 4px;
+            font-size: 16px;
+            resize: vertical;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0); /* Şeffaf arka plan */
+            color: black; /* Yazı rengini beyaz yap */
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0); /* Şeffaf arka plan */
+            color: #333; /* Dark text color for contrast */
+            padding: 32px 0;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: auto; /* Pushes the footer to the bottom */
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .header-title {
+            margin-top: 100px; /* Adjust the margin as needed to push the title down */
+            color: #0a5579; /* Set the desired text color */
+        }
+
+        .email-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.3); /* Hafif şeffaf arka plan */
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .email-icon {
+            font-size: 24px;
+            color: #0a5579; /* Twitter mavi rengi */
+            margin-right: 10px;
+        }
+
+        .email-address {
+            color: #555;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .email-address:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        if (window.location.pathname.endsWith('contact.html')) {
+            window.history.replaceState(null, null, 'contact');
+        }
+    </script>
+</head>
+<body>
+
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+        <a href="index.html" class="w3-bar-item w3-button active">KNSK</a>
+        <div class="w3-right">
+            <a href="index.html" class="w3-bar-item w3-button">Ana Sayfa</a>
+            <a href="programming.html" class="w3-bar-item w3-button">Programlama</a>
+            <a href="contact.html" class="w3-bar-item w3-button">İletişim</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="header-title">İletişime Geç</h1>
+    <div class="contact-cards">
+        <div class="contact-card">
+            <a href="https://www.instagram.com/kaanssaka" target="_blank">
+                <div class="contact-icon"><i class="fa fa-instagram"></i></div>
+            </a>
+        </div>
+        <div class="contact-card">
+            <div class="contact-icon">
+                <i class="fa fa-envelope"></i>
+            </div>
+            <div class="email-container">
+                <div class="email-icon"><i class="fa fa-pencil"></i></div>
+                <a href="mailto:kaansaka07@gmail.com" class="email-address">kaansaka07@gmail.com</a>
+            </div>
+            <form action="https://formspree.io/f/mwpelggq" method="POST">
+                <label for="message"></label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Gönder</button>
+            </form>
+        </div>
+        <div class="contact-card">
+            <a href="https://x.com/kaanska7" target="_blank">
+                <div class="contact-icon">
+                    <i class="fa fa-twitter"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Kaan Saka. Tüm Hakları Saklıdır.</p>
+</footer>
+
+</body>
+</html>

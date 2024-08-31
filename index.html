@@ -1,100 +1,426 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>We are coming soon</title>
-	<!-- Coming2Live series free coming soon templates! -->
-	<!-- HTML version by Awe7 (http://awe7.com/) -->
-	<!-- You can find WordPress version here: -->
-	<!-- https://wordpress.org/plugins/coming2live/ -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta name="format-detection" content="telephone=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<!-- Fonts-->
-	<link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
-	<!-- Vendors-->
-	<link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendors/YTPlayer/css/jquery.mb.YTPlayer.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendors/vegas/vegas.min.css">
-	<!-- App & fonts-->
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Work+Sans:300,400,500,700">
-	<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/style.css">
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	<![endif]-->
-	<style>
-		.service-wrapper {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sayfa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: "Times New Roman", Georgia, Serif;
+            margin: 0;
+            padding: 0;
+            background: url('images/bc.webp') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display";
+            letter-spacing: 5px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 100px auto 20px auto;
+            padding: 10px;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #0a5579;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-content {
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid #0a5579;
+        }
+
+        .timeline-container {
+            position: relative;
+            background-color: inherit;
+            width: 100%;
+            margin-bottom: 80px;
+            margin-top: 80px;
+            margin-left: -50%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .timeline-container.left {
+            float: left;
+            clear: both;
+            text-align: right;
+        }
+
+        .timeline-container.right {
+            float: right;
+            clear: both;
+            margin-right: -110px;
+            text-align: left;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            margin: 60px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1 1 300px;
+            max-width: 400px;
+            width: 320px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #fff;
+            border: 4px solid #0a5579;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .timeline-container.left::after {
+            right: -12px;
+        }
+
+        .timeline-container.right::after {
+            left: -12px;
+        }
+
+        .timeline-container.left .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .timeline-container.right .timeline-content {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .w3-top {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+
+        .w3-bar {
+            overflow: hidden;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .w3-bar a {
+            float: left;
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .w3-bar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .w3-bar a.active {
+            color: #0a5579;
+            background-color: transparent;
+        }
+
+        .w3-bar a.active:hover {
+            background-color: transparent;
+            color: #0a5579;
+        }
+
+        .w3-right {
+            float: right !important;
+        }
+
+        @media (max-width: 600px) {
+            .w3-right {
+                float: none;
+                text-align: center;
+            }
+
+            .w3-bar a {
+                float: none;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .timeline {
+                display: none;
+            }
+
+            .contact-card {
+                margin: 20px 0;
+                padding: 20px;
+                max-width: 100%;
+                width: auto;
+            }
+
+            .w3-bar a {
+                float: none;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+
+            .sidebar-img {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            footer {
+                display: flex;
+                flex-direction: column; /* İçeriği dikey hizalayın */
+                align-items: center;
+                padding: 20px;
+                text-align: center;
+            }
+
+            footer p {
+                margin: 10px 0;
+                font-size: 14px; /* Yazı tipi boyutunu küçültün */
+            }
+
+            .contact-card {
+                margin: 10px 0; /* Daha küçük boşluklar */
+                padding: 15px;
+                max-width: 100%;
+                width: auto;
+            }
+
+            .timeline-container {
+                margin-left: 0;
+                margin-right: 0;
+                float: none;
+                clear: both;
+                text-align: center;
+            }
+
+            .timeline-content {
+                margin: 20px auto;
+                padding: 15px;
+            }
+        }
+
+
+        footer {
+            background: rgba(255, 255, 255, 0);
+            color: #333;
+            padding: 32px 0;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .logo {
+            width: 122px;
+            height: auto;
+            vertical-align: middle;
+            margin-left: 40px;
+        }
+
+        .separator {
+            border-top: 1px solid #0a5579;
+            margin: 40px 0;
+        }
+
+        .experience {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .role {
+            font-size: 16px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .date {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .sidebar-img {
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            width: 400px;
+            height: 40vh;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.8;
+            border-radius: 20px;
+        }
+
+        .tec {
+            position: absolute;
+            top: 450px;
+            left: 60px;
+            width: 400px;
+            z-index: 1; /* Tekrar belirledim */
+        }
+
+        .tech-list {
+            padding: 0;
+            list-style: none;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .tech-item i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .tech-item span {
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        if (window.location.pathname.endsWith('index.html')) {
+            window.history.replaceState(null, null, 'home');
+        }
+    </script>
 </head>
-
 <body>
-<div class="page-wrap" id="root">
-	<!-- Content-->
-	<div class="md-content">
 
-		<!-- hero -->
-		<div class="hero md-skin-dark" style="background-image:url(https://images.pexels.com/photos/764880/pexels-photo-764880.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb);">
-
-			<!-- header -->
-			<div class="header">
-				<div class="header__left"><span>Istanbul, Turkey</span><span>kaansaka07@gmail.com</span>
-				</div>
-				<div class="header__social">
-					<a class="social-icon social-icon__rounded" href="https://www.instagram.com/kaanssaka?igsh=b3hmejFoaG5hNjV3&utm_source=qr"><i class="fa fa-instagram"></i></a>
-					<!-- End / social-icon -->
-
-					<!-- social-icon -->
-					<a class="social-icon social-icon__rounded" href="https://x.com/kaanska7"><i class="fa fa-twitter"></i></a>
-					<!-- End / social-icon -->
-
-				</div>
-			</div><!-- End / header -->
-
-			<div class="container">
-				<div class="hero__wrapper">
-					<div class="row">
-						<div class="col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-1 ">
-							<div class="hero__title_inner"><span class="hero__icon">KNSK</span></div>
-						</div>
-					</div>
-
-					<!-- countdown__module hide undefined -->
-					<div class="countdown__module hide" data-date="2024/11/03">
-						<p><span>%D</span> Days</p>
-						<p><span>%H</span> Hours</p>
-						<p><span>%M</span> Minutes</p>
-						<p><span>%S</span> Seconds</p>
-					</div><!-- End / countdown__module hide undefined -->
-
-					<div class="service-wrapper">
-						<!-- service -->
-						<div class="service">
-							<h2 class="service__title">Web Development</h2>
-							<p class="service__text">Development continues...</p>
-						</div><!-- End / service -->
-					</div>
-				</div>
-			</div>
-		</div><!-- End / hero -->
-
-	</div>
-	<!-- End / Content-->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+        <a href="index.html" class="w3-bar-item w3-button active">KNSK</a>
+        <div class="w3-right">
+            <a href="index.html" class="w3-bar-item w3-button">Ana Sayfa</a>
+            <a href="programming.html" class="w3-bar-item w3-button">Programlama</a>
+            <a href="contact.html" class="w3-bar-item w3-button">İletişim</a>
+        </div>
+    </div>
 </div>
-<!-- Vendors-->
-<script type="text/javascript" src="assets/vendors/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="assets/vendors/jquery.countdown/jquery.countdown.min.js"></script>
-<script type="text/javascript" src="assets/vendors/flat-surface-shader/fss.min.js"></script>
-<script type="text/javascript" src="assets/vendors/particles.js/particles.js"></script>
-<script type="text/javascript" src="assets/vendors/waterpipe/waterpipe.js"></script>
-<script type="text/javascript" src="assets/vendors/quietflow/quietflow.min.js"></script>
-<script type="text/javascript" src="assets/vendors/YTPlayer/jquery.mb.YTPlayer.min.js"></script>
-<script type="text/javascript" src="assets/vendors/vegas/vegas.min.js"></script>
-<!-- App-->
-<script type="text/javascript" src="assets/js/main.js"></script>
+
+<div class="sidebar-img">
+    <img src="images/knsk.jpg" alt="KNSK" class="sidebar-img">
+</div>
+
+<div class="tec">
+    <div class="contact-card">
+        <h2>Teknolojiler</h2>
+        <div class="tech-list">
+            <div class="tech-item">
+                <i class="fa-brands fa-java"></i>
+                <span>Java</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-solid fa-leaf"></i> <!-- Yaprak ikonu -->
+                <span>Spring</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-angular"></i>
+                <span>Angular</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-c"></i>
+                <span>C</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-swift"></i>
+                <span>Swift</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-js"></i>
+                <span>JavaScript</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-solid fa-database"></i> <!-- Veritabanı ikonu -->
+                <span>SQL</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-brands fa-git"></i>
+                <span>Git</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="timeline" style="left: 300px; position: relative;">
+    <div class="timeline-container right">
+        <div class="timeline-content">
+            <h2>Deneyimler</h2>
+            <div class="experience">Inomera</div>
+            <div class="role">Fullstack Developer</div>
+            <div class="date">Ağustos 2021 - Şu Anda</div>
+            <div class="role">Intern</div>
+            <div class="date">Haziran 2021 - Ağustos 2021</div>
+            <img src="images/inomera-logo.png" alt="Inomera Logo" class="logo">
+            <div class="separator"></div>
+            <div class="experience">Garanti BBVA Teknoloji</div>
+            <div class="role">Intern</div>
+            <div class="date">Haziran 2019 - Ağustos 2019</div>
+            <img src="images/garanti-logo.png" alt="Garanti Logo" class="logo">
+        </div>
+    </div>
+
+    <div class="timeline-container left">
+        <div class="timeline-content">
+            <h2>Üniversite</h2>
+            <div class="experience">Haliç Üniversitesi</div>
+            <div class="role">Bilgisayar Mühendisliği</div>
+            <div class="date">2017 - 2021</div>
+            <img src="images/halic.logo.png" alt="Halic Logo" class="logo">
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Kaan Saka. Tüm Hakları Saklıdır.</p>
+</footer>
+
 </body>
 </html>

@@ -781,6 +781,14 @@
     content: "\f098"
 }
 
+.fa.fa-twitter{
+    font-family:sans-serif;
+}
+.fa.fa-twitter::before{
+    content:"𝕏";
+    font-size:1.2em;
+}
+
 .fa-twitter:before {
     content: "\f099"
 }
@@ -2635,14 +2643,6 @@
 
 .fa-wpforms:before {
     content: "\f298"
-}
-
-.fa.fa-twitter{
-    font-family:sans-serif;
-}
-.fa.fa-twitter::before{
-    content:"𝕏";
-    font-size:1.2em;
 }
 
 .fa-envira:before {
