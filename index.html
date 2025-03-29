@@ -345,15 +345,11 @@
     </style>
     <script>
 
-        if (window.location.pathname.endsWith('home.html')) {
-            window.history.replaceState(null, null, 'home');
-        }
-
-        /*document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             if (window.location.pathname.endsWith('index.html')) {
                 window.history.replaceState(null, null, 'home');
             }
-        });*/
+        });
 
         function toggleMenu() {
             var bar = document.querySelector('.w3-bar');
