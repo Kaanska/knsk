@@ -21,7 +21,7 @@
 
     <nav>
         <div class="nav-content">
-            <a href="index.html" class="logo">KNSK</a>
+            <a href="/" class="logo">KNSK</a>
             <div class="nav-links">
                 <a href="/" class="active">Ana Sayfa</a>
                 <a href="programming">Programlama</a>
@@ -118,7 +118,8 @@
                         <img src="images/ibtech.png" alt="IBTECH" class="timeline-img">
                         <h4 style="color: var(--accent); margin-bottom: 8px;">Ocak 2025 - ŞİMDİ</h4>
                         <h3 style="font-size: 20px; margin-bottom: 8px;">IBTECH via Amaris</h3>
-                        <p style="font-size: 15px; color: var(--text-muted);">Bankacılık Dış Ticaret ekibinde, core banking uygulamaları üzerinde kritik iş süreçlerini kapsayan Full-stack geliştirmeler.</p>
+                        <p style="font-size: 15px; color: var(--text-muted);">Bankacılık Dış Ticaret ekibinde, core
+                            banking uygulamaları üzerinde kritik iş süreçlerini kapsayan Full-stack geliştirmeler.</p>
                     </div>
                 </div>
 
@@ -152,26 +153,36 @@
     </footer>
 
     <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const toggle = document.getElementById('mobile-toggle');
+            const icon = toggle.querySelector('i');
+
+            menu.classList.toggle('active');
+
+            if (icon) {
+                if (menu.classList.contains('active')) {
+                    icon.classList.replace('fa-bars', 'fa-times');
+                } else {
+                    icon.classList.replace('fa-times', 'fa-bars');
+                }
+            }
+        }
+
         const mobileToggle = document.getElementById('mobile-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        if (mobileToggle && mobileMenu) {
-            mobileToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('active');
-                const icon = mobileToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.toggle('fa-bars');
-                    icon.classList.toggle('fa-times');
-                }
-            });
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', toggleMobileMenu);
+        }
 
+        if (mobileMenu) {
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.remove('active');
                     const icon = mobileToggle.querySelector('i');
                     if (icon) {
-                        icon.classList.add('fa-bars');
-                        icon.classList.remove('fa-times');
+                        icon.classList.replace('fa-times', 'fa-bars');
                     }
                 });
             });
