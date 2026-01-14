@@ -176,8 +176,19 @@
                 <a href="apps.html">Uygulamalar</a>
                 <a href="contact.html" class="btn-cta">İletişime Geç</a>
             </div>
+            <button class="mobile-toggle" id="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="programming.html">Programlama</a>
+        <a href="apps.html">Uygulamalar</a>
+        <a href="contact.html">İletişim</a>
+    </div>
 
     <main class="container" style="padding-top: 150px; padding-bottom: 150px;">
         <div class="animate" style="text-align: center; margin-bottom: 80px;">
@@ -928,7 +939,32 @@
             }
         }
     </script>
+    <script>
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
 
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                const icon = mobileToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>
