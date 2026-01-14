@@ -184,23 +184,24 @@ nav {
 /* Mobile Menu Dropdown */
 .mobile-menu {
     position: fixed;
-    top: 0;
+    top: 80px;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: auto;
+    max-height: 85vh;
     background: #101827;
-    /* Solid background for reliability */
     z-index: 9998;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 40px;
+    padding: 30px 40px;
     gap: 15px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
+    border-bottom: 2px solid var(--accent);
+    overflow-y: auto;
 }
 
 .mobile-menu.active {
@@ -689,6 +690,11 @@ section {
         padding: 0 24px;
     }
 
+    .hero {
+        padding-top: 140px;
+        min-height: auto;
+    }
+
     .hero-content h1 {
         font-size: 36px;
     }
@@ -699,12 +705,26 @@ section {
 
     .hero-image img {
         max-width: 100% !important;
-        width: 320px;
+        width: 280px;
     }
 
     .btn-cta {
         padding: 14px 24px;
         font-size: 15px;
+    }
+
+    .app-images {
+        height: 320px;
+    }
+
+    .app-img-diag-1 {
+        width: 160px;
+        transform: rotate(-10deg) translateX(30px);
+    }
+
+    .app-img-diag-2 {
+        width: 160px;
+        transform: rotate(8deg) translateX(-30px);
     }
 
     .timeline::after {
