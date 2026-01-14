@@ -383,13 +383,15 @@ nav {
 .underline::after {
     content: '';
     position: absolute;
-    left: 10%;
-    bottom: -10px;
-    width: 80%;
-    height: 4px;
+    left: -2%;
+    bottom: 4px;
+    width: 104%;
+    height: 12px;
     background: var(--accent);
+    opacity: 0.5;
+    z-index: -1;
     border-radius: 2px;
-    z-index: 1;
+    transform: skewX(-15deg);
 }
 
 /* --- Hero Section --- */
