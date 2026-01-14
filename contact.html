@@ -1,348 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim</title>
-    <link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
+    <title>İletişim | Kaan Saka</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="images/code.svg">
     <style>
-        body {
-            font-family: "Times New Roman", Georgia, Serif;
-            margin: 0;
-            padding: 0;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .info-item {
             display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background: url('images/bc.webp') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 32px;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: "Playfair Display";
-            letter-spacing: 5px;
-        }
-
-        .w3-top {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1;
-        }
-
-        .w3-bar {
-            overflow: hidden;
-            background-color: #fff;
-            padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .w3-bar a {
-            float: left;
-            display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        .w3-bar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .w3-right {
-            float: right !important;
-        }
-
-        .w3-hide-small {
-            display: none !important;
-        }
-
-
-        .menu-icon {
-            display: none;
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 24px;
-            cursor: pointer;
-            color: #333;
-            padding: 14px 20px;
+            color: var(--accent);
         }
 
-        .w3-bar {
-            overflow: hidden;
-            background-color: #fff;
-            padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: relative;
+        .contact-form {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 32px;
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
         }
 
-        .w3-bar a {
-            float: left;
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
             display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 17px;
-            transition: color 0.3s, background-color 0.3s;
-        }
-
-        .w3-bar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .w3-bar a.active {
-            color: #0a5579;
-            background-color: transparent;
-        }
-
-        .w3-bar a.active:hover {
-            background-color: transparent;
-            color: #0a5579;
-        }
-
-        .w3-right {
-            float: right !important;
-        }
-
-        @media (max-width: 600px) {
-            .menu-icon {
-                display: block;
-                float: left;
-            }
-
-            .w3-right {
-                display: none;
-            }
-
-            .w3-bar a {
-                float: none;
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-
-            .w3-bar.open .w3-right {
-                display: block;
-                width: 100%;
-                float: none;
-            }
-
-
-            .w3-right {
-                float: none;
-                text-align: center;
-            }
-
-            .w3-bar a {
-                float: none;
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-        }
-
-        .container {
-            flex: 1;
-            padding: 20px;
-            margin: auto;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.0); /* Hafif şeffaf arka plan */
-            border-radius: 8px;
-            color: black;
-            max-width: 100%;
-            width: calc(100% - 40px); /* Adjust based on the desired spacing */
-        }
-
-        .contact-cards {
-            display: flex;
-            justify-content: center; /* Center align the cards */
-            flex-wrap: wrap;
-            gap: 20px; /* Space between cards */
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.3); /* Hafif şeffaf arka plan */
-            padding: 20px;
-            margin: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            flex: 1 1 300px; /* Minimum width of card */
-            max-width: 300px; /* Maximum width of card */
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-card a {
-            text-decoration: none;
-            color: inherit; /* Inherit color from parent */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-        }
-
-        .contact-icon {
-            font-size: 80px;
-            color: #0a5579;
             margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-muted);
         }
 
-        .contact-card h2 {
-            color: #333;
-            margin: 0; /* Remove default margin */
-            font-size: 2em; /* Adjust size as needed */
-        }
-
-        .contact-card button {
-            background-color: #0a5579;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .contact-card button:hover {
-            background-color: #0056b3;
-        }
-
+        input,
         textarea {
             width: 100%;
-            height: 100px;
-            padding: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.5); /* Şeffaf kenarlık */
-            border-radius: 4px;
-            font-size: 16px;
-            resize: vertical;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0); /* Şeffaf arka plan */
-            color: black; /* Yazı rengini beyaz yap */
+            padding: 16px 20px;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            background: rgba(255, 255, 255, 0.03);
+            color: white;
+            font-family: inherit;
+            transition: var(--transition);
         }
 
-        footer {
-            background: rgba(255, 255, 255, 0); /* Şeffaf arka plan */
-            color: #333; /* Dark text color for contrast */
-            padding: 32px 0;
-            text-align: center;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: auto; /* Pushes the footer to the bottom */
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.08);
         }
 
-        footer p {
-            margin: 0;
-        }
-
-        .header-title {
-            margin-top: 100px; /* Adjust the margin as needed to push the title down */
-            color: #0a5579; /* Set the desired text color */
-        }
-
-        .email-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.3); /* Hafif şeffaf arka plan */
-            border-radius: 4px;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-
-        .email-icon {
-            font-size: 24px;
-            color: #0a5579; /* Twitter mavi rengi */
-            margin-right: 10px;
-        }
-
-        .email-address {
-            color: #555;
-            font-size: 18px;
-            text-decoration: none;
-        }
-
-        .email-address:hover {
-            text-decoration: underline;
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-    <script>
-        if (window.location.pathname.endsWith('contact.html')) {
-            window.history.replaceState(null, null, 'contact');
-        }
-
-        function toggleMenu() {
-            var bar = document.querySelector('.w3-bar');
-            bar.classList.toggle('open');
-        }
-    </script>
 </head>
+
 <body>
 
-<div class="w3-top">
-    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
-        <a href="index.html" class="w3-bar-item w3-button active">KNSK</a>
-        <div class="w3-right">
-            <a href="index.html" class="w3-bar-item w3-button">Ana Sayfa</a>
-            <a href="programming.html" class="w3-bar-item w3-button">Programlama</a>
-            <a href="contact.html" class="w3-bar-item w3-button">İletişim</a>
-        </div>
+    <div class="bg-animate">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
-</div>
 
-<div class="container">
-    <h1 class="header-title">İletişime Geç</h1>
-    <div class="contact-cards">
-        <div class="contact-card">
-            <a href="https://www.instagram.com/kaanssaka" target="_blank">
-                <div class="contact-icon"><i class="fa fa-instagram"></i></div>
-            </a>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">KNSK</a>
+            <div class="nav-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="programming.html">Programlama</a>
+                <a href="apps.html">Uygulamalar</a>
+                <a href="contact.html" class="btn-cta">İletişime Geç</a>
+            </div>
         </div>
-        <div class="contact-card">
-            <div class="contact-icon">
-                <i class="fa fa-envelope"></i>
+    </nav>
+
+    <main class="container" style="padding-top: 100px; padding-bottom: 100px;">
+        <div class="animate" style="margin-bottom: 40px;">
+            <h1 style="font-size: 64px; margin-bottom: 10px;">
+                İletişime <span class="underline">Geçelim</span>
+            </h1>
+            <p style="color: var(--text-muted); font-size: 20px;">Yeni fikirler, projeler ve iş birlikleri için
+                buradayım.</p>
+        </div>
+
+        <div class="contact-grid animate" style="animation-delay: 0.2s; align-items: start;">
+            <div style="padding-top: 20px;">
+                <a href="mailto:kaansaka07@gmail.com" class="info-item" style="text-decoration: none; color: inherit;">
+                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <h4 style="font-size: 20px;">E-posta</h4>
+                        <p style="color: var(--text-muted); font-size: 16px;">kaansaka07@gmail.com</p>
+                    </div>
+                </a>
+                <a href="https://linkedin.com/in/kaansaka" target="_blank" class="info-item"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="info-icon"><i class="fab fa-linkedin-in"></i></div>
+                    <div>
+                        <h4 style="font-size: 20px;">LinkedIn</h4>
+                        <p style="color: var(--text-muted); font-size: 16px;">linkedin.com/in/kaansaka</p>
+                    </div>
+                </a>
+                <a href="https://twitter.com/kaanska7" target="_blank" class="info-item"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="info-icon"><i class="fab fa-x-twitter"></i></div>
+                    <div>
+                        <h4 style="font-size: 20px;">X</h4>
+                        <p style="color: var(--text-muted); font-size: 16px;">@kaanska7</p>
+                    </div>
+                </a>
+                <a href="https://instagram.com/kaanssaka" target="_blank" class="info-item"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="info-icon"><i class="fab fa-instagram"></i></div>
+                    <div>
+                        <h4 style="font-size: 20px;">Instagram</h4>
+                        <p style="color: var(--text-muted); font-size: 16px;">@kaanssaka</p>
+                    </div>
+                </a>
             </div>
-            <div class="email-container">
-                <div class="email-icon"><i class="fa fa-pencil"></i></div>
-                <a href="mailto:kaansaka07@gmail.com" class="email-address">kaansaka07@gmail.com</a>
-            </div>
-            <form action="https://formspree.io/f/mwpelggq" method="POST">
-                <label for="message"></label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Gönder</button>
+
+            <form action="https://formspree.io/f/mwpelggq" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label>Adınız</label>
+                    <input type="text" name="name" placeholder="İsim Soyisim" required>
+                </div>
+                <div class="form-group">
+                    <label>E-posta</label>
+                    <input type="email" name="_replyto" placeholder="E-posta adresiniz" required>
+                </div>
+                <div class="form-group">
+                    <label>Mesajınız</label>
+                    <textarea name="message" placeholder="Size nasıl yardımcı olabilirim?" style="min-height: 150px;"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn-cta"
+                    style="width: 100%; border: none; cursor: pointer; height: 60px; font-size: 18px;">Gönder</button>
             </form>
         </div>
-        <div class="contact-card">
-            <a href="https://x.com/kaanska7" target="_blank">
-                <div class="contact-icon">
-                    <i class="fa fa-twitter"></i>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
+    </main>
 
-<footer>
-    <p>&copy; 2025 Kaan Saka. Tüm Hakları Saklıdır.</p>
-</footer>
+    <footer style="padding: 100px 0; border-top: 1px solid var(--card-border); text-align: center;">
+        <div class="container">
+            <p style="color: var(--text-muted); font-weight: 500;">&copy; 2026 Kaan Saka. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
 
 </body>
+
 </html>

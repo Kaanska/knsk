@@ -1,457 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana Sayfa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Kaan Saka | Fullstack Developer</title>
+    <meta name="description" content="Kaan Saka - Fullstack Developer Portfolio. 2026 Premium Portfolio.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="images/code.svg">
-    <style>
-        body {
-            font-family: "Times New Roman", Georgia, Serif;
-            margin: 0;
-            padding: 0;
-            background: url('images/bc.webp') no-repeat center center fixed;
-            background-size: cover;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: "Playfair Display";
-            letter-spacing: 5px;
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 100px auto 20px auto;
-            padding: 10px;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: #0a5579;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-
-        .timeline-content {
-            padding: 30px;
-            background-color: rgba(255, 255, 255, 0.8);
-            position: relative;
-            border-radius: 6px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            border: 2px solid #0a5579;
-        }
-
-        .timeline-container {
-            position: relative;
-            background-color: inherit;
-            width: 100%;
-            margin-bottom: 80px;
-            margin-top: 80px;
-            margin-left: -50%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .timeline-container.left {
-            float: left;
-            clear: both;
-            text-align: right;
-        }
-
-        .timeline-container.right {
-            float: right;
-            clear: both;
-            margin-right: -110px;
-            text-align: left;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.3);
-            padding: 40px;
-            margin: 60px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            flex: 1 1 300px;
-            max-width: 400px;
-            width: 320px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .timeline-container::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-color: #fff;
-            border: 4px solid #0a5579;
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-        }
-
-        .timeline-container.left::after {
-            right: -12px;
-        }
-
-        .timeline-container.right::after {
-            left: -12px;
-        }
-
-        .timeline-container.left .timeline-content {
-            margin-left: auto;
-            margin-right: 0;
-        }
-
-        .timeline-container.right .timeline-content {
-            margin-left: 0;
-            margin-right: auto;
-        }
-
-        .w3-top {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1;
-        }
-
-        .w3-bar {
-            overflow: hidden;
-            background-color: #fff;
-            padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .w3-bar a {
-            float: left;
-            display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 17px;
-            transition: color 0.3s, background-color 0.3s;
-        }
-
-        .w3-bar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .w3-bar a.active {
-            color: #0a5579;
-            background-color: transparent;
-        }
-
-        .w3-bar a.active:hover {
-            background-color: transparent;
-            color: #0a5579;
-        }
-
-        .w3-right {
-            float: right !important;
-        }
-
-        .menu-icon {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333;
-            padding: 14px 20px;
-        }
-
-        .w3-bar {
-            overflow: hidden;
-            background-color: #fff;
-            padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .w3-bar a {
-            float: left;
-            display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 17px;
-            transition: color 0.3s, background-color 0.3s;
-        }
-
-        .w3-bar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .w3-bar a.active {
-            color: #0a5579;
-            background-color: transparent;
-        }
-
-        .w3-bar a.active:hover {
-            background-color: transparent;
-            color: #0a5579;
-        }
-
-        .w3-right {
-            float: right !important;
-        }
-
-        @media (max-width: 600px) {
-            .timeline {
-                display: none;
-            }
-            .menu-icon {
-                display: block;
-                float: left;
-            }
-
-            .w3-right {
-                display: none;
-            }
-
-            .w3-bar a {
-                float: none;
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-
-            .w3-bar.open .w3-right {
-                display: block;
-                width: 100%;
-                float: none;
-            }
-
-
-            .w3-right {
-                float: none;
-                text-align: center;
-            }
-
-            .w3-bar a {
-                float: none;
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-
-            footer {
-                display: none;
-            }
-        }
-
-        footer {
-            background: rgba(255, 255, 255, 0);
-            color: #333;
-            padding: 32px 0;
-            text-align: center;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: auto;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        .logo {
-            width: 122px;
-            height: auto;
-            vertical-align: middle;
-            margin-left: 40px;
-        }
-
-        .separator {
-            border-top: 1px solid #0a5579;
-            margin: 40px 0;
-        }
-
-        .experience {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .role {
-            font-size: 16px;
-            font-style: italic;
-            color: #555;
-        }
-
-        .date {
-            font-size: 14px;
-            color: #999;
-        }
-
-        .sidebar-img {
-            position: absolute;
-            top: 40px;
-            left: 60px;
-            width: 400px;
-            height: 40vh;
-            object-fit: cover;
-            z-index: -1;
-            opacity: 0.8;
-            border-radius: 20px;
-        }
-
-        .tec {
-            position: absolute;
-            top: 450px;
-            left: 60px;
-            width: 400px;
-            z-index: 1; /* Tekrar belirledim */
-        }
-
-        .tech-list {
-            padding: 0;
-            list-style: none;
-        }
-
-        .tech-item {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-        }
-
-        .tech-item i {
-            font-size: 24px;
-            margin-right: 10px;
-        }
-
-        .tech-item span {
-            font-size: 18px;
-        }
-    </style>
-    <script>
-
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.location.pathname.endsWith('index.html')) {
-                window.history.replaceState(null, null, 'home');
-            }
-        });
-
-        function toggleMenu() {
-            var bar = document.querySelector('.w3-bar');
-            bar.classList.toggle('open');
-        }
-    </script>
 </head>
+
 <body>
 
-<div class="w3-top">
-    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
-        <a href="index.html" class="w3-bar-item w3-button active">KNSK</a>
-        <div class="w3-right">
-            <a href="index.html" class="w3-bar-item w3-button">Ana Sayfa</a>
-            <a href="programming.html" class="w3-bar-item w3-button">Programlama</a>
-            <a href="contact.html" class="w3-bar-item w3-button">İletişim</a>
-        </div>
-    </div>
-</div>
-
-<div class="sidebar-img">
-    <img src="images/knsk.jpg" alt="KNSK" class="sidebar-img">
-</div>
-
-<div class="tec">
-    <div class="contact-card">
-        <h2>Teknolojiler</h2>
-        <div class="tech-list">
-            <div class="tech-item">
-                <i class="fa-brands fa-java"></i>
-                <span>Java</span>
-            </div>
-            <div class="tech-item">
-                <i class="fa-solid fa-leaf"></i> <!-- Yaprak ikonu -->
-                <span>Spring</span>
-            </div>
-            <div class="tech-item">
-                <i class="fa-brands fa-angular"></i>
-                <span>Angular</span>
-            </div>
-            <div class="tech-item">
-                <i class="fa-brands fa-c"></i>
-                <span>C</span>
-            </div>
-            <div class="tech-item">
-                <i class="fa-brands fa-swift"></i>
-                <span>Swift</span>
-            </div>
-            <div class="tech-item">
-                <i class="fa-brands fa-js"></i>
-                <span>JavaScript</span>
-            </div>
-            <div class="tech-item">
-                <i class="fa-solid fa-database"></i> <!-- Veritabanı ikonu -->
-                <span>SQL</span>
-            </div>
-            <div class="tech-item">
-                <i class="fa-brands fa-git"></i>
-                <span>Git</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="timeline" style="left: 300px; position: relative;">
-    <div class="timeline-container right">
-        <div class="timeline-content">
-            <h2>Deneyimler</h2>
-            <div class="experience">IBTECH via Amaris Consulting</div>
-            <div class="role">Fullstack Developer</div>
-            <div class="date">Ocak 2025 - Şu Anda</div>
-            <img src="images/ibtech.png" alt="IBTECH Logo" class="logo">
-            <div class="separator"></div>
-            <div class="experience">Inomera</div>
-            <div class="role">Fullstack Developer</div>
-            <div class="date">Ağustos 2021 - Ocak 2025</div>
-            <div class="role">Intern</div>
-            <div class="date">Haziran 2021 - Ağustos 2021</div>
-            <img src="images/inomera-logo.png" alt="Inomera Logo" class="logo">
-            <div class="separator"></div>
-            <div class="experience">Garanti BBVA Teknoloji</div>
-            <div class="role">Intern</div>
-            <div class="date">Haziran 2019 - Ağustos 2019</div>
-            <img src="images/garanti-logo.png" alt="Garanti Logo" class="logo">
-        </div>
+    <div class="bg-animate">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
 
-    <div class="timeline-container left">
-        <div class="timeline-content">
-            <h2>Üniversite</h2>
-            <div class="experience">Haliç Üniversitesi</div>
-            <div class="role">Bilgisayar Mühendisliği</div>
-            <div class="date">2017 - 2021</div>
-            <img src="images/halic.logo.png" alt="Halic Logo" class="logo">
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">KNSK</a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Ana Sayfa</a>
+                <a href="programming.html">Programlama</a>
+                <a href="apps.html">Uygulamalar</a>
+                <a href="contact.html" class="btn-cta">İletişime Geç</a>
+            </div>
         </div>
-    </div>
-</div>
+    </nav>
 
-<footer>
-    <p>&copy; 2025 Kaan Saka. Tüm Hakları Saklıdır.</p>
-</footer>
+    <main>
+        <section class="hero">
+            <div class="container hero-main">
+                <div class="hero-content animate">
+                    <h1>
+                        Geleceği <span class="underline">Kodlayın</span>, <br>
+                        Sınırları Zorlayın
+                    </h1>
+                    <p>Ben, Kaan Saka. Java ve Swift ekosistemlerinde ölçeklenebilir sistemler tasarlayan bir Fullstack
+                        Engineer. Karmaşık problemleri temiz ve performanslı kodla çözmeye odaklanıyorum.</p>
+                    <div style="display: flex; gap: 20px;">
+                        <a href="apps.html" class="btn-cta">Projelerimi Gör</a>
+                        <a href="#tech"
+                            style="text-decoration: none; color: var(--text-main); font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                            Yeteneklerim <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image animate" style="animation-delay: 0.2s;">
+                    <div class="photo-glow"></div>
+                    <img src="images/knsk.png" alt="Kaan Saka" class="hero-profile-img">
+                </div>
+            </div>
+        </section>
+
+        <section id="tech" class="container">
+            <h2 class="section-title">Teknolojik <span class="underline">Yetkinlikler</span></h2>
+            <div class="card-grid">
+                <div class="glass-card" style="text-align: center;">
+                    <div class="card-icon" style="margin: 0 auto 15px;"><i class="fa-brands fa-java"></i></div>
+                    <h3>Java</h3>
+                </div>
+                <div class="glass-card" style="text-align: center;">
+                    <div class="card-icon" style="margin: 0 auto 15px;"><i class="fa-solid fa-leaf"></i></div>
+                    <h3>Spring</h3>
+                </div>
+                <div class="glass-card" style="text-align: center;">
+                    <div class="card-icon" style="margin: 0 auto 15px;"><i class="fa-brands fa-angular"></i></div>
+                    <h3>Angular</h3>
+                </div>
+                <div class="glass-card" style="text-align: center;">
+                    <div class="card-icon" style="margin: 0 auto 15px;"><i class="fa-brands fa-swift"></i></div>
+                    <h3>Swift</h3>
+                </div>
+                <div class="glass-card" style="text-align: center;">
+                    <div class="card-icon" style="margin: 0 auto 15px;"><i class="fa-brands fa-windows"></i></div>
+                    <h3>WPF</h3>
+                </div>
+                <div class="glass-card" style="text-align: center;">
+                    <div class="card-icon" style="margin: 0 auto 15px;"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Architecture</h3>
+                </div>
+                <div class="glass-card" style="text-align: center;">
+                    <div class="card-icon" style="margin: 0 auto 15px;"><i class="fa-solid fa-database"></i></div>
+                    <h3>Database</h3>
+                </div>
+                <div class="glass-card" style="text-align: center;">
+                    <div class="card-icon" style="margin: 0 auto 15px;"><i class="fa-brands fa-docker"></i></div>
+                    <h3>DevOps</h3>
+                </div>
+                <div class="glass-card" style="text-align: center;">
+                    <div class="card-icon" style="margin: 0 auto 15px;"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Security</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="container section-spacing">
+            <h2 class="section-title">Kariyer <span class="underline">Yolculuğum</span></h2>
+
+            <div class="timeline animate">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <img src="images/ibtech.png" alt="IBTECH" class="timeline-img">
+                        <h4 style="color: var(--accent); margin-bottom: 8px;">Ocak 2025 - ŞİMDİ</h4>
+                        <h3 style="font-size: 20px; margin-bottom: 8px;">IBTECH via Amaris</h3>
+                        <p style="font-size: 15px; color: var(--text-muted);">Fullstack Developer olarak bankacılık
+                            projelerinde kritik mikroservislerin geliştirilmesi ve yönetimi.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <img src="images/inomera-logo.png" alt="Inomera" class="timeline-img">
+                        <h4 style="color: var(--accent); margin-bottom: 8px;">Haziran 2021 - Ocak 2025</h4>
+                        <h3 style="font-size: 20px; margin-bottom: 8px;">Inomera</h3>
+                        <p style="font-size: 15px; color: var(--text-muted);">E-ticaret ve telekomünikasyon
+                            sektörlerinde büyük ölçekli uygulamaların uçtan uca geliştirilmesi.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <img src="images/garanti-logo.png" alt="Garanti BBVA" class="timeline-img">
+                        <h4 style="color: var(--accent); margin-bottom: 8px;">Haziran 2019 - Ağustos 2019</h4>
+                        <h3 style="font-size: 20px; margin-bottom: 8px;">Garanti BBVA Teknoloji</h3>
+                        <p style="font-size: 15px; color: var(--text-muted);">Bankacılık ana sistemleri üzerinde ilk
+                            profesyonel deneyim ve staj süreci.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 100px 0; border-top: 1px solid var(--card-border); text-align: center;">
+        <div class="container">
+            <p style="color: var(--text-muted); font-weight: 500;">&copy; 2026 Kaan Saka. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
 
 </body>
+
 </html>

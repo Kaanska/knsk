@@ -1,691 +1,934 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programlama</title>
-    <link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
+    <title>Teknik Kılavuz | Kaan Saka</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="images/code.svg">
     <style>
-        body {
-            font-family: "Times New Roman", Georgia, Serif;
-            margin: 0;
-            padding: 0;
-            background: url('images/bc.webp') no-repeat center center fixed;
-            background-size: cover;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: "Playfair Display";
-            letter-spacing: 5px;
-        }
-
-        .modal-body p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 20px;
-            text-align: left;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            padding: 10px;
-            border-left: 4px solid #0a5579;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 4px;
-        }
-
-        .modal-body .advantage {
-            color: green;
-        }
-
-        .modal-body .disadvantage {
-            color: red;
-        }
-
-        .w3-top {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1;
-        }
-
-        .w3-bar {
-            overflow: hidden;
-            background-color: #fff;
-            padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .w3-bar a {
-            float: left;
-            display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 17px;
-            transition: color 0.3s, background-color 0.3s;
-        }
-
-        .w3-bar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .w3-bar a.active {
-            color: #0a5579;
-            background-color: transparent;
-        }
-
-        .w3-bar a.active:hover {
-            background-color: transparent;
-            color: #0a5579;
-        }
-
-        .w3-right {
-            float: right !important;
-        }
-
-        .w3-hide-small {
-            display: none !important;
-        }
-
-        .menu-icon {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333;
-            padding: 14px 20px;
-        }
-
-        .w3-bar {
-            overflow: hidden;
-            background-color: #fff;
-            padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .w3-bar a {
-            float: left;
-            display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 17px;
-            transition: color 0.3s, background-color 0.3s;
-        }
-
-        .w3-bar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .w3-bar a.active {
-            color: #0a5579;
-            background-color: transparent;
-        }
-
-        .w3-bar a.active:hover {
-            background-color: transparent;
-            color: #0a5579;
-        }
-
-        .w3-right {
-            float: right !important;
-        }
-
-        @media (max-width: 600px) {
-            .menu-icon {
-                display: block;
-                float: left;
-            }
-
-            .w3-right {
-                display: none;
-            }
-
-            .w3-bar a {
-                float: none;
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-
-            .w3-bar.open .w3-right {
-                display: block;
-                width: 100%;
-                float: none;
-            }
-
-
-            .w3-right {
-                float: none;
-                text-align: center;
-            }
-
-            .w3-bar a {
-                float: none;
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-        }
-
-        .container {
-            flex: 1;
-            padding: 20px;
-            margin: auto;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.0);
-            border-radius: 8px;
-            color: black;
-            max-width: 100%;
-            width: calc(100% - 40px);
-        }
-
-        .contact-cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.3);
-            padding: 20px;
-            margin: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            flex: 1 1 300px;
-            max-width: 300px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-icon {
-            font-size: 36px;
-            color: #0a5579;
-            margin-bottom: 10px;
-        }
-
-        .contact-card h2 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .contact-card p, .contact-card a, .contact-card form {
-            color: #555;
-            text-decoration: none;
-        }
-
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-card button {
-            background-color: #0a5579;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .contact-card button:hover {
-            background-color: #0056b3;
-        }
-
-        textarea {
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 4px;
-            font-size: 16px;
-            resize: vertical;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0);
-            color: white;
-        }
-
-        footer {
-            background: rgba(255, 255, 255, 0);
-            color: #333;
-            padding: 32px 0;
-            text-align: center;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: auto;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        .header-title {
-            margin-top: 100px;
-            color: #0a5579;
+        .category-title {
+            font-size: 32px;
+            margin: 60px 0 30px;
+            padding-left: 20px;
+            border-left: 5px solid var(--accent);
+            color: var(--text-main);
         }
 
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 2000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
+            background: rgba(10, 15, 25, 0.98);
+            backdrop-filter: blur(25px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
         .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
+            background: #111827;
+            border: 1px solid var(--card-border);
+            border-radius: 32px;
+            max-width: 1000px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
             position: relative;
-            border-radius: 8px;
+            padding: 60px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
         }
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
+        .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 32px;
             cursor: pointer;
+            color: var(--text-muted);
+            transition: var(--transition);
         }
 
-        .modal-body {
+        .close-btn:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .modal-body h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: var(--accent);
+            letter-spacing: -1px;
+        }
+
+        .modal-body h3 {
+            font-size: 24px;
+            margin: 40px 0 20px;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 10px;
+        }
+
+        .modal-body p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 17px;
+        }
+
+        .modal-body ul {
+            padding-left: 20px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .modal-body li {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .status-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tag-blue {
+            background: rgba(59, 130, 246, 0.15);
+            color: #3b82f6;
+        }
+
+        .tag-green {
+            background: rgba(78, 226, 192, 0.15);
+            color: var(--accent);
+        }
+
+        .tag-purple {
+            background: rgba(168, 85, 247, 0.15);
+            color: #a855f7;
+        }
+
+        .tag-orange {
+            background: rgba(249, 115, 22, 0.15);
+            color: #f97316;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px;
             text-align: left;
+            border: 1px solid var(--card-border);
+        }
+
+        .comparison-table th {
+            background: rgba(78, 226, 192, 0.1);
+            color: var(--accent);
+        }
+
+        .code-block {
+            background: #000;
+            padding: 25px;
+            border-radius: 16px;
+            font-family: 'Fira Code', monospace;
+            color: #4ee2c0;
+            margin: 25px 0;
+            font-size: 15px;
+            border: 1px solid var(--card-border);
+            white-space: pre-wrap;
         }
     </style>
-    <script>
-        if (window.location.pathname.endsWith('programming.html')) {
-            window.history.replaceState(null, null, 'programming');
-        }
-
-        function toggleMenu() {
-            var bar = document.querySelector('.w3-bar');
-            bar.classList.toggle('open');
-        }
-    </script>
 </head>
+
 <body>
 
-<div class="w3-top">
-    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
-        <a href="index.html" class="w3-bar-item w3-button active">KNSK</a>
-        <div class="w3-right">
-            <a href="index.html" class="w3-bar-item w3-button">Ana Sayfa</a>
-            <a href="programming.html" class="w3-bar-item w3-button">Programlama</a>
-            <a href="contact.html" class="w3-bar-item w3-button">İletişim</a>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <h1 class="header-title">Teknik Bilgi Kılavuzu</h1>
-    <div class="contact-cards">
-        <div class="contact-card" onclick="openModal('modal1')">
-            <div class="contact-icon"><i class="fa fa-database"></i></div>
-            <h2>Redis nedir, nasıl çalışır?</h2>
-        </div>
-        <div class="contact-card" onclick="openModal('modal2')">
-            <div class="contact-icon"><i class="fa fa-cogs"></i></div>
-            <h2>RabbitMQ nedir, nasıl çalışır?</h2>
-        </div>
-        <div class="contact-card" onclick="openModal('modal3')">
-            <div class="contact-icon"><i class="fa fa-server"></i></div>
-            <h2>Mikroservis nedir?</h2>
-        </div>
-        <div class="contact-card" onclick="openModal('modal4')">
-            <div class="contact-icon"><i class="fa fa-code"></i></div>
-            <h2>Inheritance, Abstraction, Encapsulation ve Polymorphism nedir?</h2>
-        </div>
-        <div class="contact-card" onclick="openModal('modal5')">
-            <div class="contact-icon"><i class="fa fa-object-group"></i></div>
-            <h2>Abstract Class ve Interface farkı nedir?</h2>
-        </div>
-        <div class="contact-card" onclick="openModal('modal6')">
-            <div class="contact-icon"><i class="fa fa-puzzle-piece"></i></div>
-            <h2>Design Patterns nedir, örnek verebilir misiniz?</h2>
-        </div>
-
-        <div class="contact-card" onclick="openModal('modal7')">
-            <div class="contact-icon"><i class="fa fa-server"></i></div> <!-- API Gateway için yeni ikon -->
-            <h2>Mikroservis mimarisinde API Gateway'in rolü nedir?</h2>
-        </div>
-
-
-        <div class="contact-card" onclick="openModal('modal8')">
-            <div class="contact-icon"><i class="fa fa-cogs"></i></div> <!-- Apache Kafka için uygun ikon -->
-            <h2>Apache Kafka nedir ve nasıl çalışır?</h2>
-        </div>
+    <div class="bg-animate">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
 
-</div>
-
-<!-- Modal 1 -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal1')">&times;</span>
-        <div class="modal-body">
-            <h2>Redis nedir?</h2>
-            <p>Redis, in-memory bir veri yapısı sunucusudur. Anahtar-değer çiftleri üzerinde yüksek performanslı veri
-                okuma ve yazma işlemleri sağlar.</p>
-            <h3>Avantajlar:</h3>
-            <p class="advantage">- Yüksek performanslı veri okuma ve yazma işlemleri<br>- Verilerin bellek üzerinde
-                saklanması sayesinde düşük gecikme süreleri<br>- Veritabanı yerine veri yapıları kullanarak daha etkili
-                veri yönetimi</p>
-            <h3>Dezavantajlar:</h3>
-            <p class="disadvantage">- Verilerin bellekte saklanması, yüksek bellek kullanımı gerektirir<br>- Kalıcı veri
-                saklama konusunda sınırlamalar<br>- Kötü yapılandırılmış Redis kullanımı performans sorunlarına yol
-                açabilir</p>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">KNSK</a>
+            <div class="nav-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="programming.html" class="active">Programlama</a>
+                <a href="apps.html">Uygulamalar</a>
+                <a href="contact.html" class="btn-cta">İletişime Geç</a>
+            </div>
         </div>
-    </div>
-</div>
+    </nav>
 
-<!-- Modal 2 -->
-<div id="modal2" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal2')">&times;</span>
-        <div class="modal-body">
-            <h2>RabbitMQ nedir?</h2>
-            <p>RabbitMQ, mesaj kuyruğu sistemidir ve veri iletimi için asenkron mesajlaşma sağlar. Dağıtık sistemlerde
-                bile mesajların güvenli bir şekilde iletilmesini sağlar.</p>
-            <h3>Avantajlar:</h3>
-            <p class="advantage">- Güvenilir mesaj iletimi ve teslimat garantisi<br>- Esnek yapılandırma ve desteklenen
-                birçok mesajlaşma protokolü<br>- Yüksek performanslı mesaj işleme yeteneği</p>
-            <h3>Dezavantajlar:</h3>
-            <p class="disadvantage">- Karmaşık yapılandırma ve yönetim gerektirebilir<br>- Performans düşüşleri, yüksek
-                yük altında görülebilir<br>- Mesajların işlenmesi zaman alabilir</p>
+    <main class="container" style="padding-top: 150px; padding-bottom: 150px;">
+        <div class="animate" style="text-align: center; margin-bottom: 80px;">
+            <h1 style="font-size: 64px; margin-bottom: 24px;">
+                Programlama <span class="underline">Bilgisi</span>
+            </h1>
+            <p style="color: var(--text-muted); max-width: 750px; margin: 0 auto; font-size: 20px;">Bir Fullstack
+                Developer'ın günlüğünden: Modern yazılımın kalbine yolculuk.</p>
         </div>
-    </div>
-</div>
-
-<!-- Modal 3 -->
-<div id="modal3" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal3')">&times;</span>
-        <div class="modal-body">
-            <h2>Mikroservis nedir, bir servisin mikroservis olması için gerekli şartlar nelerdir?</h2>
-            <h3>Avantajlar:</h3>
-            <p class="advantage">
-                - <b>Bağımsız Dağıtım ve Güncelleme:</b> Mikroservisler bağımsız olarak dağıtılabilir ve
-                güncellenebilir. Bu, bir servisin diğerlerini etkilemeden güncellenmesini ve bakıma alınmasını
-                sağlar.<br>
-                - <b>Esneklik ve Ölçeklenebilirlik:</b> Her mikroservis, ihtiyaç duyduğu kaynaklara göre bağımsız olarak
-                ölçeklenebilir. Bu, uygulamanın belirli bölümlerinin daha fazla kaynak kullanmasını gerektirdiğinde
-                esneklik sağlar.<br>
-                - <b>Teknoloji Çeşitliliği:</b> Farklı mikroservisler farklı teknolojiler, diller ve veri tabanları
-                kullanabilir. Bu, geliştiricilere en uygun araçları seçme özgürlüğü verir.<br>
-                - <b>Hataların İzolasyonu:</b> Hatalar, sadece bir mikroservisi etkiler ve diğer mikroservislere
-                yayılmaz. Bu, genel sistemin daha sağlam ve dayanıklı olmasına yardımcı olabilir.<br>
-                - <b>Geliştirici ve Takım Verimliliği:</b> Her mikroservis genellikle küçük, bağımsız bir ekip
-                tarafından geliştirilir. Bu, ekiplerin belirli alanlarda uzmanlaşmasını ve hızlı bir şekilde geliştirme
-                yapmasını sağlar.<br>
-                - <b>Hızlı Geliştirme ve Dağıtım:</b> Mikroservis mimarisi, yeni özelliklerin daha hızlı bir şekilde
-                geliştirilmesini ve dağıtılmasını sağlar çünkü her servis bağımsız olarak ele alınabilir.
-            </p>
-            <h3>Dezavantajlar:</h3>
-            <p class="disadvantage">
-                - <b>Karmaşıklık:</b> Mikroservisler, sistemin genel karmaşıklığını artırabilir. Servislerin yönetimi,
-                iletişimi ve koordinasyonu, monolitik yapıya göre daha zor olabilir.<br>
-                - <b>Dağıtım Zorlukları:</b> Mikroservislerin dağıtımı ve yönetimi için gelişmiş araçlar ve süreçler
-                gerektirir. CI/CD (Sürekli Entegrasyon ve Sürekli Dağıtım) süreçlerini kurmak karmaşık olabilir.<br>
-                - <b>Veri Yönetimi:</b> Mikroservislerin her biri kendi veri tabanına sahip olabilir, bu da veri
-                yönetimi ve tutarlılığı konularında zorluklar yaratabilir. Verilerin entegrasyonu ve senkronizasyonu
-                karmaşık olabilir.<br>
-                - <b>Ağ Gecikmeleri:</b> Mikroservisler arasında ağ iletişimi gerektirir, bu da performans gecikmelerine
-                ve ağ trafiğine neden olabilir. Servisler arasındaki iletişimde meydana gelen problemler sistemin
-                performansını etkileyebilir.<br>
-                - <b>Dağıtılmış İzleme ve Hata Ayıklama:</b> Mikroservis mimarisi, izleme ve hata ayıklama işlemlerini
-                daha karmaşık hale getirebilir. Merkezi bir izleme sistemi kurmak ve servislerin durumunu izlemek daha
-                zordur.<br>
-                - <b>Güvenlik Riskleri:</b> Daha fazla servis, daha fazla giriş noktası ve potansiyel güvenlik riski
-                anlamına gelebilir. Her mikroservisin güvenliğini sağlamak ve güvenlik açıklarını yönetmek karmaşık
-                olabilir.
-            </p>
-        </div>
-    </div>
-</div>
-
-<!-- New Modals -->
-<div id="modal4" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal4')">&times;</span>
-        <div class="modal-body">
-            <h2>Inheritance, Abstraction, Encapsulation ve Polymorphism nedir?</h2>
-            <h3>Inheritance (Kalıtım)</h3>
-            <p>Inheritance, bir class'ın özelliklerini başka bir class'ın kullanabilmesini sağlar.</p>
-
-            <h3>Abstraction (Soyutlama)</h3>
-            <p>Abstraction, sadece girdi ve çıktılara odaklanıp diğer detayları düşünmeme işlemidir. Örneğin, arabada
-                gaza basmak girdi iken, arabanın gitmesi çıktıdır; arka planda gerçekleşen işlemlerle
-                ilgilenmezsiniz.</p>
-
-            <h3>Encapsulation (Kapsülleme)</h3>
-            <p>Encapsulation, bir class'ın property'lerini korumaya almasıdır. Örneğin, private bir property'e sadece o
-                class'dan ulaşılır; protected bir property'e ise o class ve türeyen class'lardan ulaşılabilir.</p>
-
-            <h3>Polymorphism (Çok Biçimlilik)</h3>
-            <p>Polymorphism, metotların objeye göre farklı çıktılar üretmesi veya farklı işler yapmasıdır. Örneğin, bir
-                hayvan class'ı ve onun sesCikar metodu vardır. Kedi class'ı hayvan class'ından kalıtım yaptığında
-                sesCikar metodu miyav çıktısı üretirken, köpek class'ında bu metod hav hav çıktısı üretir.</p>
-        </div>
-    </div>
-</div>
-
-
-<div id="modal5" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal5')">&times;</span>
-        <div class="modal-body">
-            <h2>Abstract Class ve Interface Farkı Nedir?</h2>
-
-            <h3>Abstract Class</h3>
-            <p>
-                Genellikle base class tanımlamak için kullanılır ve soyutlama yeteneği kazandırır.<br>
-                `new` ile oluşturulamaz.<br>
-                İçinde değişken ve metot bulundurabilir.<br>
-                Constructor ve destructor bulundurabilir.<br>
-                Static olarak tanımlanamaz ancak static üyeler içerebilir.<br>
-                Bir sınıf yalnızca bir abstract class'ı inherit edebilir.<br>
-                Kendisinden kalıtım alacak sınıflarla arasında is-a ilişkisi vardır (örneğin, çarpışan araba bir
-                arabadır).
-            </p>
-
-            <h3>Interface</h3>
-            <p>
-                Interface, sadece kendisinden türeyecek olan sınıfların içini dolduracağı metod tanımlarını içerir ve
-                soyutlamaya olanak sağlar.<br>
-                `new` ile oluşturulamaz.<br>
-                Bir sınıfın ne yapması gerektiğini belirtir, nasıl yapması gerektiğini değil.<br>
-                Default olarak tüm interface üyeleri abstract ve public'tir.<br>
-                Static üyeler içeremez.<br>
-                Bir sınıf birden fazla interface'i inherit edebilir.<br>
-                İçi dolu metod bulundurmazlar.<br>
-                Kendisinden kalıtım alacak sınıflarla arasında can-do ilişkisi vardır (örneğin, çarpışan araba
-                hızlanabilir).
-            </p>
         </div>
 
-    </div>
-</div>
+        <!-- 1. CORE JAVA & OOP -->
+        <h2 class="category-title">Core Java & Nesne Yönelimli Programlama</h2>
+        <div class="card-grid animate">
+            <div class="glass-card" onclick="openModal('modal-oop-diff')">
+                <div class="card-icon"><i class="fas fa-shapes"></i></div>
+                <h3>Abstract Class vs Interface</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Miras alma, yetenek kazandırma ve base class
+                    farkları.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-java-compare')">
+                <div class="card-icon"><i class="fas fa-equals"></i></div>
+                <h3>== vs .equals()</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Referans ve içerik karşılaştırma mekanizması.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-java-static-final')">
+                <div class="card-icon"><i class="fas fa-lock"></i></div>
+                <h3>Static, Final & Const</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Değiştirilemezlik ve sınıf bazlı tanımlamalar.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-java-collections')">
+                <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                <h3>Collections & Hash Table</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">List, Set, Map ve Hash çalışma mantığı.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-java-gc-memory')">
+                <div class="card-icon"><i class="fas fa-broom"></i></div>
+                <h3>GC & Memory (Stack/Heap)</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">JVM bellek yönetimi ve temizleme algoritmaları.
+                </p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-java-advanced')">
+                <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                <h3>Serializable & Threads</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Veri taşıma, Thread-Safe ve Concurrency.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-solid')">
+                <div class="card-icon"><i class="fas fa-cube"></i></div>
+                <h3>SOLID Prensipleri</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Nesne tabanlı yazılımın 5 temel prensibi.</p>
+            </div>
+        </div>
 
-<div id="modal6" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal6')">&times;</span>
-        <div class="modal-body">
-            <h2>Design Patterns Nedir, Örnek Verebilir Misiniz?</h2>
+        <!-- 2. SPRING & SPRING BOOT -->
+        <h2 class="category-title">Spring & Spring Boot Ecosystem</h2>
+        <div class="card-grid animate">
+            <div class="glass-card" onclick="openModal('modal-spring-boot-diff')">
+                <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Spring vs Spring Boot</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Frameworklerin farkı ve "Starter" konsepti.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-spring-scopes')">
+                <div class="card-icon"><i class="fas fa-cube"></i></div>
+                <h3>Bean Scopes & Lifecycle</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Singleton, Prototype ve Context yönetimi.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-spring-trans-aop')">
+                <div class="card-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h3>@Transactional & AOP</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">İşlem yönetimi, izolasyon ve Aspect yapısı.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-spring-filters')">
+                <div class="card-icon"><i class="fas fa-filter"></i></div>
+                <h3>Interceptor & Filter</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Request lifecycle ve HandlerInterceptor.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-spring-jpa-jdbc')">
+                <div class="card-icon"><i class="fas fa-dna"></i></div>
+                <h3>JPA, Hibernate & JDBC</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">ORM dünyası, Entity ve Repository mantığı.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-spring-advanced-annotations')">
+                <div class="card-icon"><i class="fas fa-at"></i></div>
+                <h3>Advanced Annotations</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">@Qualifier, @ControllerAdvice, @PostConstruct.</p>
+            </div>
+        </div>
 
-            <p>Design patterns, yazılım geliştirme aşamasında karşılaşılan genel sorunların çözümüdür. Bir algoritma ya
-                da kod değildir, dilden bağımsızdır. Örneğin singleton, builder, adapter, observer, facade ve factory
-                gibi pattern lar mevcuttur.</p>
+        <!-- 3. ARCHITECTURE & SYSTEM DESIGN -->
+        <h2 class="category-title">Mimari & Sistem Tasarımı</h2>
+        <div class="card-grid animate">
+            <div class="glass-card" onclick="openModal('modal-microservices-patterns')">
+                <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                <h3>Microservices Patterns</h3>
+                <div class="tag-row">
+                    <span class="status-tag tag-purple" style="font-size: 10px; padding: 4px 8px;">Saga</span>
+                    <span class="status-tag tag-purple" style="font-size: 10px; padding: 4px 8px;">BFF</span>
+                </div>
+                <p style="color: var(--text-muted); font-size: 14px;">Saga, BFF, Bulkhead ve Service Registry.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-kafka-messaging')">
+                <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
+                <h3>Apache Kafka & Event-Driven</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Broker, Topic ve Replication Factor.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-circuit-resilience')">
+                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Resilience & Circuit Breaker</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Hata toleransı ve Resilience4j mekanizmaları.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-design-patterns')">
+                <div class="card-icon"><i class="fas fa-swatchbook"></i></div>
+                <h3>GOF Design Patterns</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Singleton, Factory, Observer ve Strategy.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-testing-tools')">
+                <div class="card-icon"><i class="fas fa-vial"></i></div>
+                <h3>Modern Test Tools</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">WireMock, RestAssured ve TestContainers.</p>
+            </div>
+        </div>
 
-            <h3>Singleton</h3>
-            <p>Singleton, bir objeden yalnızca bir tane üretilip sadece onun kullanılmasını sağlar. Bu desen, belirli
-                bir sınıfın sadece bir örneğinin oluşturulmasını garanti eder ve bu örneğe global erişim sağlar.</p>
+        <!-- 4. DATABASE & PERFORMANCE -->
+        <h2 class="category-title">Veri Yönetimi & Performans</h2>
+        <div class="card-grid animate">
+            <div class="glass-card" onclick="openModal('modal-db-optimization')">
+                <div class="card-icon"><i class="fas fa-database"></i></div>
+                <h3>DB Sharding & Partitioning</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Büyük veri setlerinin dağıtımı ve optimizasyonu.
+                </p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-db-indexing-deep')">
+                <div class="card-icon"><i class="fas fa-search"></i></div>
+                <h3>Indexing & B-Tree</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Full Table Scan vs Indexing mekaniği.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-acid-norm-db')">
+                <div class="card-icon"><i class="fas fa-check-double"></i></div>
+                <h3>ACID & Normalization</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Verı tutarlılığı ve normalizasyon kuralları.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-performance-deep')">
+                <div class="card-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <h3>TPS, Deadlock & Bottleneck</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Sistem darboğazları ve çözüm yaklaşımları.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-caching-redis')">
+                <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Redis & Caching</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">In-Memory cache ve veri tutarsızlığı çözümleri.
+                </p>
+            </div>
+        </div>
 
-            <h3>Builder</h3>
-            <p>Builder deseni, bir sınıfı oluştururken kullanılan constructor içindeki parametrelerin esnek bir hale
-                getirilmesini sağlar. Bu desen, karmaşık nesnelerin oluşturulmasını basitleştirir ve temiz bir kod
-                yazılmasını sağlar.</p>
+        <!-- 5. WEB & SECURITY -->
+        <h2 class="category-title">Web, Security & Frontend</h2>
+        <div class="card-grid animate">
+            <div class="glass-card" onclick="openModal('modal-web-security')">
+                <div class="card-icon"><i class="fas fa-user-shield"></i></div>
+                <h3>Web Security & HTTPS</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">JWT, OAuth2 ve SSL/TLS handshake.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-frontend-binding')">
+                <div class="card-icon"><i class="fab fa-angular"></i></div>
+                <h3>Data Binding & Interactivity</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">One-way ve Two-way data binding farkları.</p>
+            </div>
+            <div class="glass-card" onclick="openModal('modal-rfc-standards')">
+                <div class="card-icon"><i class="fas fa-file-contract"></i></div>
+                <h3>RFC Standards</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">İnternet protokolleri ve teknik standartlar.</p>
+            </div>
+        </div>
+    </main>
 
-            <h3>Adapter</h3>
-            <p>Adapter deseni, uyumsuz arayüzleri uyumlu hale getirir. Eski ve yeni sistemler arasında köprü işlevi
-                görerek, iki sistemin birbirleriyle çalışmasını sağlar.</p>
-
-            <h3>Observer</h3>
-            <p>Observer deseni, bir observable (gözlemlenen) nesnenin, bir veya daha fazla observer (gözlemci) nesnesine
-                durum değişikliklerini bildirdiği bir yapıdır. Bu desen, gözlemcilerin observable nesnedeki
-                değişikliklerden haberdar olmasını sağlar.</p>
-
-            <h3>Facade</h3>
-            <p>Facade deseni, karmaşık alt sistemler için basit bir arayüz sağlar. Örneğin, bir bilgisayarı açıp
-                kapatırken yapılan tek şey güç tuşuna basmaktır, fakat arka planda birçok işlem gerçekleşir. Facade
-                deseni bu karmaşıklığı basit bir arayüzle yönetir.</p>
-
-            <h3>Factory</h3>
-            <p>Factory deseni, nesne oluşturma sürecini bir fabrika sınıfına devreder. Bu desen, nesnelerin
-                oluşturulmasını ve yönetilmesini merkezi bir yerden sağlar ve bu sayede nesne yaratım sürecinde kodun
-                daha düzenli ve bakımı kolay hale gelmesini sağlar.</p>
+    <!-- 1. OOP DIFF -->
+    <div id="modal-oop-diff" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-oop-diff')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-blue">Core Java</span>
+                <h2>Abstract Class ve Interface Farkı Nedir?</h2>
+                <p><strong>Abstract Classlar</strong> base class olarak kullanılan yapılardır. Abstract classlardan
+                    nesne örneği yaratılamadığından dolayı zorunlu olarak başka classlara kalıtım vermek zorundadırlar.
+                </p>
+                <ul>
+                    <li><strong>Kalıtım:</strong> Bir class sadece bir tane abstract classtan miras alabilirken birden
+                        fazla interface’i implement edebilir.</li>
+                    <li><strong>Gövde:</strong> Abstract classların içlerinde gövdelere kod yazılabilirken
+                        interface’lerde sadece imzalar oluşturulabilir (Java 8+ default metotlar hariç).</li>
+                    <li><strong>Amaç:</strong> Abstract classlar "is-a" ilişkisi (temel yapı) için, interfaceler
+                        "can-do" ilişkisi (yetenek/sözleşme) kazandırmak için kullanılır.</li>
+                </ul>
+                <p>Abstract classların içerisindeki abstract memberların, inherit edildiği yerde override edilmesi
+                    zorunludur.</p>
+            </div>
         </div>
     </div>
-</div>
 
-<div id="modal7" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal7')">&times;</span>
-        <div class="modal-body">
-            <h2>Mikroservis Mimarisinde API Gateway'in Rolü Nedir?</h2>
-
-            <h3>Routing</h3>
-            <p>API Gateway, gelen istekleri uygun mikroservislere yönlendirir ve böylece her servisin belirli bir işlevi
-                yerine getirmesini sağlar.</p>
-
-            <h3>Aggregation</h3>
-            <p>Birden fazla mikroservisin yanıtlarını birleştirerek tek bir yanıt halinde istemciye sunar. Bu, özellikle
-                karmaşık istemci isteklerinde kullanışlıdır.</p>
-
-            <h3>Authentication ve Authorization</h3>
-            <p>API Gateway, merkezi kimlik doğrulama ve yetkilendirme işlemlerini sağlar. Bu sayede mikroservislerin
-                güvenliği daha kolay yönetilir.</p>
-
-            <h3>Rate Limiting</h3>
-            <p>Belirli bir süre içinde bir kullanıcı veya servis tarafından yapılabilecek istek sayısını sınırlar. Bu,
-                sistemin aşırı yüklenmesini önler.</p>
-
-            <h3>Caching</h3>
-            <p>Sık kullanılan verileri önbelleğe alarak performansı artırır ve mikroservislerin üzerindeki yükü
-                azaltır.</p>
-
-            <h3>SSL Termination</h3>
-            <p>API Gateway, SSL/TLS şifrelemesini yönetir ve mikroservislerin bu işlemlerle ilgilenmesine gerek
-                kalmaz.</p>
-
-            <h3>Monitoring ve Analytics</h3>
-            <p>API Gateway, trafik ve performans metriklerini toplayarak sistemin sağlığını ve performansını izlemeye
-                yardımcı olur.</p>
-
-            <h3>Transformation</h3>
-            <p>Gelen istek veya yanıt formatlarını dönüştürerek mikroservislerin işini kolaylaştırır.</p>
-
-            <h3>Load Balancing</h3>
-            <p>API Gateway, gelen trafiği mikroservisler arasında dengeler ve böylece her bir servisin aşırı yüklenmesi
-                önlenir.</p>
-
-            <h3>Circuit Breaking</h3>
-            <p>Belirli bir mikroservis hatalı durumda olduğunda, API Gateway bu servise gelen istekleri durdurarak
-                sistemin geri kalanını korur.</p>
+    <!-- 2. JAVA COMPARE -->
+    <div id="modal-java-compare" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-java-compare')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-blue">Core Java</span>
+                <h2>== ile .equals() Farkı Nedir?</h2>
+                <p>Java'da eşitlik kontrolü iki seviyede yapılır: <strong>Referans</strong> ve <strong>İçerik</strong>.
+                </p>
+                <ul>
+                    <li><strong>== Operatörü:</strong> Bellekteki referansları (adresleri) karşılaştırır. Primitive
+                        tiplerde ise doğrudan değeri karşılaştırır.</li>
+                    <li><strong>.equals() Metodu:</strong> Nesnelerin içeriğini karşılaştırır. Override edilmezse
+                        referans karşılaştırması yapar.</li>
+                </ul>
+                <div class="code-block">
+                    String s1 = new String("Merhaba");
+                    String s2 = new String("Merhaba");
+                    System.out.println(s1 == s2); // false (Biri Heap'te diğeri Pool'da olabilir)
+                    System.out.println(s1.equals(s2)); // true (İçerik aynı)
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<div id="modal8" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal8')">&times;</span>
-        <div class="modal-body">
-            <h2>Apache Kafka Nedir ve Nasıl Çalışır?</h2>
-
-            <p>Apache Kafka, yüksek performanslı, dağıtık bir stream processing platformudur. Verileri dayanıklı,
-                ölçeklenebilir ve hızlı bir şekilde işlemek için kullanılır. Kafka, publish-subscribe modeli ile çalışır
-                ve bu sayede birden fazla kaynaktan gelen verileri toplayıp çeşitli sistemlere dağıtabilir.</p>
-
-            <h3>Yüksek Performans</h3>
-            <p>Kafka, büyük veri setlerini düşük gecikme süresiyle işleyerek gerçek zamanlı veri akışlarını yönetir.
-                Yüksek throughput ile verileri hızlı bir şekilde işler.</p>
-
-            <h3>Dağıtık Mimari</h3>
-            <p>Kafka, birden fazla sunucuda çalışabilen dağıtık bir mimariye sahiptir. Bu, hem veri güvenliğini artırır
-                hem de sistemin ölçeklenebilir olmasını sağlar.</p>
-
-            <h3>Publish-Subscribe Modeli</h3>
-            <p>Kullanıcılar veriyi Kafka’ya "publish" eder ve diğer kullanıcılar bu veriyi "subscribe" ederek tüketir.
-                Bu model, verinin birden fazla tüketiciye iletilmesini sağlar.</p>
-
-            <h3>Mikroservis Mimarilerinde Kullanımı</h3>
-            <p>Kafka, mikroservisler arasında veri akışını yönetmek için kullanılır. Servisler arasında gevşek bağlar
-                oluşturarak, yüksek hacimli veri transferlerini etkin bir şekilde gerçekleştirir.</p>
-
-            <h3>Büyük Veri İşleme</h3>
-            <p>Kafka, büyük veri platformlarıyla (Hadoop, Spark gibi) entegre çalışarak, verilerin işlenmesini ve analiz
-                edilmesini sağlar. Bu, özellikle büyük veri uygulamalarında Kafka'yı ideal bir çözüm haline getirir.</p>
-
-            <h3>Gerçek Zamanlı Veri Akışları</h3>
-            <p>Kafka, gerçek zamanlı analiz ve monitoring gerektiren uygulamalar için verileri hızlı bir şekilde işleyip
-                ileterek, anlık veri akışlarını sağlar.</p>
+    <!-- 3. STATIC FINAL -->
+    <div id="modal-java-static-final" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-java-static-final')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-blue">Core Java</span>
+                <h2>Static ve Final Anahtar Kelimeleri</h2>
+                <h3>static</h3>
+                <p>Sınıfa ait olan (instance'a değil) öğeleri tanımlar. Bellekte sadece bir defa oluşturulur (Method
+                    Area/Metaspace).</p>
+                <h3>final</h3>
+                <p>Değiştirilemezlik belirtir. Değişkende değeri sabitler, metotta override'ı engeller, sınıfta kalıtımı
+                    (inheritance) durdurur.</p>
+                <div class="code-block">
+                    public static final double PI = 3.14159; // Global bir sabit
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
+    <!-- 4. COLLECTIONS -->
+    <div id="modal-java-collections" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-java-collections')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-blue">Data Structures</span>
+                <h2>Collections Framework & Hash Tablosu</h2>
+                <p>Java Collections; verileri depolamak, düzenlemek ve işlemek için kullanılan standartlaştırılmış bir
+                    mimaridir.</p>
+                <h3>Hash Map/Set Nasıl Çalışır?</h3>
+                <ul>
+                    <li><strong>hashCode():</strong> Nesnenin bellek adresinden üretilen bir int değeridir, index'i
+                        belirler.</li>
+                    <li><strong>equals():</strong> Collision (çakışma) durumunda nesnelerin içeriğini kontrol eder.</li>
+                </ul>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Yapı</th>
+                        <th>Özellik</th>
+                    </tr>
+                    <tr>
+                        <td>ArrayList</td>
+                        <td>Dinamik dizi, okuma hızlı (O(1)).</td>
+                    </tr>
+                    <tr>
+                        <td>HashSet</td>
+                        <td>Benzersiz elemanlar, sırasız.</td>
+                    </tr>
+                    <tr>
+                        <td>HashMap</td>
+                        <td>Key-Value çifti. Unique key mantığı.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. GC & MEMORY -->
+    <div id="modal-java-gc-memory" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-java-gc-memory')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-blue">JVM Internals</span>
+                <h2>Garbage Collector & Memory Management</h2>
+                <h3>Stack vs Heap</h3>
+                <ul>
+                    <li><strong>Stack:</strong> Metod çağrıları, local değişkenler ve referanslar burada tutulur (LIFO -
+                        Çok Hızlı).</li>
+                    <li><strong>Heap:</strong> Nesneler (objects) ve sınıf değişkenleri burada saklanır (Dinamik - Daha
+                        Yavaş).</li>
+                </ul>
+                <h3>Garbage Collector</h3>
+                <p>JVM tarafından yönetilen, kullanılmayan nesneleri bellekten otomatik temizleyen mekanizmadır. G1 GC,
+                    ZGC ve Shenandoah modern algoritmalar arasındadır.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. ADVANCED JAVA -->
+    <div id="modal-java-advanced" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-java-advanced')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-blue">Concurrency</span>
+                <h2>Serializable & Thread Safety</h2>
+                <h3>Thread Safe</h3>
+                <p>Çoklu iş parçacığı (multithreaded) ortamında bir nesneye aynı anda erişildiğinde verinin
+                    bozulmamasıdır. <code>synchronized</code>, <code>volatile</code> ve <code>Atomic</code> sınıflar ile
+                    sağlanır.</p>
+                <h3>Serializable</h3>
+                <p>Nesnenin byte dizisine (binary) çevrilerek ağ üzerinden taşınabilmesini veya diske yazılabilmesini
+                    sağlar. Kimlik (ID) taşımayan, sadece veri tutan nesnelere ise <strong>Value Object</strong> denir.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. SPRING vs BOOT -->
+    <div id="modal-spring-boot-diff" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-spring-boot-diff')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-green">Spring Ecosystem</span>
+                <h2>Spring vs Spring Boot</h2>
+                <p>Spring, JavaEE geliştirmeyi kolaylaştıran devasa bir "framework of frameworks"tür. <strong>Spring
+                        Boot</strong> ise bu süreci "opinionated" bir yaklaşımla otomatiğe bağlar.</p>
+                <ul>
+                    <li>Gömülü Tomcat/Jetty sunucusu ile gelir.</li>
+                    <li>Auto-configuration (Otomatik Yapılandırma) özelliğine sahiptir.</li>
+                    <li>Starter paketleri ile bağımlılık yönetimini basitleştirir.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. BEAN SCOPES -->
+    <div id="modal-spring-scopes" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-spring-scopes')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-green">Spring Ecosystem</span>
+                <h2>Bean Scopes & ApplicationContext</h2>
+                <p>Bean; Spring IOC container tarafından yönetilen nesnelere denir.</p>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Scope</th>
+                        <th>Açıklama</th>
+                    </tr>
+                    <tr>
+                        <td>Singleton</td>
+                        <td>Varsayılan; yaşam döngüsü boyunca tek bir instance.</td>
+                    </tr>
+                    <tr>
+                        <td>Prototype</td>
+                        <td>Her enjeksiyonda/istekte yeni bir instance.</td>
+                    </tr>
+                    <tr>
+                        <td>Request</td>
+                        <td>Her HTTP isteği için yeni bir instance.</td>
+                    </tr>
+                    <tr>
+                        <td>Session</td>
+                        <td>Her kullanıcı oturumu için bir instance.</td>
+                    </tr>
+                </table>
+                <p><strong>ApplicationContext:</strong> Tüm Bean'leri, Dependency Injection ve yaşam döngüsü işlemlerini
+                    yöneten ana bağlamdır.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. TRANSACTINAL & AOP -->
+    <div id="modal-spring-trans-aop" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-spring-trans-aop')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-green">AOP</span>
+                <h2>@Transactional & AOP (Aspect Oriented Programming)</h2>
+                <p>AOP, kod tekrarını azaltmak için "cross-cutting concerns" (kesen ilgiler) denilen loglama, güvenlik
+                    ve transaction işlemlerini modüler hale getirir.</p>
+                <h3>@Transactional Yayılımı (Propagation)</h3>
+                <ul>
+                    <li><strong>REQUIRED:</strong> Mevcut transaction'ı kullanır, yoksa yeni açar.</li>
+                    <li><strong>REQUIRES_NEW:</strong> Her zaman yeni bir transaction açar, öncekini bekletir.</li>
+                    <li><strong>NESTED:</strong> Mevcut içinde checkpoint oluşturur.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. FILTERS -->
+    <div id="modal-spring-filters" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-spring-filters')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-green">Web lifecycle</span>
+                <h2>Interceptor vs Filter</h2>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Özellik</th>
+                        <th>Filter</th>
+                        <th>Interceptor</th>
+                    </tr>
+                    <tr>
+                        <td>Seviye</td>
+                        <td>Servlet Seviyesi</td>
+                        <td>Spring MVC Seviyesi</td>
+                    </tr>
+                    <tr>
+                        <td>Erişim</td>
+                        <td>Tüm requestler</td>
+                        <td>Sadece Handlerlar</td>
+                    </tr>
+                    <tr>
+                        <td>Bağımlılık</td>
+                        <td>Servlet API</td>
+                        <td>Spring Framework</td>
+                    </tr>
+                </table>
+                <p><strong>HandlerInterceptor:</strong> preHandle, postHandle ve afterCompletion metodları ile request
+                    döngüsüne müdahale eder.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. JPA JDBC -->
+    <div id="modal-spring-jpa-jdbc" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-spring-jpa-jdbc')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-green">Data Persistence</span>
+                <h2>JPA, Hibernate & JDBC</h2>
+                <p><strong>JDBC:</strong> Java'nın veritabanı ile ham SQL üzerinden iletişim kurmasını sağlayan temel
+                    API'dir.</p>
+                <p><strong>JPA (Java Persistence API):</strong> Bir standarttır. Veritabanı tablolarını Java nesnelerine
+                    (Entity) eşler (ORM).</p>
+                <p><strong>Hibernate:</strong> JPA standartlarını uygulayan en popüler kütüphanedir.</p>
+                <p><strong>Repository:</strong> CRUD işlemlerini ve DB iletişimini soyutlayan sınıflardır.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 12. ADVANCED ANNOTATIONS -->
+    <div id="modal-spring-advanced-annotations" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-spring-advanced-annotations')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-green">Annotations</span>
+                <h2>İleri Seviye Spring Anotasyonları</h2>
+                <ul>
+                    <li><strong>@Qualifier:</strong> Aynı türdeki Bean'lerden hangisinin enjekte edileceğini belirler.
+                    </li>
+                    <li><strong>@ControllerAdvice:</strong> Global hata yönetimi ve exception handling sağlar.</li>
+                    <li><strong>@PostConstruct:</strong> Bean oluşturulup bağımlılıklar enjekte edildikten hemen sonra
+                        çalışır.</li>
+                    <li><strong>@Transient:</strong> Bir alanın veritabanına kaydedilmesini engeller.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 13. MICROSERVICES PATTERNS -->
+    <div id="modal-microservices-patterns" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-microservices-patterns')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-purple">Patterns</span>
+                <h2>Mikroservis Tasarım Kalıpları</h2>
+                <ul>
+                    <li><strong>Saga Pattern:</strong> Dağıtık sistemlerde transaction yönetimi (Choreography ve
+                        Orchestration).</li>
+                    <li><strong>API Gateway:</strong> Tüm istemciler için tek giriş noktası ve yönlendirme merkezi.</li>
+                    <li><strong>Service Registry (Eureka):</strong> Servislerin dinamik olarak birbirini keşfetmesini
+                        sağlar.</li>
+                    <li><strong>BFF (Backends for Frontends):</strong> Farklı istemciler (Mobil/Web) için optimize
+                        edilmiş arka uçlar.</li>
+                    <li><strong>Bulkhead:</strong> Sistemin bir bölümündeki arızanın diğerlerine sıçramasını önleyen
+                        izolasyon.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 14. KAFKA MESSAGING -->
+    <div id="modal-kafka-messaging" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-kafka-messaging')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-purple">Event-Driven</span>
+                <h2>Apache Kafka ve Dağıtık Mesajlaşma</h2>
+                <p>Servislerin asenkron ve gevşek bağlı (loosely coupled) haberleşmesini sağlayan distributed event
+                    streaming platformudur.</p>
+                <ul>
+                    <li><strong>Broker:</strong> Verilerin saklandığı ve işlendiği sunucular.</li>
+                    <li><strong>Topic:</strong> Mesajların kategorize edildiği kanallar.</li>
+                    <li><strong>Replication Factor:</strong> Verinin kaç farklı broker'da yedekleneceğini belirler (HA
+                        sağlar).</li>
+                    <li><strong>Producer/Consumer:</strong> Veri yazan ve okuyan servisler.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 15. CIRCUIT BREAKER RESILIENCE -->
+    <div id="modal-circuit-resilience" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-circuit-resilience')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-purple">Fault Tolerance</span>
+                <h2>Circuit Breaker ve Resilience4j</h2>
+                <p>Sistem arızalarını tespit edip "sigorta" gibi davranarak çöküşü (cascading failure) engeller.</p>
+                <h3>Durumlar (States)</h3>
+                <ul>
+                    <li><strong>Closed:</strong> Her şey normal, akış devam ediyor.</li>
+                    <li><strong>Open:</strong> Hatalar eşiği aştı, istekler anında reddediliyor (Fallback çalışır).</li>
+                    <li><strong>Half-Open:</strong> Sistem sınırlı sayıda istekle test ediliyor.</li>
+                </ul>
+                <p>Resilience4j; Retry, Rate Limiter ve Bulkhead gibi ek dayanıklılık modülleri sunar.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 16. DESIGN PATTERNS -->
+    <div id="modal-design-patterns" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-design-patterns')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-purple">Best Practices</span>
+                <h2>GOF Design Patterns</h2>
+                <p>Yazılım geliştirmede sık karşılaşılan sorunlara getirilen standart çözümlerdir. 3 ana kategoriye
+                    ayrılırlar:</p>
+                <ul>
+                    <li><strong>Creational (Kurucu):</strong> Nesne oluşturma mantığını gizler ve esneklik sağlar.
+                        (Singleton, Factory, Builder, Prototype).</li>
+                    <li><strong>Structural (Yapısal):</strong> Sınıf ve nesne yapılarının komposizyonunu düzenler.
+                        (Adapter, Facade, Decorator, Proxy).</li>
+                    <li><strong>Behavioral (Davranışsal):</strong> Nesneler arası iletişim ve sorumluluk dağılımını
+                        belirler. (Strategy, Observer, State, Command).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 17. TESTING TOOLS -->
+    <div id="modal-testing-tools" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-testing-tools')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-purple">Testing Ecosystem</span>
+                <h2>Modern Entegrasyon Test Araçları</h2>
+                <ul>
+                    <li><strong>WireMock:</strong> HTTP bağımlılıklarını (API'leri) taklit (mock) eder.</li>
+                    <li><strong>RestAssured:</strong> REST API endpointlerini kolayca test etmeyi ve doğrulamayı sağlar.
+                    </li>
+                    <li><strong>TestContainers:</strong> Docker üzerinden geçici DB/Servis konteynerleri oluşturup testi
+                        gerçek ortamda çalıştırır.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 18. DB OPTIMIZATION -->
+    <div id="modal-db-optimization" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-db-optimization')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-orange">Database Strategy</span>
+                <h2>DB Sharding ve Partitioning</h2>
+                <p><strong>Partitioning:</strong> Büyük tabloları fiziksel olarak parçalara bölmektir (Range, List,
+                    Hash).</p>
+                <p><strong>Sharding:</strong> Yatay bölümleme (Horizontal Partitioning) yaparak veriyi farklı sunuculara
+                    (shard) dağıtmaktır. Performans ve ölçeklenebilirlik sağlar.</p>
+                <p>Ayrıca <strong>PL/SQL</strong> ile veritabanı içinde prosedürel işlemler ve triggerlar yönetilir.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 19. DB INDEXING DEEP -->
+    <div id="modal-db-indexing-deep" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-db-indexing-deep')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-orange">Search Speed</span>
+                <h2>Indexing ve B-Tree Mekaniği</h2>
+                <p>İndeks, tablonun tüm satırlarını taramak (Full Table Scan) yerine, bir sözlük gibi veriye doğrudan
+                    ulaşmayı sağlar.</p>
+                <ul>
+                    <li><strong>B-Tree Index:</strong> Sıralı, dengeli bir ağaçtır. Aralık (range) sorguları için
+                        idealdir.</li>
+                    <li><strong>Hash Index:</strong> Sadece eşitlik (=) sorguları için en hızlıdır.</li>
+                </ul>
+                <p>Aşırı indeksleme; INSERT/UPDATE işlemlerini yavaşlatır çünkü her değişimde indeks de
+                    güncellenmelidir.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 20. ACID NORMALIZATION -->
+    <div id="modal-acid-norm-db" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-acid-norm-db')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-orange">Data Integrity</span>
+                <h2>ACID Prensipleri ve Normalizasyon</h2>
+                <h3>ACID</h3>
+                <ul>
+                    <li><strong>Atomicity:</strong> Hepsi ya da hiçbiri.</li>
+                    <li><strong>Consistency:</strong> Verinin tutarlı bir state'te kalması.</li>
+                    <li><strong>Isolation:</strong> İsteklerin birbirinden izole çalışması.</li>
+                    <li><strong>Durability:</strong> Onaylanan verinin kalıcılığı.</li>
+                </ul>
+                <p><strong>Normalization:</strong> Veri tekrarını (redundancy) ve anormallikleri ortadan kaldırma
+                    sürecidir.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 21. PERFORMANCE DEEP -->
+    <div id="modal-performance-deep" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-performance-deep')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-orange">Performance</span>
+                <h2>TPS, Deadlock ve Bottleneck</h2>
+                <ul>
+                    <li><strong>TPS (Transactions Per Second):</strong> Sistemin saniyede işlediği işlem sayısı.</li>
+                    <li><strong>Deadlock:</strong> İki thread'in birbirinin elindeki kilidi beklemesiyle oluştan
+                        kilitlenme.</li>
+                    <li><strong>Bottleneck:</strong> Sistemin en yavaş bileşeninin genel hızı düşürmesi (darboğaz).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 22. CACHING REDIS -->
+    <div id="modal-caching-redis" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-caching-redis')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-orange">Speed</span>
+                <h2>Redis ve Caching Stratejileri</h2>
+                <p>RAM üzerinde çalışan ultra hızlı key-value deposudur. Dağıtık sistemlerde veri tutarsızlığını önlemek
+                    için <strong>Sticky Session</strong> veya <strong>Distributed Cache</strong> kullanılır.</p>
+                <ul>
+                    <li>Cache Expiration ve Invalidasyonu ile verinin güncelliği korunur.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 23. WEB SECURITY -->
+    <div id="modal-web-security" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-web-security')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-orange">Security</span>
+                <h2>Web Güvenliği ve HTTPS</h2>
+                <p>HTTP şifresiz iletim yaparken, <strong>HTTPS</strong> TLS/SSL el sıkışması (handshake) ile veriyi
+                    güvenli hale getirir.</p>
+                <ul>
+                    <li><strong>JWT & OAuth2:</strong> Modern kimlik doğrulama ve yetkilendirme standartları.</li>
+                    <li><strong>Stateless vs Stateful:</strong> Mikroservisler genellikle stateless (durumsuz)
+                        tasarlanır; ölçeklenebilirlik sağlar.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 24. FRONTEND BINDING -->
+    <div id="modal-frontend-binding" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-frontend-binding')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-blue">Frontend</span>
+                <h2>One-Way ve Two-Way Binding</h2>
+                <p><strong>One-Way Binding:</strong> Verinin sadece component'ten view'a (veya tersi) akmasıdır
+                    (Interpolation, Event Binding).</p>
+                <p><strong>Two-Way Binding:</strong> View ve Component senkronizedir; input değişirse veri de anlık
+                    güncellenir (ngModel).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 25. RFC STANDARDS -->
+    <div id="modal-rfc-standards" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-rfc-standards')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-blue">Technical Standards</span>
+                <h2>RFC (Request for Comments) Nedir?</h2>
+                <p>İnternet ve ağ teknolojilerinin nasıl çalışacağını belirleyen global teknik standart belgeleridir.
+                    IETF tarafından yayınlanır.</p>
+                <ul>
+                    <li>RFC 2616 (HTTP/1.1)</li>
+                    <li>RFC 6749 (OAuth 2.0)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 26. SOLID PRINCIPLES -->
+    <div id="modal-solid" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-solid')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-blue">Principles</span>
+                <h2>SOLID Yazılım Prensipleri</h2>
+                <p>Esnek, bakım yapılabilir ve ölçeklenebilir kod yazmak için 5 temel kural:</p>
+                <ul>
+                    <li><strong>S - Single Responsibility:</strong> Bir sınıfın sadece bir görev yüklenmesi.</li>
+                    <li><strong>O - Open/Closed:</strong> Gelişime açık, değişime kapalı olma.</li>
+                    <li><strong>L - Liskov Substitution:</strong> Alt sınıfların üst sınıfların yerine geçebilmesi.</li>
+                    <li><strong>I - Interface Segregation:</strong> Özelleşmiş küçük interfaceler oluşturma.</li>
+                    <li><strong>D - Dependency Inversion:</strong> Üst seviye modüllerin alt seviye modüllere değil,
+                        abstraction'lara bağımlı olması.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 
-<footer>
-    <p>© 2025 Kaan Saka. Tüm Hakları Saklıdır.</p>
-</footer>
+    <!-- FOOTER -->
+    <footer style="padding: 100px 0; border-top: 1px solid var(--card-border); text-align: center;">
+        <div class="container" style="text-align: center;">
+            <p style="color: var(--text-muted); font-weight: 500;">&copy; 2026 Kaan Saka. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
 
-<script>
-    function openModal(modalId) {
-        document.getElementById(modalId).style.display = "block";
-    }
-
-    function closeModal(modalId) {
-        document.getElementById(modalId).style.display = "none";
-    }
-
-    window.onclick = function (event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = "none";
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
-    }
-</script>
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
 
 </body>
+
 </html>
