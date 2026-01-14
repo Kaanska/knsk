@@ -361,11 +361,24 @@ nav {
 .btn-cta {
     background: var(--accent);
     color: #101827 !important;
-    padding: 10px 24px;
+    padding: 12px 32px;
     border-radius: 12px;
     font-weight: 700;
+    font-size: 15px;
     text-decoration: none;
     transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+/* Specific wide style only for the Header CTA */
+.nav-links .btn-cta {
+    padding: 10px 30px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
 }
 
 .btn-cta:hover {
@@ -738,7 +751,7 @@ section {
     }
 
     .btn-cta {
-        padding: 14px 24px;
+        padding: 14px 28px;
         font-size: 15px;
     }
 
