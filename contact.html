@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="images/code.svg">
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lfw6boqAAAAAF-hD3C1Q_W_I0n4Y_Q9Y_Y_Q9Y"></script>
     <style>
         .contact-grid {
             display: grid;
@@ -229,40 +230,49 @@
 
                 const formData = new FormData(contactForm);
                 submitButton.disabled = true;
-                submitButton.textContent = 'Gönderiliyor...';
+                submitButton.textContent = 'Doğrulanıyor...';
 
-                fetch('https://formspree.io/f/mwpelggq', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        formStatus.style.display = 'block';
-                        formStatus.style.color = 'var(--accent)';
-                        formStatus.textContent = 'Mesajınız başarıyla gönderildi!';
-                        contactForm.reset();
-                        submitButton.textContent = 'Gönderildi';
-                    } else {
-                        response.json().then(data => {
+                // Get reCAPTCHA token
+                grecaptcha.ready(function () {
+                    grecaptcha.execute('6Lfw6boqAAAAAF-hD3C1Q_W_I0n4Y_Q9Y_Y_Q9Y', { action: 'submit' }).then(function (token) {
+                        formData.append('g-recaptcha-response', token);
+
+                        submitButton.textContent = 'Gönderiliyor...';
+
+                        fetch('https://formspree.io/f/mwpelggq', {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        }).then(response => {
+                            if (response.ok) {
+                                formStatus.style.display = 'block';
+                                formStatus.style.color = 'var(--accent)';
+                                formStatus.textContent = 'Mesajınız başarıyla gönderildi!';
+                                contactForm.reset();
+                                submitButton.textContent = 'Gönderildi';
+                            } else {
+                                response.json().then(data => {
+                                    formStatus.style.display = 'block';
+                                    formStatus.style.color = '#ff4b2b';
+                                    if (Object.hasOwn(data, 'errors')) {
+                                        formStatus.textContent = data["errors"].map(error => error["message"]).join(", ");
+                                    } else {
+                                        formStatus.textContent = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+                                    }
+                                    submitButton.disabled = false;
+                                    submitButton.textContent = 'Tekrar Dene';
+                                })
+                            }
+                        }).catch(error => {
                             formStatus.style.display = 'block';
                             formStatus.style.color = '#ff4b2b';
-                            if (Object.hasOwn(data, 'errors')) {
-                                formStatus.textContent = data["errors"].map(error => error["message"]).join(", ");
-                            } else {
-                                formStatus.textContent = 'Bir hata oluştu. Lütfen tekrar deneyin.';
-                            }
+                            formStatus.textContent = 'Bağlantı hatası oluştu. Lütfen kontrol edin.';
                             submitButton.disabled = false;
                             submitButton.textContent = 'Tekrar Dene';
-                        })
-                    }
-                }).catch(error => {
-                    formStatus.style.display = 'block';
-                    formStatus.style.color = '#ff4b2b';
-                    formStatus.textContent = 'Bağlantı hatası oluştu. Lütfen kontrol edin.';
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'Tekrar Dene';
+                        });
+                    });
                 });
             });
         }
