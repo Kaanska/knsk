@@ -278,8 +278,9 @@ nav {
 }
 
 .logo:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
+
 
 .logo:active {
     transform: scale(0.95);
