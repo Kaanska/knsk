@@ -333,6 +333,12 @@
                 <h3>Modern Test Tools</h3>
                 <p style="color: var(--text-muted); font-size: 14px;">WireMock, RestAssured ve TestContainers.</p>
             </div>
+            <div class="glass-card" onclick="openModal('modal-grpc-deep')">
+                <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                <h3>gRPC & Protobuf</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Yüksek performanslı RPC ve Binary serileştirme.
+                </p>
+            </div>
         </div>
 
         <!-- 4. DATABASE & PERFORMANCE -->
@@ -933,6 +939,73 @@
                     <li><strong>D - Dependency Inversion:</strong> Üst seviye modüllerin alt seviye modüllere değil,
                         abstraction'lara bağımlı olması.</li>
                 </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 20. gRPC DEEP -->
+    <div id="modal-grpc-deep" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-grpc-deep')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-purple">Architecture</span>
+                <h2>gRPC (Google Remote Procedure Call) Nedir?</h2>
+                <p><strong>gRPC</strong>, servisler arası iletişimi (Service-to-Service communication) modernize eden,
+                    yüksek performanslı ve açık kaynaklı bir RPC protokolüdür. Özellikle mikroservis mimarilerinde iç ağ
+                    trafiğini minimize etmek için kullanılır.</p>
+
+                <h3>Neden gRPC?</h3>
+                <ul>
+                    <li><strong>Protocol Buffers (Protobuf):</strong> JSON gibi metin tabanlı formatlar yerine binary
+                        (ikili) serileştirme kullanır. Bu sayede veriler çok daha küçük boyutta taşınır ve CPU
+                        tarafından daha hızlı işlenir.</li>
+                    <li><strong>HTTP/2 Tabanlı:</strong> Multiplexing özelliği sayesinde tek bir bağlantı üzerinden aynı
+                        anda birçok istek gönderilebilir. Ayrıca Header Compression ile bant genişliği tasarrufu sağlar.
+                    </li>
+                    <li><strong>Strongly Typed:</strong> Bir <code>.proto</code> dosyası ile servislerin kontratı
+                        (arayüzü) önceden belirlenir. Bu, hata payını minimize eder.</li>
+                    <li><strong>Streaming:</strong> Çift yönlü (bi-directional) veri akışını destekleyerek anlık veri
+                        iletimini kolaylaştırır.</li>
+                </ul>
+
+                <table class="comparison-table">
+                    <tr>
+                        <th>Özellik</th>
+                        <th>REST (JSON)</th>
+                        <th>gRPC (Protobuf)</th>
+                    </tr>
+                    <tr>
+                        <td>Veri Formatı</td>
+                        <td>Text (JSON)</td>
+                        <td>Binary (Protobuf)</td>
+                    </tr>
+                    <tr>
+                        <td>Protokol</td>
+                        <td>HTTP 1.1</td>
+                        <td>HTTP/2</td>
+                    </tr>
+                    <tr>
+                        <td>Performans</td>
+                        <td>Düşük/Orta</td>
+                        <td>Çok Yüksek</td>
+                    </tr>
+                    <tr>
+                        <td>Kontrat Gücü</td>
+                        <td>Zayıf (Opsiyonel Swagger)</td>
+                        <td>Çok Güçlü (.proto)</td>
+                    </tr>
+                </table>
+
+                <div class="code-block">
+                    // Örnek bir .proto tanımı
+                    service Greeter {
+                    rpc SayHello (HelloRequest) returns (HelloReply) {}
+                    }
+
+                    message HelloRequest {
+                    string name = 1;
+                    }
+                </div>
             </div>
         </div>
     </div>
