@@ -299,6 +299,12 @@
                 <h3>Advanced Annotations</h3>
                 <p style="color: var(--text-muted); font-size: 14px;">@Qualifier, @ControllerAdvice, @PostConstruct.</p>
             </div>
+            <div class="glass-card" onclick="openModal('modal-spring-annotations-guide')">
+                <div class="card-icon"><i class="fas fa-book"></i></div>
+                <h3>Spring Boot Annotations Guide</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">A-Z kapsamlı anotasyon rehberi ve kod örnekleri.
+                </p>
+            </div>
         </div>
 
         <!-- 3. ARCHITECTURE & SYSTEM DESIGN -->
@@ -680,6 +686,157 @@
                         çalışır.</li>
                     <li><strong>@Transient:</strong> Bir alanın veritabanına kaydedilmesini engeller.</li>
                 </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 12.2. SPRING ANNOTATIONS COMPREHENSIVE GUIDE -->
+    <div id="modal-spring-annotations-guide" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-spring-annotations-guide')">&times;</span>
+            <div class="modal-body">
+                <span class="status-tag tag-green">Ultimate Guide</span>
+                <h2>Spring Boot Anotasyon Rehberi</h2>
+                <p>Spring Boot dünyasında işleri kolaylaştıran, konfigürasyonu azaltan ve kodu daha okunabilir kılan en
+                    önemli anotasyonların detaylı incelemesi.</p>
+
+                <h3>1. Bean ve Component Anotasyonları</h3>
+                <p>Spring, uygulama ayağa kalkarken bu anotasyonlara sahip sınıfları tarar ve onları birer "Bean" olarak
+                    yönetir (Inversion of Control).</p>
+                <ul>
+                    <li><strong>@Component:</strong> Bir sınıfı Generic Spring Bean olarak işaretler.</li>
+                    <li><strong>@Service:</strong> İş mantığı (Business Layer) katmanı için kullanılır.</li>
+                    <li><strong>@Repository:</strong> Veri erişim (DAO) katmanı için kullanılır. DB hatalarını Spring
+                        exception'larına çevirir.</li>
+                    <li><strong>@Controller:</strong> Geleneksel Spring MVC View dönen sınıflar içindir.</li>
+                    <li><strong>@RestController:</strong> <code>@Controller</code> + <code>@ResponseBody</code>
+                        birleşimidir; JSON/XML döner.</li>
+                </ul>
+                <div class="code-block">
+                    @RestController
+                    public class UserController {
+                    @GetMapping("/users")
+                    public List&lt;String&gt; users() {
+                    return List.of("Ali", "Veli");
+                    }
+                    }
+                </div>
+
+                <h3>2. Dependency Injection (Bağımlılık Verme)</h3>
+                <p>Spring'in en güçlü tarafı olan bağımlılık yönetimini kontrol eden anotasyonlar.</p>
+                <ul>
+                    <li><strong>@Autowired:</strong> Spring bu alanı veya constructor'ı otomatik olarak uygun bean ile
+                        doldurur.</li>
+                    <li><strong>@Qualifier:</strong> Aynı tipten birden fazla bean varsa hangisinin seçileceğini
+                        belirler.</li>
+                    <li><strong>@Primary:</strong> Çakışma durumunda "varsayılan" olarak seçilecek bean'i işaretler.
+                    </li>
+                </ul>
+                <div class="code-block">
+                    // Constructor Injection (Best Practice)
+                    @Service
+                    public class OrderService {
+                    private final PaymentService paymentService;
+
+                    public OrderService(PaymentService paymentService) {
+                    this.paymentService = paymentService;
+                    }
+                    }
+                </div>
+
+                <h3>3. Konfigürasyon ve Bean Tanımlama</h3>
+                <ul>
+                    <li><strong>@Configuration:</strong> Sınıfın bir yapılandırma sınıfı olduğunu belirtir.</li>
+                    <li><strong>@Bean:</strong> Bir metodun dönüş değerini Spring Context'inde bir Bean olarak kaydeder.
+                    </li>
+                </ul>
+                <div class="code-block">
+                    @Configuration
+                    public class AppConfig {
+                    @Bean
+                    public ObjectMapper objectMapper() {
+                    return new ObjectMapper();
+                    }
+                    }
+                </div>
+
+                <h3>4. HTTP Mapping (REST Endpoint)</h3>
+                <ul>
+                    <li><strong>@RequestMapping:</strong> Base path veya metod türü (GET, POST vb.) belirler.</li>
+                    <li><strong>@GetMapping, @PostMapping, @PutMapping, @DeleteMapping:</strong> İlgili HTTP metodları
+                        için kısayollardır.</li>
+                    <li><strong>@PathVariable:</strong> URL içindeki parametreyi (orn: /users/{id}) alır.</li>
+                    <li><strong>@RequestParam:</strong> Query parametrelerini (orn: ?page=1) alır.</li>
+                    <li><strong>@RequestBody:</strong> Gelen JSON gövdesini bir objeye map eder.</li>
+                </ul>
+
+                <h3>5. Validation (Doğrulama)</h3>
+                <p>Veri girişlerini kontrol etmek için kullanılan <code>@Valid</code> ve kısıtlayıcı anotasyonlar.</p>
+                <ul>
+                    <li><strong>@Valid:</strong> DTO üzerindeki validation kurallarını tetikler.</li>
+                    <li><strong>@NotBlank, @NotNull:</strong> Boş geçilemez alanlar.</li>
+                    <li><strong>@Size, @Min, @Max:</strong> Uzunluk ve değer kısıtları.</li>
+                    <li><strong>@Email:</strong> Email formatı kontrolü.</li>
+                </ul>
+
+                <h3>6. Transaction Yönetimi</h3>
+                <p><strong>@Transactional:</strong> Bir metodu veritabanı işlemi (transaction) içine alır. Hata
+                    durumunda otomatik rollback yapar.</p>
+                <div class="code-block">
+                    @Transactional(rollbackFor = Exception.class)
+                    public void transfer() {
+                    // Tüm işlemler ya başarılı olur ya da hepsi geri alınır
+                    }
+                </div>
+
+                <h3>7. Cache ve Async</h3>
+                <ul>
+                    <li><strong>@Cacheable:</strong> Metot sonucunu cache'e atar, aynı parametrelerle çağrıldığında
+                        cache'den döner.</li>
+                    <li><strong>@Async:</strong> Metodu ayrı bir thread üzerinde asenkron olarak çalıştırır.</li>
+                </ul>
+
+                <h3>8. Spring Boot Özel</h3>
+                <p><strong>@SpringBootApplication:</strong> Uygulamanın giriş noktasıdır. <code>@Configuration</code>,
+                    <code>@EnableAutoConfiguration</code> ve <code>@ComponentScan</code> anotasyonlarının birleşimidir.
+                </p>
+
+                <h3>9. Özellik Yönetimi (Properties)</h3>
+                <ul>
+                    <li><strong>@Value:</strong> application.properties dosyasından tekil değer çeker.</li>
+                    <li><strong>@ConfigurationProperties:</strong> Belirli bir prefix ile başlayan ayarları bir sınıfa
+                        toplu olarak map eder.</li>
+                </ul>
+
+                <h3>10. Yaşam Döngüsü (Lifecycle)</h3>
+                <ul>
+                    <li><strong>@PostConstruct:</strong> Bean oluşturulup bağımlılıklar hazır olduğunda 1 kere çalışır.
+                    </li>
+                    <li><strong>@PreDestroy:</strong> Uygulama veya context kapanırken çalışır.</li>
+                </ul>
+
+                <table class="comparison-table">
+                    <tr>
+                        <th>Kategori</th>
+                        <th>En Sık Kullanılanlar</th>
+                    </tr>
+                    <tr>
+                        <td>Bean Üretme</td>
+                        <td>@Component, @Service, @Repository, @Bean</td>
+                    </tr>
+                    <tr>
+                        <td>Dependency</td>
+                        <td>@Autowired, @Qualifier, @Primary</td>
+                    </tr>
+                    <tr>
+                        <td>REST API</td>
+                        <td>@RestController, @GetMapping, @RequestBody</td>
+                    </tr>
+                    <tr>
+                        <td>DB & Validation</td>
+                        <td>@Transactional, @Valid, @NotBlank</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
