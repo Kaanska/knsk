@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vynto Screenshot Previews</title>
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .preview-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .preview-card:hover {
+            transform: translateY(-10px);
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            transform: scale(0.22);
+            transform-origin: top left;
+            width: 1242px;
+            height: 2688px;
+            pointer-events: none;
+        }
+
+        .iframe-container {
+            width: 273px;
+            height: 591px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            background: #4ee2c0;
+            color: #101827;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Vynto - App Store Screenshot Previews (iPhone 16 Pro Max Images)</h1>
+    <div class="grid">
+        <div class="preview-card">
+            <div class="iframe-container"><iframe src="screenshot-1.html"></iframe></div>
+            <div class="info">
+                <h3>Screenshot 1</h3>
+                <p>Hoşgeldin & Slogan</p>
+                <a href="screenshot-1.html" class="btn" target="_blank">Tam Boyut</a>
+            </div>
+        </div>
+        <div class="preview-card">
+            <div class="iframe-container"><iframe src="screenshot-2.html"></iframe></div>
+            <div class="info">
+                <h3>Screenshot 2</h3>
+                <p>Ana Sayfa (Overview)</p>
+                <a href="screenshot-2.html" class="btn" target="_blank">Tam Boyut</a>
+            </div>
+        </div>
+        <div class="preview-card">
+            <div class="iframe-container"><iframe src="screenshot-3.html"></iframe></div>
+            <div class="info">
+                <h3>Screenshot 3</h3>
+                <p>Veri Girişi & Tarama</p>
+                <a href="screenshot-3.html" class="btn" target="_blank">Tam Boyut</a>
+            </div>
+        </div>
+        <div class="preview-card">
+            <div class="iframe-container"><iframe src="screenshot-4.html"></iframe></div>
+            <div class="info">
+                <h3>Screenshot 4</h3>
+                <p>Varlıklar & Hedefler</p>
+                <a href="screenshot-4.html" class="btn" target="_blank">Tam Boyut</a>
+            </div>
+        </div>
+        <div class="preview-card">
+            <div class="iframe-container"><iframe src="screenshot-5.html"></iframe></div>
+            <div class="info">
+                <h3>Screenshot 5</h3>
+                <p>Borçlar & Krediler</p>
+                <a href="screenshot-5.html" class="btn" target="_blank">Tam Boyut</a>
+            </div>
+        </div>
+        <div class="preview-card">
+            <div class="iframe-container"><iframe src="screenshot-6.html"></iframe></div>
+            <div class="info">
+                <h3>Screenshot 6</h3>
+                <p>Ayarlar & Limitler</p>
+                <a href="screenshot-6.html" class="btn" target="_blank">Tam Boyut</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1080, initial-scale=1.0">
+    <title>Vynto Elite UI Collection</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #52a5ff;
+            --accent: #4ee2c0;
+            --vynto-grad: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            --background: #020617;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --glass: rgba(255, 255, 255, 0.02);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            padding: 40px;
+        }
+
+        .insta-elite {
+            width: 1080px;
+            height: 1080px;
+            background-color: var(--background);
+            overflow: hidden;
+            position: relative;
+            color: white;
+            margin-bottom: 80px;
+            box-shadow: 0 50px 150px rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Sophisticated Ambient */
+        .glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(160px);
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .glow-1 {
+            width: 900px;
+            height: 900px;
+            background: var(--primary);
+            top: -300px;
+            right: -300px;
+        }
+
+        .glow-2 {
+            width: 800px;
+            height: 800px;
+            background: var(--accent);
+            bottom: -300px;
+            left: -300px;
+        }
+
+        /* UI Elements Layer */
+        .ui-layer {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .logo-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: var(--vynto-grad);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-size: 44px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+        }
+
+        /* Elite Typography */
+        .title-wrap {
+            max-width: 700px;
+        }
+
+        .tag {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .main-title {
+            font-size: 92px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -4px;
+            margin-bottom: 35px;
+        }
+
+        .sub-title {
+            font-size: 28px;
+            font-weight: 300;
+            color: #94a3b8;
+            line-height: 1.5;
+            max-width: 500px;
+        }
+
+        /* Complex UI Integration */
+        .visual-stack {
+            position: absolute;
+            right: -50px;
+            bottom: -50px;
+            width: 680px;
+            z-index: 5;
+        }
+
+        /* 1. Exploded UI components */
+        .floating-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 30px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            z-index: 15;
+        }
+
+        .phone-hero {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            perspective: 1500px;
+        }
+
+        .iphone-frame {
+            width: 500px;
+            margin-left: auto;
+            transform: rotateY(-15deg) rotateX(10deg);
+            background: #000;
+            padding: 12px;
+            border-radius: 74px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: -60px 80px 160px rgba(0, 0, 0, 0.8);
+        }
+
+        .iphone-screen {
+            width: 100%;
+            border-radius: 64px;
+            overflow: hidden;
+        }
+
+        .iphone-screen img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Glass Data Viz */
+        .viz-circle {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 20px solid rgba(78, 226, 192, 0.05);
+            border-top-color: var(--accent);
+            position: absolute;
+            top: -100px;
+            right: -50px;
+            z-index: 5;
+            transform: rotate(45deg);
+        }
+
+        /* 2. Abstract Asset Background for UI */
+        .asset-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            opacity: 0.4;
+            mask-image: radial-gradient(circle at right center, black 10%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at right center, black 10%, transparent 80%);
+        }
+
+        .asset-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Data Numbers */
+        .stat-grid {
+            display: flex;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .stat-val {
+            font-size: 42px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .stat-lbl {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Elite Post 1: Dashboard Perfection -->
+    <div class="insta-elite" id="elite-1">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="ui-layer">
+            <div class="brand-header">
+                <div class="logo-box"><img src="images/AppIcon.png"></div>
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="title-wrap">
+                <span class="tag">Mükemmel Analiz</span>
+                <h1 class="main-title">Finansın <br><span
+                        style="background:var(--vynto-grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Yeni
+                        Hali.</span></h1>
+                <p class="sub-title">Karmaşıklığı geride bırakın. Vynto ile her işlem, her veri ve her hedef kristal
+                    berraklığında.</p>
+            </div>
+            <div class="stat-grid">
+                <div class="stat-item"><span class="stat-val">%100</span><span class="stat-lbl">Kontrol</span></div>
+                <div class="stat-item"><span class="stat-val">Sıfır</span><span class="stat-lbl">Karmaşa</span></div>
+            </div>
+        </div>
+        <div class="visual-stack">
+            <div class="viz-circle"></div>
+            <div class="floating-card" style="top: 150px; left: -120px; width: 340px;">
+                <p style="font-size:14px; color:var(--accent); font-weight:700; margin-bottom:10px;">TOPLAM VARLIK</p>
+                <p style="font-size:36px; font-weight:800;">1.240.500 ₺</p>
+            </div>
+            <div class="phone-hero">
+                <div class="iphone-frame">
+                    <div class="iphone-screen">
+                        <img src="images/Simulator Screenshot - iPhone 16 Pro Max - 2026-02-04 at 02.24.47.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Elite Post 2: Security Encryption (Key Asset) -->
+    <div class="insta-elite" id="elite-2">
+        <div class="glow glow-1" style="background:var(--vynto-grad); opacity:0.1; width:150%; height:150%;"></div>
+        <div class="asset-bg">
+            <img
+                src="/Users/kaansaka/.gemini/antigravity/brain/4289f89a-3a2b-41cf-b05a-c8d6edd9a6de/vynto_titan_safe_realistic_v2_1770229681075.png">
+        </div>
+        <div class="ui-layer">
+            <div class="brand-header">
+                <div class="logo-box"><img src="images/AppIcon.png"></div>
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="title-wrap">
+                <span class="tag">Ultra Güvenlik</span>
+                <h1 class="main-title">Gizlilik <br>Standarttır.</h1>
+                <p class="sub-title">Vynto'da verileriniz telefonunuzda başlar, telefonunuzda biter. Uçtan uca şifreli
+                    finans dünyası.</p>
+            </div>
+        </div>
+        <div class="visual-stack" style="right: 50px; bottom: 50px; width: 600px;">
+            <div class="floating-card"
+                style="bottom: 400px; left: -50px; padding: 25px; display: flex; align-items: center; gap: 20px;">
+                <div
+                    style="width:12px; height:12px; border-radius:50%; background:var(--accent); box-shadow:0 0 15px var(--accent);">
+                </div>
+                <span style="font-size:18px; font-weight:700;">AES-256 Şifreleme Aktif</span>
+            </div>
+            <div class="phone-hero" style="transform: rotate(5deg);">
+                <div class="iphone-frame">
+                    <div class="iphone-screen">
+                        <img src="images/vyOnto-giris.png" style="scale: 1.05;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Elite Post 3: Wealth Architecture (Orb Asset) -->
+    <div class="insta-elite" id="elite-3">
+        <div class="glow glow-1" style="top:auto; bottom:-200px; left:-200px;"></div>
+        <div class="asset-bg"
+            style="mask-image: radial-gradient(circle at center, black 40%, transparent 95%); opacity:0.6;">
+            <img
+                src="/Users/kaansaka/.gemini/antigravity/brain/4289f89a-3a2b-41cf-b05a-c8d6edd9a6de/vynto_3d_wealth_orb_1770229226444.png">
+        </div>
+        <div class="ui-layer" style="align-items: center; text-align: center; justify-content: space-between;">
+            <div class="brand-header">
+                <div class="logo-box"><img src="images/AppIcon.png"></div>
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="title-wrap">
+                <span class="tag">Varlık Yönetimi</span>
+                <h1 class="main-title" style="font-size:110px;">SER-VETİNİZİN <br>MİMARI.</h1>
+            </div>
+            <div style="padding-bottom:100px;">
+                <p class="sub-title" style="max-width: none;">Hedeflerinizi belirleyin, gelişimini Vynto'nun akıllı
+                    algoritmalarıyla izleyin.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Elite Post 4: Transaction & Data (Coins Asset) -->
+    <div class="insta-elite" id="elite-4">
+        <div class="asset-bg" style="opacity:0.8;">
+            <img
+                src="/Users/kaansaka/.gemini/antigravity/brain/4289f89a-3a2b-41cf-b05a-c8d6edd9a6de/vynto_realistic_coins_macro_v2_1770229905307.png">
+        </div>
+        <div
+            style="position: absolute; inset:0; background: linear-gradient(to top, #020617, transparent 60%); z-index: 3;">
+        </div>
+        <div class="ui-layer" style="justify-content: flex-end;">
+            <div class="brand-header">
+                <div class="logo-box"><img src="images/AppIcon.png"></div>
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="title-wrap" style="margin-bottom: 50px;">
+                <span class="tag">Hızlı Aksiyon</span>
+                <h1 class="main-title">Zaman <br>Kazan.</h1>
+                <p class="sub-title">Banka ekstreni saniyeler için aktar, bütçeni anında güncelle.</p>
+            </div>
+            <div class="floating-card"
+                style="position:relative; width: 100%; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <p style="opacity:0.6; font-size:14px; margin-bottom:5px;">SON AKTARIM</p>
+                    <p style="font-weight:800; font-size:24px;">Garanti BBVA Ekstresi</p>
+                </div>
+                <div
+                    style="background:var(--accent); color:#000; padding:15px 30px; border-radius:15px; font-weight:800;">
+                    BAŞARILI</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
