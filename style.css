@@ -299,12 +299,14 @@ nav {
 }
 
 .vynto-text {
-    background: var(--vynto-grad);
+    background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 50%, #4ee2c0 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
     position: relative;
+    animation: gradient-shift 4s linear infinite;
 }
 
 .vynto-text::after {
@@ -319,6 +321,41 @@ nav {
     border-radius: 3px;
     z-index: -1;
     transform: skewX(-20deg);
+}
+
+.syvn-text {
+    background: linear-gradient(135deg, #f9d423 0%, #d4af37 50%, #f9d423 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+    animation: gradient-shift 4s linear infinite;
+}
+
+.syvn-text::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: #d4af37;
+    opacity: 0.6;
+    border-radius: 3px;
+    z-index: -1;
+    transform: skewX(-20deg);
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
 }
 
 .nav-links {
