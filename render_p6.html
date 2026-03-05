@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 540px;
+            height: 675px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.5);
+            transform-origin: top left;
+            background: url('vynto_bg_glass_data_1770644199839.png') center/cover;
+        }
+
+        .header {
+            position: absolute;
+            top: 120px;
+            left: 120px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .header span {
+            font-size: 48px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 4px;
+        }
+
+        .panel {
+            position: absolute;
+            top: 150px;
+            left: 120px;
+            width: 840px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(60px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 60px;
+            padding: 80px;
+        }
+
+        .eyebrow {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 10px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        .title {
+            font-size: 100px;
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 40px;
+        }
+
+        .desc {
+            font-size: 36px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="header">
+            <img src="images/AppIcon.png">
+            <span>VYONTO</span>
+        </div>
+        <div class="panel">
+            <p class="eyebrow">Akıllı Analiz</p>
+            <h1 class="title">Veriye Dayalı<br>Kararlar.</h1>
+            <p class="desc">Geçmiş harcamalarını analiz et, geleceğini profesyonelce planla.</p>
+        </div>
+    </div>
+</body>
+
+</html>

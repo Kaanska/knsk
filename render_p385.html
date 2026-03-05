@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: radial-gradient(circle at 30% 20%, #0a1628 0%, #000000 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .animated-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .liquid-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            top: -100px;
+            right: -100px;
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            bottom: -100px;
+            left: -100px;
+            background: linear-gradient(135deg, #14b8a6, #0ea5e9);
+            animation-delay: 2s;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #06b6d4, #14b8a6);
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-30px, 30px) scale(0.9);
+            }
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.4);
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, #5EE7DF 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #06b6d4;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #06b6d4, #14b8a6);
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(135deg, #06b6d4, #14b8a6, #5EE7DF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s ease-in-out infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .liquid-card {
+            width: 100%;
+            padding: 50px;
+            background: rgba(10, 22, 40, 0.6);
+            backdrop-filter: blur(40px);
+            border: 2px solid rgba(6, 182, 212, 0.2);
+            border-radius: 50px;
+            box-shadow:
+                0 0 80px rgba(6, 182, 212, 0.2),
+                inset 0 0 60px rgba(6, 182, 212, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: auto;
+            margin-bottom: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .liquid-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg,
+                    transparent 30%,
+                    rgba(6, 182, 212, 0.1) 50%,
+                    transparent 70%);
+            animation: wave 6s linear infinite;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .flow-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flow-item {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .flow-label {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .flow-value {
+            font-size: 56px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .flow-positive {
+            color: #14b8a6;
+        }
+
+        .flow-negative {
+            color: #f43f5e;
+        }
+
+        .flow-arrow {
+            font-size: 48px;
+            color: #06b6d4;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .net-flow {
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(20, 184, 166, 0.2));
+            border-radius: 30px;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .net-label {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .net-value {
+            font-size: 64px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #5EE7DF, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="animated-bg">
+            <div class="liquid-blob blob-1"></div>
+            <div class="liquid-blob blob-2"></div>
+            <div class="liquid-blob blob-3"></div>
+        </div>
+        <div class="content-container">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">PARA AKIŞI</div>
+                <div class="main-headline">Paranın<br><span class="gradient-word">Akışını Gör.</span></div>
+                <p class="sub-text">Gelir ve giderlerini canlı takip et. Para akışını anında görselleştir.</p>
+            </div>
+            <div class="liquid-card">
+                <div class="flow-row">
+                    <div class="flow-item">
+                        <div class="flow-label">Gelir</div>
+                        <div class="flow-value flow-positive">+₺45.200</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">
+                        <div class="flow-label">Gider</div>
+                        <div class="flow-value flow-negative">-₺28.750</div>
+                    </div>
+                </div>
+                <div class="net-flow">
+                    <div class="net-label">Net Akış</div>
+                    <div class="net-value">+₺16.450</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

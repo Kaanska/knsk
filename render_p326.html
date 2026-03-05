@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .gamer-zone {
+            width: 500px;
+            height: 400px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .controller {
+            font-size: 250px;
+            color: #222;
+            filter: drop-shadow(0 0 50px rgba(82, 165, 255, 0.5));
+            animation: pulse-game 1s infinite alternate;
+        }
+
+        .btn-ab {
+            position: absolute;
+            right: 80px;
+            top: 100px;
+            width: 80px;
+            height: 80px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            opacity: 0.8;
+            box-shadow: 0 0 20px #ff6b6b;
+        }
+
+        .btn-dpad {
+            position: absolute;
+            left: 80px;
+            top: 100px;
+            width: 80px;
+            height: 80px;
+            background: #52a5ff;
+            clip-path: polygon(33% 0, 66% 0, 66% 33%, 100% 33%, 100% 66%, 66% 66%, 66% 100%, 33% 100%, 33% 66%, 0 66%, 0 33%, 33% 33%);
+            opacity: 0.8;
+            box-shadow: 0 0 20px #52a5ff;
+        }
+
+        .game-tag {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #52a5ff;
+            color: #52a5ff;
+            padding: 10px 30px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-weight: 800;
+            margin-top: 20px;
+            text-transform: uppercase;
+            box-shadow: 0 0 40px rgba(82, 165, 255, 0.5);
+        }
+
+        @keyframes pulse-game {
+            0% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(82, 165, 255, 0.4));
+            }
+
+            100% {
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 60px rgba(82, 165, 255, 0.8));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Oyun<br><span class="gradient-word">Başlasın.</span></div>
+            <div class="visual-container">
+                <div class="gamer-zone">
+                    <div class="controller">🎮</div>
+                    <div class="game-tag">🕹️ Steam: -10$</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

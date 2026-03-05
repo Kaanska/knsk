@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #fdfdfd;
+            background: linear-gradient(135deg, #fff 0%, #eee 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: #000;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #000;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Georgia', serif;
+        }
+
+        .sub-head {
+            color: #555;
+            font-size: 24px;
+            text-align: center;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .contract {
+            width: 500px;
+            height: 600px;
+            background: #fff;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding: 40px;
+            font-family: 'Courier New', monospace;
+            color: #333;
+            font-size: 14px;
+            transform: rotate(-5deg);
+        }
+
+        .line {
+            width: 100%;
+            height: 2px;
+            background: #eee;
+            margin-bottom: 20px;
+        }
+
+        .pen {
+            position: absolute;
+            right: 50px;
+            bottom: 100px;
+            width: 300px;
+            height: 30px;
+            background: linear-gradient(to right, #000, #333);
+            border-radius: 15px 0 0 15px;
+            transform: rotate(-15deg);
+            z-index: 2;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nib {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #d4af37, #f3e5ab);
+            left: -30px;
+            top: -5px;
+            clip-path: polygon(0 50%, 100% 0, 100% 100%);
+        }
+
+        .signature {
+            position: absolute;
+            bottom: 80px;
+            left: 50px;
+            font-family: 'Snell Roundhand', cursive;
+            font-size: 120px;
+            color: #000080;
+            opacity: 0;
+            width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: sign 3s forwards ease-in-out;
+        }
+
+        @keyframes sign {
+            0% {
+                width: 0;
+                opacity: 1;
+            }
+
+            100% {
+                width: 400px;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Otorite.</div>
+            <div class="sub-head">Kararları Sen Ver</div>
+            <div class="visual-container">
+                <div class="contract">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="signature">Approved</div>
+                    <div class="pen">
+                        <div class="nib"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

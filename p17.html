@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 540px;
+            height: 675px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 150px;
+        }
+
+        /* Ambient Blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 800px;
+            height: 800px;
+            top: -200px;
+            left: -100px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .blob-2 {
+            width: 700px;
+            height: 700px;
+            bottom: -150px;
+            right: -100px;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .header {
+            width: 100%;
+            padding: 0 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            margin-bottom: 50px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .brand-name {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            /* Gradient matched to user upload: Cyan to Blue */
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card {
+            width: 900px;
+            padding: 60px;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(50px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 60px;
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.6);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .total-label {
+            font-size: 24px;
+            color: #888;
+            font-weight: 600;
+        }
+
+        .total-amount {
+            font-size: 56px;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+
+        /* Donut Chart Implementation */
+        .chart-wrapper {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin-bottom: 50px;
+        }
+
+        .donut-chart {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#4facfe 0% 35%,
+                    /* Category 1 */
+                    #43e97b 35% 60%,
+                    /* Category 2 */
+                    #f093fb 60% 80%,
+                    /* Category 3 */
+                    #333 80% 100%
+                    /* Category 4 */
+                );
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Inner circle to make it a donut */
+        .donut-center {
+            width: 250px;
+            height: 250px;
+            background: #111;
+            /* Matching slightly lighter than card bg */
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donut-center span {
+            color: #888;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .donut-center strong {
+            color: white;
+            font-size: 40px;
+            font-weight: 800;
+        }
+
+        /* Legend / Categories */
+        .legend {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 60px;
+            width: 100%;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+        }
+
+        .cat-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cat-name {
+            color: #aaa;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .cat-value {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .headline {
+            margin-top: 60px;
+            font-size: 64px;
+            font-weight: 800;
+            text-align: center;
+            color: white;
+            line-height: 1.1;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <div class="header">
+            <div class="header-left">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="total-label">Toplam Varlık</div>
+                    <div class="total-amount">₺284.500</div>
+                </div>
+                <!-- Mini screenshot integrated as a small icon or similar? 
+                     User said "buraya app den minik ekran görüntüsü ekle" in previous turn,
+                     but specifically modified request to "yuvarlak grafik ve kategorilere ayrılmış".
+                     I will put the graph. -->
+            </div>
+
+            <div class="chart-wrapper">
+                <div class="donut-chart">
+                    <div class="donut-center">
+                        <span>Net Fark</span>
+                        <strong>+%12.4</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="dot" style="background: #4facfe;"></div>
+                    <div class="cat-info">
+                        <span class="cat-name">Hisse Senedi</span>
+                        <span class="cat-value">%35</span>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="dot" style="background: #43e97b;"></div>
+                    <div class="cat-info">
+                        <span class="cat-name">Döviz</span>
+                        <span class="cat-value">%25</span>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="dot" style="background: #f093fb;"></div>
+                    <div class="cat-info">
+                        <span class="cat-name">Kripto</span>
+                        <span class="cat-value">%20</span>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="dot" style="background: #333;"></div>
+                    <div class="cat-info">
+                        <span class="cat-name">Nakit</span>
+                        <span class="cat-value">%20</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="headline">Portföyünü<br>Renklendir.</h1>
+    </div>
+</body>
+
+</html>

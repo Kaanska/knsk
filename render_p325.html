@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .book-stack {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+
+        .book {
+            width: 300px;
+            height: 50px;
+            border-radius: 5px 15px 15px 5px;
+            background: #444;
+            margin-top: -10px;
+            border-left: 10px solid #222;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .b1 {
+            background: #52a5ff;
+            transform: rotate(-5deg);
+            margin-left: -20px;
+        }
+
+        .b2 {
+            background: #4ee2c0;
+            transform: rotate(5deg);
+            margin-left: 20px;
+        }
+
+        .b3 {
+            background: #ffd700;
+            transform: rotate(0deg);
+        }
+
+        .grad-cap {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-10deg);
+            font-size: 150px;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+            animation: float-cap 3s infinite ease-in-out;
+        }
+
+        .notif-pill {
+            position: absolute;
+            top: 50px;
+            right: -50px;
+            background: #fff;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: pop-in 0.5s ease-out;
+        }
+
+        @keyframes float-cap {
+
+            0%,
+            100% {
+                transform: translateX(-50%) rotate(-10deg) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) rotate(-10deg) translateY(-20px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Kampüs<br><span class="gradient-word">Modu.</span></div>
+            <div class="visual-container">
+                <div class="book-stack">
+                    <div class="book b3"></div>
+                    <div class="book b2"></div>
+                    <div class="book b1"></div>
+                    <div class="grad-cap">🎓</div>
+                    <div class="notif-pill">🔔 Burs Yattı: +2000₺</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

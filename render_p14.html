@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #080808;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Abstract Background blobs - Teal + Pink */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 700px;
+            height: 700px;
+            top: -150px;
+            left: -150px;
+            background: linear-gradient(135deg, #00C6FF, #0072FF);
+        }
+
+        .blob-2 {
+            width: 800px;
+            height: 800px;
+            bottom: -200px;
+            right: -200px;
+            background: linear-gradient(135deg, #FF00CC, #333399);
+        }
+
+        .phone-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            z-index: 5;
+            filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.5));
+        }
+
+        .phone-mockup {
+            width: 100%;
+            border-radius: 60px;
+            border: 12px solid #222;
+            overflow: hidden;
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.8);
+            position: relative;
+            background: #000;
+        }
+
+        .phone-mockup img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Floating Elements */
+        .float-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 24px 40px;
+            border-radius: 30px;
+            color: white;
+            font-weight: 700;
+            font-size: 28px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            z-index: 6;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .float-1 {
+            top: 250px;
+            left: 80px;
+            transform: rotate(-10deg);
+        }
+
+        .float-2 {
+            bottom: 300px;
+            right: 80px;
+            transform: rotate(5deg);
+        }
+
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 24px;
+        }
+
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .header img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+        }
+
+        .title {
+            font-size: 64px;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <div class="header">
+            <img src="images/AppIcon.png">
+            <div class="title">Tüm Yatırımların<br>Tek Ekranda.</div>
+        </div>
+
+        <div class="float-card float-1">
+            <div class="icon-circle">₿</div>
+            Crypto
+        </div>
+
+        <div class="float-card float-2">
+            <div class="icon-circle">$</div>
+            Döviz
+        </div>
+
+        <div class="phone-container">
+            <div class="phone-mockup">
+                <img src="images/screen_2.png">
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

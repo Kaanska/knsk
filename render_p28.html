@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.45;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 900px;
+            height: 900px;
+            top: -200px;
+            right: -200px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .blob-2 {
+            width: 800px;
+            height: 800px;
+            bottom: -200px;
+            left: -200px;
+            background: linear-gradient(135deg, #fddb92, #d1f2fb);
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: white;
+            background: linear-gradient(90deg, #5EE7DF 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 80px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #f5576c;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: #f5576c;
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #f093fb, #f5576c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .card {
+            width: 100%;
+            padding: 60px;
+            background: rgba(25, 25, 25, 0.6);
+            backdrop-filter: blur(60px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 60px;
+            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            max-height: 500px;
+            margin-top: auto;
+            margin-bottom: 100px;
+        }
+
+        .card-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .alert-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 400px;
+        }
+
+        .alert-title {
+            color: #f5576c;
+            font-weight: 800;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .alert-msg {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="content-container">
+            <div class="header"><img src="images/AppIcon.png" class="app-icon"><span class="brand-name">VYNTO</span>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">YATIRIM ALARMLARI</div>
+                <div class="main-headline">Fırsatları<br><span class="gradient-word">Kaçırma.</span></div>
+                <p class="sub-text">Hisse senedi veya altın. Belirlediğin fiyat hedefine ulaşıldığında hemen haberin
+                    olsun.</p>
+            </div>
+            <div class="card">
+                <div class="card-left">
+                    <div class="alert-item">
+                        <div class="alert-title">APPLE (AAPL)</div>
+                        <div class="alert-msg">Fiyat hedefi aşıldı: $245.00</div>
+                    </div>
+                    <div class="alert-item" style="margin-top:20px; opacity:0.6;">
+                        <div class="alert-title">ALTIN (XAU/TRY)</div>
+                        <div class="alert-msg">Takip listesine eklendi.</div>
+                    </div>
+                </div>
+                <div style="font-size:100px;">🔔</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 900px;
+            height: 900px;
+            top: -200px;
+            right: -200px;
+            background: linear-gradient(135deg, #4ee2c0, #52a5ff);
+        }
+
+        .blob-2 {
+            width: 800px;
+            height: 800px;
+            bottom: -200px;
+            left: -200px;
+            background: linear-gradient(135deg, #7117ea, #ea6060);
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #52a5ff;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: #52a5ff;
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .ai-card {
+            width: 100%;
+            padding: 60px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(60px);
+            border: 2px solid rgba(82, 165, 255, 0.3);
+            border-radius: 60px;
+            margin-top: auto;
+            margin-bottom: 120px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .bot-visual {
+            font-size: 100px;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="content-container">
+            <div class="header"><img src="images/AppIcon.png" class="app-icon"><span class="brand-name">VYNTO</span>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">OTOMASYON</div>
+                <div class="main-headline">O Yazmaz,<br><span class="gradient-word">Hisseder.</span></div>
+                <p class="sub-text">Harcamalarınızı tek tek girmekle uğraşmayın. Yapay zekamız harcamanın ne olduğunu
+                    anlar ve saniyeler içinde doğru kategoriye yerleştirir.</p>
+            </div>
+            <div class="ai-card">
+                <div class="bot-visual">🤖</div>
+                <div style="flex:1;">
+                    <div style="font-size:36px; font-weight:800; color:white;">Akıllı Kategorizasyon</div>
+                    <div style="color:#52a5ff; font-size:24px; font-weight:600;">%99.9 Doğruluk Oranı</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

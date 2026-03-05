@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #111;
+            background: radial-gradient(circle at 50% 10%, #1a1a1a 0%, #000 80%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .space-scene {
+            width: 600px;
+            height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .planet {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: #000;
+            border-radius: 50%;
+            box-shadow: inset -20px -20px 50px rgba(255, 255, 255, 0.1), 0 0 50px #52a5ff;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 10px 10px;
+        }
+
+        .float-obj {
+            position: absolute;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: float-zero 6s infinite ease-in-out;
+        }
+
+        .card-g {
+            width: 150px;
+            height: 90px;
+            background: linear-gradient(135deg, #4ee2c0, #2cc2a0);
+            border-radius: 10px;
+            top: 100px;
+            right: 100px;
+            transform: rotate(15deg);
+        }
+
+        .coin-g {
+            width: 60px;
+            height: 60px;
+            background: #ffd700;
+            border-radius: 50%;
+            border: 4px solid #b8860b;
+            top: 350px;
+            left: 100px;
+            transform: rotate(-20deg);
+        }
+
+        .bill-g {
+            width: 120px;
+            height: 60px;
+            background: #85bb65;
+            border-radius: 5px;
+            bottom: 150px;
+            right: 150px;
+            transform: rotate(45deg);
+        }
+
+        .stars-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(white 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        @keyframes float-zero {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Yüklerinden<br><span class="gradient-word">Kurtul.</span></div>
+            <div class="visual-container">
+                <div class="space-scene">
+                    <div class="stars-bg"></div>
+                    <div class="planet"></div>
+                    <div class="float-obj card-g" style="animation-duration: 7s;"></div>
+                    <div class="float-obj coin-g" style="animation-duration: 5s;"></div>
+                    <div class="float-obj bill-g" style="animation-duration: 8s;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

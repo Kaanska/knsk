@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            z-index: 10;
+        }
+
+        .header img {
+            width: 70px;
+            height: 70px;
+            filter: grayscale(1) brightness(2);
+        }
+
+        .header span {
+            font-size: 36px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 4px;
+        }
+
+        .huge-text {
+            position: absolute;
+            top: 250px;
+            left: 80px;
+            font-size: 180px;
+            font-weight: 800;
+            line-height: 0.85;
+            letter-spacing: -8px;
+            color: #1a1a1a;
+            z-index: 1;
+        }
+
+        .highlight-text {
+            color: #00ff88;
+            text-shadow: 0 0 40px rgba(0, 255, 136, 0.4);
+        }
+
+        .white-text {
+            color: white;
+        }
+
+        .overlay-image {
+            position: absolute;
+            bottom: -100px;
+            right: -50px;
+            width: 900px;
+            z-index: 5;
+            filter: drop-shadow(0 -20px 50px rgba(0, 0, 0, 0.8));
+            transform: rotate(-5deg);
+        }
+
+        .cta-button {
+            position: absolute;
+            bottom: 100px;
+            left: 80px;
+            padding: 24px 60px;
+            background: #00ff88;
+            color: #000;
+            font-size: 32px;
+            font-weight: 800;
+            border-radius: 100px;
+            text-transform: uppercase;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="header">
+            <img src="images/AppIcon.png">
+            <span>VYNTO</span>
+        </div>
+
+        <div class="huge-text">
+            <span>DAHA</span><br>
+            <span class="highlight-text">AKILLI</span><br>
+            <span class="white-text">HARCA.</span>
+        </div>
+
+        <img src="images/screen_1.png" class="overlay-image">
+
+        <div class="cta-button">
+            Şimdi İndir
+        </div>
+    </div>
+</body>
+
+</html>

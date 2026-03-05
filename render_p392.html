@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .paint-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .splash {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.6;
+            animation: splashMove 8s ease-in-out infinite;
+        }
+
+        .splash-1 {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            right: 10%;
+            background: radial-gradient(circle, #ff006e, #8338ec);
+            animation-delay: 0s;
+        }
+
+        .splash-2 {
+            width: 350px;
+            height: 350px;
+            top: 40%;
+            left: 5%;
+            background: radial-gradient(circle, #3a86ff, #06b6d4);
+            animation-delay: 2s;
+        }
+
+        .splash-3 {
+            width: 300px;
+            height: 300px;
+            bottom: 15%;
+            right: 15%;
+            background: radial-gradient(circle, #ffbe0b, #fb5607);
+            animation-delay: 4s;
+        }
+
+        .splash-4 {
+            width: 320px;
+            height: 320px;
+            bottom: 20%;
+            left: 20%;
+            background: radial-gradient(circle, #06ffa5, #14b8a6);
+            animation-delay: 6s;
+        }
+
+        @keyframes splashMove {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-30px, 30px) scale(0.9);
+            }
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 20px 60px rgba(255, 0, 110, 0.4);
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #ff006e;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff006e, #8338ec);
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 30px rgba(255, 0, 110, 0.6));
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .category-palette {
+            width: 100%;
+            margin-top: auto;
+            margin-bottom: 100px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .paint-card {
+            padding: 40px;
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(30px);
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .paint-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            animation: paintDrip 3s ease-in-out infinite;
+        }
+
+        .paint-card:nth-child(1)::before {
+            background: linear-gradient(90deg, #ff006e, #8338ec);
+        }
+
+        .paint-card:nth-child(2)::before {
+            background: linear-gradient(90deg, #3a86ff, #06b6d4);
+            animation-delay: 0.5s;
+        }
+
+        .paint-card:nth-child(3)::before {
+            background: linear-gradient(90deg, #ffbe0b, #fb5607);
+            animation-delay: 1s;
+        }
+
+        .paint-card:nth-child(4)::before {
+            background: linear-gradient(90deg, #06ffa5, #14b8a6);
+            animation-delay: 1.5s;
+        }
+
+        @keyframes paintDrip {
+
+            0%,
+            100% {
+                height: 6px;
+                opacity: 1;
+            }
+
+            50% {
+                height: 80px;
+                opacity: 0.3;
+            }
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .category-icon {
+            font-size: 56px;
+            margin-bottom: 8px;
+        }
+
+        .category-name {
+            font-size: 28px;
+            color: white;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .category-amount {
+            font-size: 42px;
+            font-weight: 800;
+        }
+
+        .paint-card:nth-child(1) .category-amount {
+            background: linear-gradient(135deg, #ff006e, #8338ec);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .paint-card:nth-child(2) .category-amount {
+            background: linear-gradient(135deg, #3a86ff, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .paint-card:nth-child(3) .category-amount {
+            background: linear-gradient(135deg, #ffbe0b, #fb5607);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .paint-card:nth-child(4) .category-amount {
+            background: linear-gradient(135deg, #06ffa5, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .category-percentage {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="paint-bg">
+            <div class="splash splash-1"></div>
+            <div class="splash splash-2"></div>
+            <div class="splash splash-3"></div>
+            <div class="splash splash-4"></div>
+        </div>
+        <div class="content-container">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">KATEGORİ ANALİZİ</div>
+                <div class="main-headline">Harcamalar<br><span class="gradient-word">Renklendi.</span></div>
+                <p class="sub-text">Her kategori kendine özel bir renk. Harcamalarını sanatsal bir palete dönüştür.</p>
+            </div>
+            <div class="category-palette">
+                <div class="paint-card">
+                    <div class="card-content">
+                        <div class="category-icon">🍽️</div>
+                        <div class="category-name">Yemek</div>
+                        <div class="category-amount">₺8.450</div>
+                        <div class="category-percentage">%32 Bütçe</div>
+                    </div>
+                </div>
+                <div class="paint-card">
+                    <div class="card-content">
+                        <div class="category-icon">🚗</div>
+                        <div class="category-name">Ulaşım</div>
+                        <div class="category-amount">₺3.200</div>
+                        <div class="category-percentage">%12 Bütçe</div>
+                    </div>
+                </div>
+                <div class="paint-card">
+                    <div class="card-content">
+                        <div class="category-icon">🎬</div>
+                        <div class="category-name">Eğlence</div>
+                        <div class="category-amount">₺5.600</div>
+                        <div class="category-percentage">%21 Bütçe</div>
+                    </div>
+                </div>
+                <div class="paint-card">
+                    <div class="card-content">
+                        <div class="category-icon">🏠</div>
+                        <div class="category-name">Ev</div>
+                        <div class="category-amount">₺9.250</div>
+                        <div class="category-percentage">%35 Bütçe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

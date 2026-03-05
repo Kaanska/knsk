@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #111;
+            width: 540px;
+            height: 675px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.5);
+            transform-origin: top left;
+        }
+
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header img {
+            width: 70px;
+            height: 70px;
+            filter: grayscale(1) brightness(1.5);
+        }
+
+        .title {
+            margin-top: 250px;
+            padding: 0 80px;
+            font-size: 110px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .glass-card {
+            width: 920px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 60px;
+            margin: 50px auto;
+            backdrop-filter: blur(30px);
+            padding: 60px;
+            display: flex;
+            gap: 60px;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-content h2 {
+            font-size: 60px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .card-content p {
+            font-size: 32px;
+            color: #888;
+            line-height: 1.4;
+        }
+
+        .phone {
+            width: 400px;
+            border-radius: 40px;
+            margin-top: -100px;
+        }
+
+        .badge {
+            position: absolute;
+            bottom: 80px;
+            right: 80px;
+            background: white;
+            color: black;
+            padding: 20px 40px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="header">
+            <img src="images/AppIcon.png">
+        </div>
+        <h1 class="title">Şeffaf.<br>Hızlı. Net.</h1>
+        <div class="glass-card">
+            <div class="card-content">
+                <h2>Varlık Takibi</h2>
+                <p>Bütün hesapların tek bir noktada, anlık güncellemelerle güvende.</p>
+            </div>
+            <img src="images/Simulator Screenshot - iPhone 16 Pro Max - 2026-02-04 at 02.29.58.png" class="phone">
+        </div>
+        <div class="badge">VYNTO'YU DENE</div>
+    </div>
+</body>
+
+</html>

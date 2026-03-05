@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            border-radius: 2px;
+        }
+
+        .eyebrow-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        /* VISUAL: Privacy Shield */
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .shield-container {
+            width: 400px;
+            height: 500px;
+            position: relative;
+            transform: rotateY(-10deg);
+        }
+
+        .shield-glass {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(82, 165, 255, 0.1), rgba(78, 226, 192, 0.1));
+            backdrop-filter: blur(20px);
+            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 60px rgba(82, 165, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lock-core {
+            font-size: 120px;
+            color: #fff;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+            animation: pulse-lock 3s infinite ease-in-out;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #4ee2c0;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #4ee2c0;
+            animation: particle-fly 4s infinite linear;
+        }
+
+        .p1 {
+            top: 20%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .p2 {
+            top: 80%;
+            left: 80%;
+            animation-delay: 1s;
+            background: #52a5ff;
+        }
+
+        .p3 {
+            top: 50%;
+            left: 0%;
+            animation-delay: 2s;
+        }
+
+        .p4 {
+            top: 10%;
+            right: 30%;
+            animation-delay: 3s;
+            background: #52a5ff;
+        }
+
+        .scan-bar {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: #fff;
+            top: 0;
+            box-shadow: 0 0 20px #fff;
+            animation: scan-vertical 2s infinite ease-in-out alternate;
+            opacity: 0.5;
+        }
+
+        @keyframes pulse-lock {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes particle-fly {
+            0% {
+                transform: translate(0, 0) scale(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(100px, -100px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes scan-vertical {
+            0% {
+                top: 0%;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="eyebrow-container">
+                <div class="eyebrow-line"></div>
+                <div class="eyebrow-text">GİZLİLİK ODAKLI</div>
+            </div>
+
+            <div class="headline">Sırların<br><span class="gradient-word">Bizimle Güvende.</span></div>
+            <div class="description">Verilerin cihazında yerel olarak şifrelenir ve saklanır. Sen istemedikçe kimse
+                göremez, biz bile.</div>
+
+            <div class="visual-container">
+                <div class="shield-container">
+                    <div class="shield-glass">
+                        <div class="scan-bar"></div>
+                        <div class="lock-core">🔒</div>
+                    </div>
+                    <div class="particle p1"></div>
+                    <div class="particle p2"></div>
+                    <div class="particle p3"></div>
+                    <div class="particle p4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #111;
+            background: radial-gradient(circle at 50% 10%, #1a1a1a 0%, #000 80%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .crystal-cluster {
+            width: 400px;
+            height: 500px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .shard {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(82, 165, 255, 0.4), rgba(78, 226, 192, 0.2));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transform-origin: bottom center;
+            clip-path: polygon(50% 0, 100% 100%, 0 100%);
+            box-shadow: 0 0 30px rgba(82, 165, 255, 0.2);
+        }
+
+        .s1 {
+            width: 100px;
+            height: 300px;
+            left: 150px;
+            transform: rotate(0deg);
+            animation: shimmer 3s infinite ease-in-out;
+        }
+
+        .s2 {
+            width: 80px;
+            height: 200px;
+            left: 80px;
+            transform: rotate(-20deg);
+            animation: shimmer 4s infinite ease-in-out;
+        }
+
+        .s3 {
+            width: 80px;
+            height: 250px;
+            left: 240px;
+            transform: rotate(15deg);
+            animation: shimmer 5s infinite ease-in-out;
+        }
+
+        .s4 {
+            width: 60px;
+            height: 150px;
+            left: 180px;
+            transform: rotate(5deg) scale(0.8);
+            animation: shimmer 2s infinite ease-in-out;
+        }
+
+        @keyframes shimmer {
+            0% {
+                opacity: 0.6;
+                box-shadow: 0 0 20px rgba(82, 165, 255, 0.2);
+            }
+
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 50px rgba(78, 226, 192, 0.5);
+            }
+
+            100% {
+                opacity: 0.6;
+                box-shadow: 0 0 20px rgba(82, 165, 255, 0.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Değerli<br><span class="gradient-word">Bilgi.</span></div>
+            <div class="visual-container">
+                <div class="crystal-cluster">
+                    <div class="shard s1"></div>
+                    <div class="shard s2"></div>
+                    <div class="shard s3"></div>
+                    <div class="shard s4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .excel-sheet {
+            width: 600px;
+            height: 500px;
+            background: #fff;
+            transform: rotateX(20deg) rotateZ(-10deg);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            border: 1px solid #ccc;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
+            font-family: monospace;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .cell {
+            border: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .c-head {
+            background: #1D6F42;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .c-val {
+            background: #f9f9f9;
+        }
+
+        .export-arrow {
+            position: absolute;
+            font-size: 150px;
+            color: #1D6F42;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: drop-shadow(0 0 30px #4ee2c0);
+            animation: pulse-arrow 2s infinite;
+        }
+
+        @keyframes pulse-arrow {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Verinin<br><span class="gradient-word">Hakimi Ol.</span></div>
+            <div class="visual-container">
+                <div class="excel-sheet">
+                    <div class="cell c-head">A</div>
+                    <div class="cell c-head">B</div>
+                    <div class="cell c-head">C</div>
+                    <div class="cell c-head">D</div>
+                    <div class="cell c-val">Tarih</div>
+                    <div class="cell c-val">Yer</div>
+                    <div class="cell c-val">Tutar</div>
+                    <div class="cell c-val">Kat.</div>
+                    <div class="cell c-val">10.02</div>
+                    <div class="cell c-val">Migros</div>
+                    <div class="cell c-val">120₺</div>
+                    <div class="cell c-val">Market</div>
+                    <div class="cell c-val">11.02</div>
+                    <div class="cell c-val">Shell</div>
+                    <div class="cell c-val">450₺</div>
+                    <div class="cell c-val">Araç</div>
+                    <div class="cell c-val">12.02</div>
+                    <div class="cell c-val">Zara</div>
+                    <div class="cell c-val">890₺</div>
+                    <div class="cell c-val">Giyim</div>
+                    <div class="cell c-val">...</div>
+                    <div class="cell c-val">...</div>
+                    <div class="cell c-val">...</div>
+                    <div class="cell c-val">...</div>
+                </div>
+                <div class="export-arrow">⬇</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

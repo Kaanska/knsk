@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 540px;
+            height: 675px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.5);
+            transform-origin: top left;
+        }
+
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header img {
+            width: 70px;
+            height: 70px;
+            filter: grayscale(1) brightness(1.5);
+        }
+
+        .header span {
+            font-size: 36px;
+            font-weight: 800;
+            color: #D4AF37;
+            letter-spacing: 4px;
+        }
+
+        .title {
+            margin-top: 300px;
+            padding: 0 80px;
+            font-size: 130px;
+            font-weight: 800;
+            color: #D4AF37;
+            line-height: 0.9;
+            letter-spacing: -5px;
+        }
+
+        .phone {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+        }
+
+        .sub {
+            margin-left: 80px;
+            font-size: 40px;
+            color: white;
+            margin-top: 20px;
+            font-weight: 300;
+        }
+
+        .badge {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #D4AF37;
+            color: black;
+            padding: 20px 60px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="header">
+            <img src="images/AppIcon.png">
+            <span>VYNTO</span>
+        </div>
+        <h1 class="title">Seçkin<br>Yönetim.</h1>
+        <p class="sub">Varlıklarını altın standartta takip et.</p>
+        <img src="images/Simulator Screenshot - iPhone 16 Pro Max - 2026-02-04 at 02.30.29.png" class="phone">
+        <div class="badge">VYNTO GOLD</div>
+    </div>
+</body>
+
+</html>

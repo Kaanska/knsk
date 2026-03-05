@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            z-index: 10;
+        }
+
+        .header img {
+            width: 70px;
+            height: 70px;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        .header span {
+            font-size: 36px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(120, 80, 255, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(50px);
+        }
+
+        .glass-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-10deg);
+            width: 700px;
+            height: 450px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 60px;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: skewX(-20deg);
+        }
+
+        .chip {
+            width: 100px;
+            height: 70px;
+            background: linear-gradient(135deg, #d4af37, #f2eab8, #c5a028);
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .card-number {
+            font-size: 42px;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 6px;
+            font-family: monospace;
+            margin-top: auto;
+        }
+
+        .card-holder {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 40px;
+        }
+
+        .card-holder div {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .title {
+            position: absolute;
+            bottom: 120px;
+            width: 100%;
+            text-align: center;
+            font-size: 80px;
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-mark {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-size: 32px;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="glow-orb"></div>
+        <div class="header">
+            <img src="images/AppIcon.png">
+            <span>VYNTO</span>
+        </div>
+
+        <div class="glass-card">
+            <div class="logo-mark">VYNTO</div>
+            <div class="chip"></div>
+            <div class="card-number">•••• •••• •••• 2026</div>
+            <div class="card-holder">
+                <div>KAAN SAKA</div>
+                <div>EXP 09/29</div>
+            </div>
+        </div>
+
+        <h1 class="title">Geleceğe<br>Yatırım Yap.</h1>
+    </div>
+</body>
+
+</html>

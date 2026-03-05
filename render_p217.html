@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .aurora {
+            position: absolute;
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(0deg, transparent, rgba(78, 226, 192, 0.1), rgba(82, 165, 255, 0.1));
+            top: 0;
+            filter: blur(50px);
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 70px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+        }
+
+        .brand-name {
+            font-size: 50px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 6px;
+            color: #52a5ff;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .headline {
+            font-size: 110px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -4px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .grad-text {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+        }
+
+        /* Central Piece: AI Presence Glow */
+        .glow-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .ai-glow-ball {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #fff 0%, #4ee2c0 30%, #52a5ff 60%, transparent 100%);
+            border-radius: 50%;
+            filter: blur(20px);
+            box-shadow: 0 0 100px rgba(78, 226, 192, 0.6), 0 0 200px rgba(82, 165, 255, 0.4);
+            animation: float-glow 5s infinite ease-in-out;
+        }
+
+        @keyframes float-glow {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+                filter: blur(20px);
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.05);
+                filter: blur(30px);
+            }
+        }
+
+        .ai-label {
+            position: absolute;
+            font-size: 40px;
+            font-weight: 900;
+            color: #000;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="aurora"></div>
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="eyebrow">AKILLI VARLIK</div>
+            <div class="headline">Sessizce Çalışan<br><span class="grad-text">Bir Deha.</span></div>
+            <div class="description">Siz hayatın tadını çıkarırken, Vynto AI arka planda finansal dengenizi korur.
+                Karmaşık hesaplamalar, sessiz bir mükemmellikte çözülür.</div>
+            <div class="glow-container">
+                <div class="ai-glow-ball"></div>
+                <div class="ai-label">AI ACTIVE</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

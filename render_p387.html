@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: linear-gradient(180deg, #000814 0%, #001d3d 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .holographic-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(94, 231, 223, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #06b6d4, transparent);
+            box-shadow: 0 0 20px #06b6d4;
+            animation: scan 4s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes scan {
+            0% {
+                top: 0%;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 20px 60px rgba(94, 231, 223, 0.5);
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, #5EE7DF 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #5EE7DF;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #5EE7DF, #06b6d4);
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(135deg, #5EE7DF, #06b6d4, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 30px rgba(94, 231, 223, 0.5));
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .holo-cards-container {
+            display: flex;
+            gap: 30px;
+            margin-top: auto;
+            margin-bottom: 100px;
+        }
+
+        .holo-card {
+            flex: 1;
+            padding: 40px 30px;
+            background: linear-gradient(135deg,
+                    rgba(94, 231, 223, 0.1) 0%,
+                    rgba(6, 182, 212, 0.05) 100%);
+            backdrop-filter: blur(20px);
+            border: 2px solid;
+            border-image: linear-gradient(135deg, #5EE7DF, #06b6d4) 1;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            animation: holoFloat 6s ease-in-out infinite;
+        }
+
+        .holo-card:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .holo-card:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .holo-card:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes holoFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .holo-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg,
+                    transparent 30%,
+                    rgba(94, 231, 223, 0.2) 50%,
+                    transparent 70%);
+            animation: holoShine 3s linear infinite;
+        }
+
+        @keyframes holoShine {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .holo-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            padding: 2px;
+            background: linear-gradient(135deg, #5EE7DF, #06b6d4);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.5;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .card-icon {
+            font-size: 64px;
+            filter: drop-shadow(0 0 20px rgba(94, 231, 223, 0.6));
+        }
+
+        .card-label {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .card-value {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #5EE7DF, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-progress {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #5EE7DF, #06b6d4);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(94, 231, 223, 0.6);
+            animation: progressGrow 2s ease-out forwards;
+        }
+
+        @keyframes progressGrow {
+            from {
+                width: 0%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="holographic-bg"></div>
+        <div class="scan-line"></div>
+        <div class="content-container">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">HEDEF TAKİBİ</div>
+                <div class="main-headline">Hedeflerini<br><span class="gradient-word">Gerçekleştir.</span></div>
+                <p class="sub-text">Finansal hedeflerini belirle, ilerlemeni holografik kartlarla takip et.</p>
+            </div>
+            <div class="holo-cards-container">
+                <div class="holo-card">
+                    <div class="card-content">
+                        <div class="card-icon">🏠</div>
+                        <div class="card-label">Ev Alımı</div>
+                        <div class="card-value">₺450K</div>
+                        <div class="card-progress">
+                            <div class="progress-bar" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="holo-card">
+                    <div class="card-content">
+                        <div class="card-icon">✈️</div>
+                        <div class="card-label">Tatil</div>
+                        <div class="card-value">₺35K</div>
+                        <div class="card-progress">
+                            <div class="progress-bar" style="width: 82%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="holo-card">
+                    <div class="card-content">
+                        <div class="card-icon">🚗</div>
+                        <div class="card-label">Araba</div>
+                        <div class="card-value">₺280K</div>
+                        <div class="card-progress">
+                            <div class="progress-bar" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

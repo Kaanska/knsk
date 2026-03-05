@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            border-radius: 2px;
+        }
+
+        .eyebrow-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        /* VISUAL: Debt Overview */
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .debt-stack {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            transform: rotateY(-10deg);
+        }
+
+        .d-card {
+            width: 450px;
+            height: 120px;
+            background: rgba(40, 45, 55, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 5px solid #ccc;
+            border-radius: 20px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            transition: all 0.5s;
+        }
+
+        .dc1 {
+            top: 0;
+            z-index: 10;
+            border-left-color: #ff6b6b;
+            transform: translateX(-50%) translateZ(60px);
+        }
+
+        .dc2 {
+            top: 140px;
+            z-index: 9;
+            border-left-color: #ffd700;
+            transform: translateX(-50%) translateZ(40px) scale(0.95);
+            opacity: 0.8;
+        }
+
+        .dc3 {
+            top: 280px;
+            z-index: 8;
+            border-left-color: #4ee2c0;
+            transform: translateX(-50%) translateZ(20px) scale(0.9);
+            opacity: 0.6;
+        }
+
+        .d-info .d-person {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .d-info .d-date {
+            color: #888;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .d-amount {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .due-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: #ff6b6b;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            animation: bounce-badge 2s infinite;
+        }
+
+        @keyframes bounce-badge {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="eyebrow-container">
+                <div class="eyebrow-line"></div>
+                <div class="eyebrow-text">BORÇ YÖNETİMİ</div>
+            </div>
+
+            <div class="headline">Kimseye<br><span class="gradient-word">Mahcup Olma.</span></div>
+            <div class="description">Arkadaşına olan borcu, kredi taksidini veya kira gününü unutma. Vynto tüm
+                borçlarını listeler ve zamanı gelince hatırlatır.</div>
+
+            <div class="visual-container">
+                <div class="debt-stack">
+                    <div class="d-card dc1">
+                        <div class="due-badge">BUGÜN!</div>
+                        <div class="d-info">
+                            <div class="d-person">Ahmet Yılmaz</div>
+                            <div class="d-date">Son Gün: 10 Şubat</div>
+                        </div>
+                        <div class="d-amount">₺2.500</div>
+                    </div>
+
+                    <div class="d-card dc2">
+                        <div class="d-info">
+                            <div class="d-person">Kredi Kartı</div>
+                            <div class="d-date">Son Gün: 15 Şubat</div>
+                        </div>
+                        <div class="d-amount">₺12.450</div>
+                    </div>
+
+                    <div class="d-card dc3">
+                        <div class="d-info">
+                            <div class="d-person">Ev Kirası</div>
+                            <div class="d-date">Son Gün: 01 Mart</div>
+                        </div>
+                        <div class="d-amount">₺25.000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

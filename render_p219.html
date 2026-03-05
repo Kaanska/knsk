@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ui-glow {
+            position: absolute;
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(82, 165, 255, 0.08) 0%, transparent 70%);
+            filter: blur(120px);
+            bottom: -200px;
+            left: -200px;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 70px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 50px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color: #52a5ff;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #52a5ff;
+            opacity: 0.5;
+        }
+
+        .headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -4px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .grad-text {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.5;
+            max-width: 800px;
+            font-weight: 500;
+        }
+
+        .prism-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        .ui-card {
+            width: 100%;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .claw-group {
+            transform: rotate(35deg);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .data-line {
+            width: 600px;
+            height: 10px;
+            background: linear-gradient(to right, transparent, #52a5ff, #4ee2c0, transparent);
+            box-shadow: 0 0 30px rgba(82, 165, 255, 0.3);
+            border-radius: 20px;
+            position: relative;
+            animation: claw-slash-alt 3.5s infinite ease-in-out;
+            opacity: 0;
+        }
+
+        .data-line:nth-child(2) {
+            margin-left: -60px;
+            width: 650px;
+            animation-delay: 0.3s;
+        }
+
+        .data-line:nth-child(3) {
+            margin-left: -30px;
+            width: 580px;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes claw-slash-alt {
+            0% {
+                transform: translateX(100%) scaleX(0.5);
+                opacity: 0;
+            }
+
+            30% {
+                transform: translateX(0) scaleX(1.1);
+                opacity: 1;
+            }
+
+            70% {
+                transform: translateX(0) scaleX(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(-100%) scaleX(0.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="ui-glow"></div>
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="eyebrow">AKILLI ANALİZ</div>
+            <div class="headline">Hızın Yeni<br><span class="grad-text">Tanımıyla Tanış.</span></div>
+            <div class="description">Verileriniz Vynto AI ile saniyeler içinde işlenir, kategorize edilir ve size net
+                bir finansal tablo sunulur. Karar vermek hiç bu kadar hızlı olmamıştı.</div>
+            <div class="prism-container">
+                <div class="ui-card">
+                    <div class="claw-group">
+                        <div class="data-line"></div>
+                        <div class="data-line"></div>
+                        <div class="data-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

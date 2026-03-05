@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            border-radius: 2px;
+        }
+
+        .eyebrow-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        /* VISUAL: Categorization Icons */
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .icon-grid {
+            width: 600px;
+            height: 400px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            gap: 30px;
+            transform: rotateX(20deg) rotateZ(-10deg);
+        }
+
+        .cat-bubble {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            animation: float-bubble 4s infinite ease-in-out;
+            position: relative;
+        }
+
+        .cb-active {
+            background: rgba(78, 226, 192, 0.1);
+            border-color: #4ee2c0;
+            box-shadow: 0 0 40px rgba(78, 226, 192, 0.3);
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .cb-name {
+            position: absolute;
+            bottom: -30px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .cb-active .cb-name {
+            opacity: 1;
+        }
+
+        .c1 {
+            animation-delay: 0s;
+        }
+
+        .c2 {
+            animation-delay: 1s;
+        }
+
+        .c3 {
+            animation-delay: 2s;
+        }
+
+        .c4 {
+            animation-delay: 0.5s;
+        }
+
+        .c5 {
+            animation-delay: 1.5s;
+        }
+
+        .c6 {
+            animation-delay: 2.5s;
+        }
+
+        @keyframes float-bubble {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="eyebrow-container">
+                <div class="eyebrow-line"></div>
+                <div class="eyebrow-text">AKILLI KATEGORİLER</div>
+            </div>
+
+            <div class="headline">Her Şeyin<br><span class="gradient-word">Bir Yeri Var.</span></div>
+            <div class="description">Ulaşım, Gıda, Fatura... Vynto harcamalarını otomatik olarak kategorilere ayırır.
+                Bütçeni yönetmek hiç bu kadar renkli olmamıştı.</div>
+
+            <div class="visual-container">
+                <div class="icon-grid">
+                    <div class="cat-bubble c1">🍕<div class="cb-name">Gıda</div>
+                    </div>
+                    <div class="cat-bubble c2">🚌<div class="cb-name">Ulaşım</div>
+                    </div>
+                    <div class="cat-bubble c3 cb-active">🎬<div class="cb-name">Eğlence</div>
+                    </div>
+                    <div class="cat-bubble c4">💊<div class="cb-name">Sağlık</div>
+                    </div>
+                    <div class="cat-bubble c5">🏡<div class="cb-name">Kira</div>
+                    </div>
+                    <div class="cat-bubble c6">👕<div class="cb-name">Giyim</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

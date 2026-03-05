@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #000000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .neon-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(0deg, rgba(255, 0, 255, 0.1) 0px, transparent 1px, transparent 40px, rgba(255, 0, 255, 0.1) 41px),
+                repeating-linear-gradient(90deg, rgba(0, 255, 255, 0.1) 0px, transparent 1px, transparent 40px, rgba(0, 255, 255, 0.1) 41px);
+            z-index: 0;
+            animation: gridPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes gridPulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .neon-glow-1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            top: 20%;
+            right: -200px;
+            background: radial-gradient(circle, rgba(255, 0, 255, 0.3) 0%, transparent 70%);
+            filter: blur(100px);
+            z-index: 1;
+        }
+
+        .neon-glow-2 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            bottom: 10%;
+            left: -200px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, transparent 70%);
+            filter: blur(100px);
+            z-index: 1;
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, #0ff 0%, #f0f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.6));
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #0ff;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #0ff, #f0f);
+            display: block;
+            box-shadow: 0 0 10px #0ff;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        .gradient-word {
+            background: linear-gradient(135deg, #0ff, #f0f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 40px rgba(255, 0, 255, 0.8));
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .neon-dashboard {
+            width: 100%;
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            border: 2px solid;
+            border-image: linear-gradient(135deg, #0ff, #f0f) 1;
+            border-radius: 40px;
+            margin-top: auto;
+            margin-bottom: 100px;
+            position: relative;
+            box-shadow:
+                0 0 60px rgba(0, 255, 255, 0.3),
+                inset 0 0 40px rgba(0, 255, 255, 0.1);
+        }
+
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border: 3px solid #0ff;
+            border-radius: 50%;
+            animation: pulseExpand 3s ease-out infinite;
+        }
+
+        @keyframes pulseExpand {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(2);
+                opacity: 0;
+            }
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric-box {
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
+            animation: neonSweep 3s linear infinite;
+        }
+
+        @keyframes neonSweep {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .metric-label {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .metric-value {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0ff, #f0f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+        }
+
+        .metric-trend {
+            font-size: 20px;
+            color: #0ff;
+            font-weight: 700;
+            margin-top: 8px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+
+        .center-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.4), transparent);
+            animation: centerPulse 2s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes centerPulse {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="neon-grid"></div>
+        <div class="neon-glow-1"></div>
+        <div class="neon-glow-2"></div>
+        <div class="content-container">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">CANLI DASHBOARD</div>
+                <div class="main-headline">Finansın<br><span class="gradient-word">Nabzında.</span></div>
+                <p class="sub-text">Gerçek zamanlı verilerle finansal durumunu anlık takip et.</p>
+            </div>
+            <div class="neon-dashboard">
+                <div class="pulse-ring"></div>
+                <div class="center-pulse"></div>
+                <div class="dashboard-grid">
+                    <div class="metric-box">
+                        <div class="metric-label">Günlük Harcama</div>
+                        <div class="metric-value">₺1.245</div>
+                        <div class="metric-trend">↓ %12</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Aylık Gelir</div>
+                        <div class="metric-value">₺42.5K</div>
+                        <div class="metric-trend">↑ %8</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Tasarruf Oranı</div>
+                        <div class="metric-value">%34</div>
+                        <div class="metric-trend">↑ %5</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Aktif Hedef</div>
+                        <div class="metric-value">7</div>
+                        <div class="metric-trend">→ Stabil</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #ff6b6b, #ff4757);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .sniper-scope {
+            width: 500px;
+            height: 500px;
+            border: 4px solid rgba(255, 107, 107, 0.6);
+            border-radius: 50%;
+            position: relative;
+            background: radial-gradient(circle, transparent 40%, rgba(255, 107, 107, 0.1) 60%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .crosshair {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .ch-h {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 107, 107, 0.6);
+            top: 50%;
+            position: absolute;
+        }
+
+        .ch-v {
+            height: 100%;
+            width: 2px;
+            background: rgba(255, 107, 107, 0.6);
+            left: 50%;
+            position: absolute;
+        }
+
+        .target-box {
+            position: absolute;
+            border: 2px dashed #ff6b6b;
+            padding: 10px 20px;
+            color: #ff6b6b;
+            font-family: monospace;
+            font-size: 20px;
+            font-weight: 800;
+            top: 55%;
+            left: 55%;
+            animation: lock-on 2s infinite alternate;
+        }
+
+        .waste-item {
+            font-size: 80px;
+            opacity: 0.8;
+            filter: grayscale(0.5) contrast(1.5);
+        }
+
+        @keyframes lock-on {
+            0% {
+                transform: scale(1);
+                border-color: #ff6b6b;
+            }
+
+            100% {
+                transform: scale(0.9);
+                border-color: #fff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Gereksizleri<br><span class="gradient-word">Yok Et.</span></div>
+            <div class="visual-container">
+                <div class="sniper-scope">
+                    <div class="crosshair">
+                        <div class="ch-h"></div>
+                        <div class="ch-v"></div>
+                    </div>
+                    <div class="waste-item">💸</div>
+                    <div class="target-box">TARGET: WASTE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            border-radius: 2px;
+        }
+
+        .eyebrow-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        /* VISUAL: Savings Pot */
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .savings-pot {
+            width: 350px;
+            height: 350px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            position: relative;
+            transform: rotateX(10deg);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .pot-fill {
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(78, 226, 192, 0.4), rgba(78, 226, 192, 0.6));
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            animation: fill-up 3s ease-in-out infinite alternate;
+        }
+
+        .pot-lid {
+            width: 340px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            position: absolute;
+            top: -10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10;
+        }
+
+        .coin-drop {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, gold, orange);
+            border-radius: 50%;
+            box-shadow: 0 0 20px gold;
+            top: -100px;
+            animation: drop-coin 2s infinite ease-in;
+        }
+
+        .goal-label {
+            position: absolute;
+            bottom: 30px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 15;
+            text-align: center;
+        }
+
+        @keyframes fill-up {
+            0% {
+                height: 60%;
+            }
+
+            100% {
+                height: 70%;
+            }
+        }
+
+        @keyframes drop-coin {
+            0% {
+                top: -100px;
+                opacity: 1;
+            }
+
+            60% {
+                top: 180px;
+                opacity: 1;
+            }
+
+            100% {
+                top: 200px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="eyebrow-container">
+                <div class="eyebrow-line"></div>
+                <div class="eyebrow-text">BİRİKİM HEDEFİ</div>
+            </div>
+
+            <div class="headline">Damla Damla<br><span class="gradient-word">Birikim.</span></div>
+            <div class="description">İster tatil ister yeni bir araba için. Küçük hedefler oluştur, kumbaranı her gün
+                azar azar doldur.</div>
+
+            <div class="visual-container">
+                <div class="savings-pot">
+                    <div class="pot-lid"></div>
+                    <div class="pot-fill"></div>
+                    <div class="coin-drop"></div>
+                    <div class="goal-label">TATİL FONU<br>₺12.450</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

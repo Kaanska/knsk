@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #001f3f;
+            background: linear-gradient(135deg, #001f3f 0%, #000 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sub-head {
+            color: #52a5ff;
+            font-size: 24px;
+            text-align: center;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .blueprint {
+            width: 500px;
+            height: 600px;
+            position: relative;
+            background: repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(82, 165, 255, 0.2) 20px),
+                repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(82, 165, 255, 0.2) 20px);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 50px;
+        }
+
+        .tower-outline {
+            width: 100px;
+            height: 0;
+            border: 2px solid #52a5ff;
+            margin: 0 10px;
+            position: relative;
+            animation: build-up 3s infinite ease-out;
+            box-shadow: 0 0 10px rgba(82, 165, 255, 0.5);
+        }
+
+        .t1 {
+            animation-delay: 0s;
+            max-height: 200px;
+        }
+
+        .t2 {
+            animation-delay: 0.5s;
+            max-height: 350px;
+        }
+
+        .t3 {
+            animation-delay: 1s;
+            max-height: 500px;
+        }
+
+        .t4 {
+            animation-delay: 1.5s;
+            max-height: 250px;
+        }
+
+        .measure-line {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #52a5ff;
+            border-style: dashed;
+            opacity: 0.5;
+        }
+
+        @keyframes build-up {
+            0% {
+                height: 0;
+                opacity: 0;
+            }
+
+            100% {
+                height: var(--h);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">İnşa Et.</div>
+            <div class="sub-head">Geleceğin Mimarisi</div>
+            <div class="visual-container">
+                <div class="blueprint">
+                    <div class="measure-line"></div>
+                    <div class="tower-outline t1" style="--h: 200px"></div>
+                    <div class="tower-outline t2" style="--h: 350px"></div>
+                    <div class="tower-outline t3" style="--h: 500px"></div>
+                    <div class="tower-outline t4" style="--h: 250px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

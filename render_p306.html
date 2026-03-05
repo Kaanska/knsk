@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .invest-stage {
+            width: 600px;
+            height: 600px;
+            position: relative;
+            transform: rotateX(20deg);
+        }
+
+        .chart-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 20px);
+        }
+
+        .stock-line {
+            position: absolute;
+            bottom: 100px;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(to top, rgba(78, 226, 192, 0.2), transparent);
+            clip-path: polygon(0 100%, 10% 80%, 20% 85%, 30% 60%, 40% 70%, 50% 40%, 60% 50%, 70% 20%, 80% 30%, 90% 10%, 100% 0, 100% 100%);
+            border-top: 4px solid #4ee2c0;
+            box-shadow: 0 0 50px rgba(78, 226, 192, 0.4);
+            animation: grow-chart 3s ease-in-out;
+        }
+
+        .bull-icon {
+            font-size: 100px;
+            color: #4ee2c0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: drop-shadow(0 0 30px #4ee2c0);
+            animation: float-bull 4s infinite ease-in-out;
+        }
+
+        .market-up {
+            position: absolute;
+            top: 100px;
+            right: 50px;
+            color: #4ee2c0;
+            font-weight: 800;
+            font-size: 32px;
+            animation: bounce-up 1s infinite alternate;
+        }
+
+        @keyframes grow-chart {
+            0% {
+                height: 0;
+                opacity: 0;
+            }
+
+            100% {
+                height: 300px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce-up {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes float-bull {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) rotate(-5deg);
+            }
+
+            50% {
+                transform: translate(-50%, -60%) rotate(5deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="headline">Geleceği<br><span class="gradient-word">Yakala.</span></div>
+
+            <div class="visual-container">
+                <div class="invest-stage">
+                    <div class="chart-bg"></div>
+                    <div class="stock-line"></div>
+                    <div class="bull-icon">📈</div>
+                    <div class="market-up">▲ %12.4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

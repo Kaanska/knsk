@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 540px;
+            height: 675px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.5);
+            transform-origin: top left;
+        }
+
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header img {
+            width: 70px;
+            height: 70px;
+            filter: grayscale(1) brightness(1.5);
+        }
+
+        .header span {
+            font-size: 36px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 4px;
+        }
+
+        .title {
+            margin-top: 350px;
+            padding: 0 80px;
+            font-size: 120px;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+        }
+
+        .stars {
+            font-size: 60px;
+            color: #FFD700;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .phone-group {
+            display: flex;
+            justify-content: center;
+            gap: -150px;
+            margin-top: 50px;
+        }
+
+        .phone {
+            width: 500px;
+            border-radius: 60px;
+            box-shadow: 0 100px 100px rgba(0, 0, 0, 0.8);
+        }
+
+        .badge {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            color: black;
+            padding: 20px 40px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="header">
+            <img src="images/AppIcon.png">
+            <span>VYNTO</span>
+        </div>
+        <div class="title">Favori Finans<br>Asistanın.</div>
+        <div class="stars">★★★★★</div>
+        <div class="phone-group">
+            <img src="images/Simulator Screenshot - iPhone 16 Pro Max - 2026-02-04 at 02.30.29.png" class="phone"
+                style="transform: rotate(-10deg) translateX(100px); opacity:0.6;">
+            <img src="images/Simulator Screenshot - iPhone 16 Pro Max - 2026-02-04 at 02.29.58.png" class="phone"
+                style="z-index:2;">
+            <img src="images/Simulator Screenshot - iPhone 16 Pro Max - 2026-02-04 at 02.31.54.png" class="phone"
+                style="transform: rotate(10deg) translateX(-100px); opacity:0.6;">
+        </div>
+        <div class="badge"> App Store'dan İndirin</div>
+    </div>
+</body>
+
+</html>

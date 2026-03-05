@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: linear-gradient(180deg, #0a3d4a 0%, #051923 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hexagon-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(30deg, rgba(94, 231, 223, 0.02) 0px, transparent 2px, transparent 10px, rgba(94, 231, 223, 0.02) 12px),
+                repeating-linear-gradient(150deg, rgba(94, 231, 223, 0.02) 0px, transparent 2px, transparent 10px, rgba(94, 231, 223, 0.02) 12px);
+            z-index: 0;
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 80px;
+        }
+
+        .logo-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(10, 20, 30, 0.6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .check-mark {
+            font-size: 32px;
+            color: #5EE7DF;
+            font-weight: 800;
+        }
+
+        .brand-text {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #5EE7DF;
+        }
+
+        .text-section {
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #5EE7DF;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #5EE7DF;
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            color: #5EE7DF;
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.4;
+        }
+
+        .timeline {
+            margin-top: auto;
+            margin-bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 30px 40px;
+            background: rgba(10, 37, 64, 0.3);
+            backdrop-filter: blur(20px);
+            border-left: 4px solid #5EE7DF;
+            border-radius: 20px;
+        }
+
+        .timeline-icon {
+            font-size: 48px;
+            filter: drop-shadow(0 0 15px rgba(94, 231, 223, 0.6));
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-size: 28px;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="hexagon-pattern"></div>
+        <div class="content-container">
+            <div class="header">
+                <div class="logo-icon">
+                    <div class="check-mark">✓</div>
+                </div>
+                <div class="brand-text">VYNTO</div>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">ADIM ADIM</div>
+                <div class="main-headline">Finansal<br><span class="gradient-word">Yolculuk.</span></div>
+                <p class="sub-text">Her adımda yanında. Hedeflerine doğru ilerle.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">📝</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Bütçe Oluştur</div>
+                        <div class="timeline-desc">Aylık harcama limitlerini belirle</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">📊</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Takip Et</div>
+                        <div class="timeline-desc">Gelir ve giderlerini kaydet</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">🎯</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Hedefle</div>
+                        <div class="timeline-desc">Tasarruf hedeflerine ulaş</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

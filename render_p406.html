@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: linear-gradient(180deg, #000814 0%, #001d3d 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pulse-circle {
+            position: absolute;
+            border: 2px solid rgba(94, 231, 223, 0.3);
+            border-radius: 50%;
+            animation: circlePulse 4s ease-out infinite;
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .circle-2 {
+            width: 500px;
+            height: 500px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 1s;
+        }
+
+        .circle-3 {
+            width: 700px;
+            height: 700px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 2s;
+        }
+
+        @keyframes circlePulse {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0a2540, #1a3a52);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(94, 231, 223, 0.3);
+        }
+
+        .check-mark {
+            font-size: 48px;
+            background: linear-gradient(135deg, #5EE7DF, #06b6d4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .brand-text {
+            font-size: 64px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #5EE7DF;
+            text-shadow: 0 0 30px rgba(94, 231, 223, 0.5);
+        }
+
+        .text-section {
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #5EE7DF;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #5EE7DF, #06b6d4);
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(135deg, #5EE7DF, #06b6d4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+
+        .sync-container {
+            margin-top: auto;
+            margin-bottom: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sync-device {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .device-icon {
+            font-size: 80px;
+            filter: drop-shadow(0 0 20px rgba(94, 231, 223, 0.6));
+        }
+
+        .device-label {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        .sync-arrow {
+            font-size: 56px;
+            color: #5EE7DF;
+            animation: arrowPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes arrowPulse {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="pulse-circle circle-1"></div>
+        <div class="pulse-circle circle-2"></div>
+        <div class="pulse-circle circle-3"></div>
+        <div class="content-container">
+            <div class="header">
+                <div class="logo-icon">
+                    <div class="check-mark">✓</div>
+                </div>
+                <div class="brand-text">VYNTO</div>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">SENKRONIZASYON</div>
+                <div class="main-headline">Tüm Cihazlar<br><span class="gradient-word">Senkron.</span></div>
+                <p class="sub-text">iPhone, iPad, Mac - her cihazda güncel veriler. iCloud ile otomatik senkronizasyon.
+                </p>
+            </div>
+            <div class="sync-container">
+                <div class="sync-device">
+                    <div class="device-icon">📱</div>
+                    <div class="device-label">iPhone</div>
+                </div>
+                <div class="sync-arrow">⟷</div>
+                <div class="sync-device">
+                    <div class="device-icon">💻</div>
+                    <div class="device-label">iPad</div>
+                </div>
+                <div class="sync-arrow">⟷</div>
+                <div class="sync-device">
+                    <div class="device-icon">🖥️</div>
+                    <div class="device-label">Mac</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

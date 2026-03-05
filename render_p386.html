@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #000000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .grid-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .neural-glow {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: 1;
+            animation: breathe 4s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.5;
+            }
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 20px 60px rgba(6, 182, 212, 0.5);
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, #5EE7DF 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #06b6d4;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #06b6d4, #14b8a6);
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(135deg, #06b6d4, #5EE7DF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .neural-card {
+            width: 100%;
+            padding: 50px;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 40px;
+            margin-top: auto;
+            margin-bottom: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neural-network {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .neural-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+        }
+
+        .node-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(20, 184, 166, 0.2));
+            border: 2px solid #06b6d4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+            animation: nodePulse 3s ease-in-out infinite;
+        }
+
+        .node-circle::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #06b6d4;
+            animation: ripple 2s ease-out infinite;
+        }
+
+        @keyframes nodePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 40px rgba(6, 182, 212, 0.6);
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .node-circle:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .node-circle:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .node-circle:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .node-label {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .node-value {
+            font-size: 28px;
+            color: #5EE7DF;
+            font-weight: 800;
+        }
+
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, #06b6d4, transparent);
+            top: 50%;
+            left: 50%;
+            transform-origin: left center;
+            opacity: 0.4;
+            animation: dataFlow 2s ease-in-out infinite;
+        }
+
+        @keyframes dataFlow {
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .ai-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #06b6d4, #14b8a6);
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="grid-bg"></div>
+        <div class="neural-glow"></div>
+        <div class="content-container">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">AKILLI ANALİZ</div>
+                <div class="main-headline">AI ile<br><span class="gradient-word">Bütçe Analizi.</span></div>
+                <p class="sub-text">Yapay zeka destekli analiz ile harcama alışkanlıklarını keşfet.</p>
+            </div>
+            <div class="neural-card">
+                <div class="ai-badge">AI Powered</div>
+                <div class="neural-network">
+                    <div class="neural-node">
+                        <div class="node-circle">🎯</div>
+                        <div class="node-label">Hedef Takibi</div>
+                        <div class="node-value">%87</div>
+                    </div>
+                    <div class="neural-node">
+                        <div class="node-circle">📊</div>
+                        <div class="node-label">Analiz Skoru</div>
+                        <div class="node-value">9.2/10</div>
+                    </div>
+                    <div class="neural-node">
+                        <div class="node-circle">💡</div>
+                        <div class="node-label">Tasarruf Önerisi</div>
+                        <div class="node-value">₺3.2K</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

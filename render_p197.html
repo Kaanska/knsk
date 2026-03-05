@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 1000px;
+            height: 1000px;
+            top: -300px;
+            right: -300px;
+            background: radial-gradient(circle, #667eea 0%, #764ba2 100%);
+        }
+
+        .blob-2 {
+            width: 800px;
+            height: 800px;
+            bottom: -200px;
+            left: -200px;
+            background: radial-gradient(circle, #2af598 0%, #009efd 100%);
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: white;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #667eea;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: #667eea;
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .forecast-card {
+            width: 100%;
+            padding: 60px;
+            background: rgba(25, 25, 25, 0.4);
+            backdrop-filter: blur(60px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 60px;
+            margin-top: auto;
+            margin-bottom: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .f-graph {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            height: 150px;
+        }
+
+        .f-bar {
+            width: 30px;
+            background: #667eea;
+            border-radius: 10px 10px 0 0;
+            opacity: 0.3;
+        }
+
+        .f-bar-active {
+            opacity: 1;
+            background: linear-gradient(to top, #667eea, #764ba2);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="content-container">
+            <div class="header"><img src="images/AppIcon.png" class="app-icon"><span class="brand-name">VYNTO</span>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">GELECEK ÖNGÖRÜSÜ</div>
+                <div class="main-headline">Paranın Zaman<br><span class="gradient-word">Makinesi: AI.</span></div>
+                <p class="sub-text">Bugünkü harcamalarınız yarınki bakiyenizi nasıl etkileyecek? Vynto'nun yapay zekası
+                    finansal geleceğinizi bugünden söyler.</p>
+            </div>
+            <div class="forecast-card">
+                <div style="flex:1;">
+                    <div style="font-size:32px; font-weight:800; color:white; margin-bottom:10px;">Gelecek Ay Tahmini
+                    </div>
+                    <div style="color:#667eea; font-size:24px; font-weight:600;">₺4.200 Daha Fazla Birikim</div>
+                </div>
+                <div class="f-graph">
+                    <div class="f-bar" style="height:40px;"></div>
+                    <div class="f-bar" style="height:60px;"></div>
+                    <div class="f-bar" style="height:50px;"></div>
+                    <div class="f-bar f-bar-active" style="height:120px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

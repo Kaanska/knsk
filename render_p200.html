@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 1000px;
+            height: 1000px;
+            top: -300px;
+            right: -300px;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+        }
+
+        .blob-2 {
+            width: 800px;
+            height: 800px;
+            bottom: -200px;
+            left: -200px;
+            background: linear-gradient(135deg, #1fa2ff 0%, #12d8fa 100%);
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: white;
+            background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #f6d365;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: #f6d365;
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 110px;
+            font-weight: 800;
+            line-height: 0.9;
+            letter-spacing: -4px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #f6d365, #fda085);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .milestone-card {
+            width: 100%;
+            padding: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px);
+            border: 2px solid #f6d365;
+            border-radius: 60px;
+            margin-top: auto;
+            margin-bottom: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-shadow: 0 0 20px rgba(246, 211, 101, 0.3);
+        }
+
+        .m-val {
+            font-size: 140px;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+
+        .m-sub {
+            font-size: 40px;
+            font-weight: 700;
+            color: #f6d365;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="content-container">
+            <div class="header"><img src="images/AppIcon.png" class="app-icon"><span class="brand-name">VYNTO</span>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">MILESTONE ACHIEVED</div>
+                <div class="main-headline">Sizin İçin<br><span class="gradient-word">200 Senaryo.</span></div>
+                <p class="sub-text">Vynto topluluğu büyüyor! Her biri özenle tasarlanmış 200 farklı finansal senaryo ile
+                    yanınızdayız.</p>
+            </div>
+            <div class="milestone-card">
+                <div class="m-val">200</div>
+                <div class="m-sub">POST & SENARYO</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 85% 15%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+        }
+
+        .brand-name {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            border-radius: 2px;
+        }
+
+        .eyebrow-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+        }
+
+        /* MULTI-CARD STACK VISUAL */
+        .card-stack {
+            position: relative;
+            width: 600px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-mockup {
+            width: 320px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-radius: 60px;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            overflow: hidden;
+        }
+
+        .notif-bubble {
+            position: absolute;
+            width: 450px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            z-index: 10;
+            animation: bounce-in 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0;
+        }
+
+        .notif-1 {
+            top: 100px;
+            right: -150px;
+            animation-delay: 0.2s;
+        }
+
+        .notif-2 {
+            top: 250px;
+            left: -150px;
+            animation-delay: 0.5s;
+        }
+
+        .notif-3 {
+            top: 400px;
+            right: -80px;
+            animation-delay: 0.8s;
+        }
+
+        .n-icon {
+            width: 60px;
+            height: 60px;
+            background: #4ee2c0;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 0 20px rgba(78, 226, 192, 0.3);
+        }
+
+        .n-text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .n-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .n-desc {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes bounce-in {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="eyebrow-container">
+                <div class="eyebrow-line"></div>
+                <div class="eyebrow-text">GÜÇLÜ HABERDAR</div>
+            </div>
+
+            <div class="headline">Asla Geç<br><span class="gradient-word">Kalmayın.</span></div>
+            <div class="description">Ödemeleriniz, hedefleriniz ve bütçeniz kontrol altında. Vynto akıllı bildirim
+                sistemiyle finansal dünyanızda olup biten her şeyden anında haberdar olursunuz.</div>
+
+            <div class="visual-container">
+                <div class="card-stack">
+                    <div class="phone-mockup"></div>
+                    <div class="notif-bubble notif-1">
+                        <div class="n-icon">📌</div>
+                        <div class="n-text"><span class="n-title">Ödeme Hatırlatıcı</span><span class="n-desc">Kira
+                                ödemeniz için son 1 gün.</span></div>
+                    </div>
+                    <div class="notif-bubble notif-2">
+                        <div class="n-icon" style="background: #52a5ff;">🚨</div>
+                        <div class="n-text"><span class="n-title">Bütçe Uyarısı</span><span class="n-desc">Gıda
+                                bütçenizin %90'ına ulaştınız.</span></div>
+                    </div>
+                    <div class="notif-bubble notif-3">
+                        <div class="n-icon" style="background: #4ee2c0;">🏆</div>
+                        <div class="n-text"><span class="n-title">Hedef Başarısı</span><span class="n-desc">Tasarruf
+                                hedefinizi tamamladınız!</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

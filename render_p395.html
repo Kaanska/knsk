@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: linear-gradient(180deg, #0a3d4a 0%, #051923 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .wave-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 300px;
+            background: linear-gradient(90deg, transparent, rgba(94, 231, 223, 0.08), transparent);
+            animation: waveMove 8s linear infinite;
+        }
+
+        .wave-1 {
+            top: 20%;
+            animation-delay: 0s;
+        }
+
+        .wave-2 {
+            top: 50%;
+            animation-delay: 2s;
+            opacity: 0.7;
+        }
+
+        .wave-3 {
+            top: 80%;
+            animation-delay: 4s;
+            opacity: 0.5;
+        }
+
+        @keyframes waveMove {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(94, 231, 223, 0.15) 0%, transparent 70%);
+            filter: blur(100px);
+            animation: orbPulse 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes orbPulse {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.5;
+            }
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 80px;
+        }
+
+        .logo-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(10, 20, 30, 0.6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .check-mark {
+            font-size: 32px;
+            color: #5EE7DF;
+            font-weight: 800;
+        }
+
+        .brand-text {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #5EE7DF;
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #5EE7DF;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #5EE7DF;
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            color: #5EE7DF;
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: auto;
+            margin-bottom: 100px;
+        }
+
+        .feature-card {
+            padding: 35px;
+            background: rgba(10, 37, 64, 0.3);
+            backdrop-filter: blur(30px);
+            border: 2px solid rgba(94, 231, 223, 0.2);
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(94, 231, 223, 0.1), transparent);
+            animation: cardShine 3s linear infinite;
+        }
+
+        @keyframes cardShine {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .feature-icon {
+            font-size: 56px;
+            filter: drop-shadow(0 0 20px rgba(94, 231, 223, 0.6));
+        }
+
+        .feature-title {
+            font-size: 22px;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .feature-desc {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="wave-bg">
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
+            <div class="wave wave-3"></div>
+        </div>
+        <div class="glow-orb"></div>
+        <div class="content-container">
+            <div class="header">
+                <div class="logo-icon">
+                    <div class="check-mark">✓</div>
+                </div>
+                <div class="brand-text">VYNTO</div>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">HER ŞEY BİR ARADA</div>
+                <div class="main-headline">Finansını<br><span class="gradient-word">Kontrol Et.</span></div>
+                <p class="sub-text">Gelir, gider, bütçe, hedef - hepsini tek yerden yönet.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-title">Akıllı Bütçe</div>
+                    <div class="feature-desc">Otomatik kategori analizi</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Canlı Raporlar</div>
+                    <div class="feature-desc">Gerçek zamanlı grafikler</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">Hedef Takibi</div>
+                    <div class="feature-desc">İlerleme görselleştirme</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

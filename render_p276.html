@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            border-radius: 2px;
+        }
+
+        .eyebrow-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        /* VISUAL: Cashback Magnet */
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .magnet-core {
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 4px solid #4ee2c0;
+            border-radius: 50% 50% 0 0;
+            border-bottom: none;
+            position: relative;
+            transform: rotate(180deg);
+            box-shadow: 0 -20px 60px rgba(78, 226, 192, 0.4);
+            display: flex;
+            justify-content: center;
+        }
+
+        .m-tip {
+            position: absolute;
+            bottom: 0;
+            width: 60px;
+            height: 80px;
+            background: #4ee2c0;
+            box-shadow: 0 0 40px #4ee2c0;
+        }
+
+        .m-left {
+            left: 0;
+            border-radius: 0 0 0 20px;
+        }
+
+        .m-right {
+            right: 0;
+            border-radius: 0 0 20px 0;
+        }
+
+        .coin-rain {
+            position: absolute;
+            top: -200px;
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .coin {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, gold, orange);
+            border-radius: 50%;
+            box-shadow: 0 0 20px gold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b8860b;
+            font-weight: 900;
+            animation: fall-up 2s infinite ease-in;
+        }
+
+        .c-icon {
+            font-size: 24px;
+        }
+
+        .c1 {
+            animation-delay: 0s;
+            left: 10px;
+        }
+
+        .c2 {
+            animation-delay: 0.5s;
+            left: 50px;
+            background: radial-gradient(circle, #52a5ff, #0056b3);
+            box-shadow: 0 0 20px #52a5ff;
+            color: #fff;
+        }
+
+        .c3 {
+            animation-delay: 1.2s;
+            left: -30px;
+        }
+
+        .return-val {
+            position: absolute;
+            top: 200px;
+            font-size: 60px;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+            transform: rotate(180deg);
+        }
+
+        @keyframes fall-up {
+            0% {
+                transform: translateY(400px) scale(0.5);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(50px) scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="eyebrow-container">
+                <div class="eyebrow-line"></div>
+                <div class="eyebrow-text">ANINDA NAKİT İADE</div>
+            </div>
+
+            <div class="headline">Harcarken<br><span class="gradient-word">Kazan.</span></div>
+            <div class="description">Anlaşmalı markalarda yapacağın her harcamanın bir kısmı anında hesabına geri döner.
+                Vynto ile alışveriş keyfi ikiye katlanır.</div>
+
+            <div class="visual-container">
+                <div class="magnet-core">
+                    <div class="m-tip m-left"></div>
+                    <div class="m-tip m-right"></div>
+                    <div class="coin-rain">
+                        <div class="coin c1"><span class="c-icon">₺</span></div>
+                        <div class="coin c2"><span class="c-icon">%</span></div>
+                        <div class="coin c3"><span class="c-icon">₺</span></div>
+                    </div>
+                    <div class="return-val">+₺1.250</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

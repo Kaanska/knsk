@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            border-radius: 2px;
+        }
+
+        .eyebrow-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        /* VISUAL: Receipt Analysis */
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .receipt-stage {
+            width: 500px;
+            height: 620px;
+            position: relative;
+            transform: rotateY(-5deg);
+        }
+
+        .paper-r {
+            position: absolute;
+            width: 350px;
+            height: 500px;
+            background: #fff;
+            border-radius: 10px;
+            top: 50px;
+            left: 0;
+            padding: 30px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            font-family: 'Courier New', monospace;
+            z-index: 5;
+            transform: rotateZ(-5deg);
+        }
+
+        .line-r {
+            height: 10px;
+            background: #ddd;
+            margin-bottom: 15px;
+            border-radius: 2px;
+        }
+
+        .line-w1 {
+            width: 80%;
+        }
+
+        .line-w2 {
+            width: 40%;
+        }
+
+        .digital-r {
+            position: absolute;
+            width: 400px;
+            height: 450px;
+            background: rgba(20, 25, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(82, 165, 255, 0.4);
+            border-radius: 20px;
+            top: 100px;
+            right: -50px;
+            z-index: 10;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transform: rotateZ(5deg) scale(1.1);
+            animation: digital-pop 5s infinite ease-in-out;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .d-head {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .d-val {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        .scan-laser {
+            position: absolute;
+            top: 50%;
+            left: -20%;
+            width: 140%;
+            height: 4px;
+            background: #52a5ff;
+            box-shadow: 0 0 30px #52a5ff;
+            z-index: 15;
+            animation: laser-sweep 2s infinite alternate ease-in-out;
+            transform: rotate(-10deg);
+        }
+
+        @keyframes laser-sweep {
+            0% {
+                top: 20%;
+                opacity: 0.5;
+            }
+
+            100% {
+                top: 80%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes digital-pop {
+
+            0%,
+            100% {
+                transform: rotateZ(5deg) scale(1.1);
+            }
+
+            50% {
+                transform: rotateZ(5deg) scale(1.15);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="eyebrow-container">
+                <div class="eyebrow-line"></div>
+                <div class="eyebrow-text">FİŞ TARAMA</div>
+            </div>
+
+            <div class="headline">Tarat ve<br><span class="gradient-word">Unut.</span></div>
+            <div class="description">Market, restoran, benzin... Yüzlerce fişi tek tek girmekle uğraşma. Fotoğrafını
+                çek, Vynto saniyeler içinde kaydetsin.</div>
+
+            <div class="visual-container">
+                <div class="receipt-stage">
+                    <div class="paper-r">
+                        <div class="line-r line-w1"></div>
+                        <div class="line-r line-w1"></div>
+                        <div class="line-r line-w2"></div>
+                        <div class="line-r line-w1"></div>
+                        <div class="line-r line-w1"></div>
+                    </div>
+                    <div class="scan-laser"></div>
+
+                    <div class="digital-r">
+                        <div class="data-row">
+                            <div>
+                                <div class="d-head">İŞ YERİ</div>
+                                <div class="d-val">Starbucks</div>
+                            </div>
+                            <div style="font-size:30px;">☕</div>
+                        </div>
+                        <div class="data-row">
+                            <div>
+                                <div class="d-head">TARİH</div>
+                                <div class="d-val">10 Şub 2026</div>
+                            </div>
+                        </div>
+                        <div class="data-row" style="border:none;">
+                            <div>
+                                <div class="d-head">TUTAR</div>
+                                <div class="d-val" style="font-size:32px; color:#4ee2c0;">₺145.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

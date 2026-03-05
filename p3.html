@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 540px;
+            height: 675px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.5);
+            transform-origin: top left;
+        }
+
+        .grid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(#222 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.5;
+        }
+
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header img {
+            width: 70px;
+            height: 70px;
+            filter: grayscale(1) brightness(1.5);
+        }
+
+        .header span {
+            font-size: 36px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 4px;
+        }
+
+        .title {
+            margin-top: 250px;
+            padding: 0 80px;
+            font-size: 100px;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 80px;
+            margin-top: 50px;
+        }
+
+        .card {
+            width: 440px;
+            height: 280px;
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card p {
+            color: #888;
+            font-size: 32px;
+            font-weight: 500;
+        }
+
+        .badge {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1px solid white;
+            color: white;
+            padding: 20px 60px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="grid"></div>
+        <div class="header">
+            <img src="images/AppIcon.png">
+            <span>VYNTO</span>
+        </div>
+        <h1 class="title">Bütün Verilerin<br>Tek Panelde.</h1>
+        <div class="card-container">
+            <div class="card">
+                <p>Harcamalar</p>
+            </div>
+            <div class="card">
+                <p>Yatırımlar</p>
+            </div>
+            <div class="card">
+                <p>Birikimler</p>
+            </div>
+            <div class="card">
+                <p>Analizler</p>
+            </div>
+        </div>
+        <div class="badge">KONTROLÜ ELE AL</div>
+    </div>
+</body>
+
+</html>

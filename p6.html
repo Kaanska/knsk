@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 540px;
+            height: 675px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.5);
+            transform-origin: top left;
+        }
+
+        .split {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .side {
+            width: 50%;
+            height: 100%;
+            float: left;
+            padding: 100px 60px;
+        }
+
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            z-index: 100;
+        }
+
+        .header img {
+            width: 70px;
+            height: 70px;
+            filter: grayscale(1) brightness(1.5);
+        }
+
+        .side.left {
+            background: #0a0a0a;
+            color: #555;
+        }
+
+        .side.right {
+            background: #000;
+            color: white;
+        }
+
+        .title-small {
+            font-size: 40px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .title-big {
+            font-size: 90px;
+            font-weight: 800;
+        }
+
+        .phone {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="header">
+            <img src="images/AppIcon.png">
+        </div>
+        <div class="split"></div>
+        <div class="side left">
+            <p class="title-small">Dün</p>
+            <h2 class="title-big">Karmaşa.</h2>
+        </div>
+        <div class="side right" style="text-align:right;">
+            <p class="title-small">Bugün</p>
+            <h2 class="title-big">Vynto.</h2>
+        </div>
+        <img src="images/Simulator Screenshot - iPhone 16 Pro Max - 2026-02-04 at 02.29.58.png" class="phone">
+    </div>
+</body>
+
+</html>

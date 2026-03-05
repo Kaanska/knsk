@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .rain-scene {
+            position: relative;
+            width: 400px;
+            height: 500px;
+        }
+
+        .rain-drop {
+            width: 3px;
+            height: 30px;
+            background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+            position: absolute;
+            top: -50px;
+            animation: rain 1s infinite linear;
+        }
+
+        .r1 {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .r2 {
+            left: 30%;
+            animation-delay: 0.2s;
+        }
+
+        .r3 {
+            left: 50%;
+            animation-delay: 0.4s;
+        }
+
+        .r4 {
+            left: 70%;
+            animation-delay: 0.6s;
+        }
+
+        .r5 {
+            left: 90%;
+            animation-delay: 0.8s;
+        }
+
+        .umbrella {
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 150px;
+            background: #ffd700;
+            border-radius: 150px 150px 0 0;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .pole {
+            width: 10px;
+            height: 200px;
+            background: #fff;
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0 0 10px 10px;
+            z-index: 5;
+        }
+
+        .curved-handle {
+            width: 40px;
+            height: 40px;
+            border: 10px solid #fff;
+            border-top: none;
+            border-radius: 0 0 40px 40px;
+            position: absolute;
+            bottom: -40px;
+            left: -15px;
+        }
+
+        .gold-stack {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 150px;
+            background: radial-gradient(circle, #4ee2c0, transparent);
+            filter: blur(20px);
+            opacity: 0.5;
+        }
+
+        .g-coin {
+            width: 60px;
+            height: 60px;
+            background: #ffd700;
+            border-radius: 50%;
+            border: 3px solid #b8860b;
+            position: absolute;
+            bottom: 50px;
+            left: 140px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #b8860b;
+        }
+
+        .g2 {
+            transform: translateY(-30px);
+            left: 170px;
+        }
+
+        .g3 {
+            transform: translateY(-15px) translateX(20px);
+        }
+
+        @keyframes rain {
+            0% {
+                top: -50px;
+                opacity: 1;
+            }
+
+            100% {
+                top: 500px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Güvendesin.<br><span class="gradient-word"></span></div>
+            <div class="visual-container">
+                <div class="rain-scene">
+                    <div class="rain-drop r1"></div>
+                    <div class="rain-drop r2"></div>
+                    <div class="rain-drop r3"></div>
+                    <div class="rain-drop r4"></div>
+                    <div class="rain-drop r5"></div>
+                    <div class="umbrella">
+                        <div class="pole">
+                            <div class="curved-handle"></div>
+                        </div>
+                    </div>
+                    <div class="gold-stack"></div>
+                    <div class="g-coin g1">₺</div>
+                    <div class="g-coin g2">₺</div>
+                    <div class="g-coin g3">$</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

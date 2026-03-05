@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 85% 15%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+        }
+
+        .brand-name {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            border-radius: 2px;
+        }
+
+        .eyebrow-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+        }
+
+        /* RADIAL ANALYTICS VISUAL */
+        .analytics-stage {
+            width: 600px;
+            height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .outer-ring {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(78, 226, 192, 0.2);
+            border-radius: 50%;
+            animation: spin-ring 20s infinite linear;
+        }
+
+        .inner-chart {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: conic-gradient(#4ee2c0 0% 65%, #52a5ff 65% 85%, rgba(255, 255, 255, 0.05) 85% 100%);
+            position: relative;
+            box-shadow: 0 0 100px rgba(78, 226, 192, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inner-chart:after {
+            content: '';
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            background: #081116;
+            border-radius: 50%;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .chart-label {
+            position: absolute;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .label-v {
+            font-size: 60px;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .label-t {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4ee2c0;
+            letter-spacing: 2px;
+        }
+
+        .floating-stat {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: float-stat 3s infinite ease-in-out;
+        }
+
+        @keyframes spin-ring {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes float-stat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="eyebrow-container">
+                <div class="eyebrow-line"></div>
+                <div class="eyebrow-text">DERİN ANALİZ</div>
+            </div>
+
+            <div class="headline">Harcamalarını<br><span class="gradient-word">Anlamlandır.</span></div>
+            <div class="description">Rakamların ötesine geçin. Vynto'nun akıllı raporlama sistemi ile her kuruşun nereye
+                gittiğini keşfedin.</div>
+
+            <div class="visual-container">
+                <div class="analytics-stage">
+                    <div class="outer-ring"></div>
+                    <div class="inner-chart">
+                        <div class="chart-label">
+                            <div class="label-v">%85</div>
+                            <div class="label-t">TASARRUF</div>
+                        </div>
+                    </div>
+                    <div class="floating-stat" style="top:50px; right:-20px; animation-delay: 0s;">📊 MARKET: %65</div>
+                    <div class="floating-stat" style="bottom:80px; left:-40px; animation-delay: 1.5s;">🏠 KİRA: %20
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

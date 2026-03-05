@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: radial-gradient(circle at top right, #0a1120 0%, #000 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Premium Background Elements */
+        .glass-orb {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(78, 226, 192, 0.15) 0%, transparent 70%);
+            filter: blur(100px);
+            top: -200px;
+            right: -200px;
+        }
+
+        .glass-orb-2 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(82, 165, 255, 0.1) 0%, transparent 70%);
+            filter: blur(80px);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 70px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .brand-name {
+            font-size: 50px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 6px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .eyebrow::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(78, 226, 192, 0.3);
+        }
+
+        .headline {
+            font-size: 110px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -4px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .grad-text {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+        }
+
+        /* Central Piece: Neural Core */
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: -50px;
+        }
+
+        .neural-core {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(78, 226, 192, 0.4) 0%, rgba(82, 165, 255, 0.1) 50%, transparent 70%);
+            position: relative;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .core-inner {
+            width: 140px;
+            height: 140px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 80px #4ee2c0, 0 0 160px rgba(78, 226, 192, 0.4);
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        .ring {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: rotate 10s infinite linear;
+        }
+
+        .ring-1 {
+            width: 300px;
+            height: 300px;
+            border-top-color: #4ee2c0;
+        }
+
+        .ring-2 {
+            width: 450px;
+            height: 450px;
+            border-bottom-color: #52a5ff;
+            animation-duration: 15s;
+            animation-direction: reverse;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .footer-tag {
+            position: absolute;
+            bottom: 80px;
+            left: 80px;
+            font-size: 24px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="glass-orb"></div>
+        <div class="glass-orb-2"></div>
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="eyebrow">NÖRAL ANALİZ</div>
+            <div class="headline">Hataları<br><span class="grad-text">Tarihe Gömün.</span></div>
+            <div class="description">İnsani hataları sıfıra indiren fütüristik bir zeka ile tanışın. Vynto AI, finansal
+                dünyanızı kusursuz bir matematik üzerine kurar.</div>
+            <div class="visual-container">
+                <div class="neural-core">
+                    <div class="core-inner"></div>
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-tag">GENERATE INSIGHTS WITH AI</div>
+    </div>
+</body>
+
+</html>

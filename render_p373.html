@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #111;
+            background: linear-gradient(135deg, #1f1f1f 0%, #000 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .prism-setup {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .prism {
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 200px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            z-index: 2;
+        }
+
+        .in-beam {
+            position: absolute;
+            width: 300px;
+            height: 5px;
+            background: #fff;
+            left: -200px;
+            top: 100px;
+            transform: rotate(25deg);
+            box-shadow: 0 0 20px #fff;
+            animation: pulse-beam 2s infinite ease-in-out;
+        }
+
+        .out-beam {
+            position: absolute;
+            width: 200px;
+            height: 5px;
+            right: -100px;
+            transform-origin: left center;
+            opacity: 0.8;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        .b-r {
+            color: #ff6b6b;
+            background: #ff6b6b;
+            top: 50px;
+            transform: rotate(-10deg);
+            animation: stretch 2s infinite 0.1s;
+        }
+
+        .b-g {
+            color: #4ee2c0;
+            background: #4ee2c0;
+            top: 80px;
+            transform: rotate(0deg);
+            animation: stretch 2s infinite 0.2s;
+        }
+
+        .b-b {
+            color: #52a5ff;
+            background: #52a5ff;
+            top: 110px;
+            transform: rotate(10deg);
+            animation: stretch 2s infinite 0.3s;
+        }
+
+        .b-y {
+            color: #ffd700;
+            background: #ffd700;
+            top: 140px;
+            transform: rotate(20deg);
+            animation: stretch 2s infinite 0.4s;
+        }
+
+        .category-label {
+            position: absolute;
+            right: -80px;
+            font-family: monospace;
+            font-size: 14px;
+            color: currentColor;
+            font-weight: 700;
+        }
+
+        @keyframes pulse-beam {
+            0% {
+                opacity: 0.5;
+                width: 280px;
+            }
+
+            100% {
+                opacity: 1;
+                width: 320px;
+            }
+        }
+
+        @keyframes stretch {
+            0% {
+                width: 180px;
+                opacity: 0.6;
+            }
+
+            100% {
+                width: 220px;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Detaylı<br><span class="gradient-word">Analiz.</span></div>
+            <div class="visual-container">
+                <div class="prism-setup">
+                    <div class="in-beam"></div>
+                    <div class="prism"></div>
+                    <div class="out-beam b-r"><span class="category-label">GIDA</span></div>
+                    <div class="out-beam b-g"><span class="category-label">KİRA</span></div>
+                    <div class="out-beam b-b"><span class="category-label">YATIRIM</span></div>
+                    <div class="out-beam b-y"><span class="category-label">EĞLENCE</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

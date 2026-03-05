@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .freedom-stage {
+            width: 600px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .chain-link {
+            width: 300px;
+            height: 100px;
+            border: 20px solid #555;
+            border-radius: 50px;
+            position: absolute;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .c1 {
+            left: 0;
+            transform: rotate(-10deg);
+            border-right: none;
+        }
+
+        .c2 {
+            right: 0;
+            transform: rotate(10deg);
+            border-left: none;
+        }
+
+        .broken-gap {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #fff, transparent 70%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            opacity: 0.8;
+            animation: burst 0.5s infinite alternate;
+        }
+
+        .freedom-text {
+            position: absolute;
+            font-size: 100px;
+            font-weight: 900;
+            color: #4ee2c0;
+            text-transform: uppercase;
+            text-shadow: 0 0 40px #4ee2c0;
+            z-index: 20;
+            transform: rotate(-5deg);
+            animation: float-text 3s infinite ease-in-out;
+        }
+
+        .sh-1 {
+            position: absolute;
+            width: 10px;
+            height: 50px;
+            background: #fff;
+            transform: rotate(45deg);
+            top: 20%;
+            left: 30%;
+            animation: particle 1s infinite;
+        }
+
+        .sh-2 {
+            position: absolute;
+            width: 10px;
+            height: 50px;
+            background: #fff;
+            transform: rotate(-45deg);
+            bottom: 20%;
+            right: 30%;
+            animation: particle 1.2s infinite;
+        }
+
+        @keyframes burst {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes float-text {
+
+            0%,
+            100% {
+                transform: rotate(-5deg) scale(1);
+            }
+
+            50% {
+                transform: rotate(-5deg) scale(1.1);
+            }
+        }
+
+        @keyframes particle {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) rotate(45deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(100px, -100px) rotate(45deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="headline">Zincirlerini<br><span class="gradient-word">Kır.</span></div>
+
+            <div class="visual-container">
+                <div class="freedom-stage">
+                    <div class="chain-link c1"></div>
+                    <div class="chain-link c2"></div>
+                    <div class="broken-gap"></div>
+                    <div class="sh-1"></div>
+                    <div class="sh-2"></div>
+                    <div class="freedom-text">BORÇSUZ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

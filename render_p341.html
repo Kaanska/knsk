@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sub-head {
+            color: #888;
+            font-size: 24px;
+            text-align: center;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .liquid-core {
+            width: 300px;
+            height: 300px;
+            background: #c0c0c0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: url('#goo');
+            position: relative;
+        }
+
+        .drop {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #c0c0c0;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: flow 4s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(192, 192, 192, 0.8);
+        }
+
+        .d1 {
+            animation-delay: 0s;
+            width: 80px;
+            height: 80px;
+        }
+
+        .d2 {
+            animation-delay: 1s;
+            width: 60px;
+            height: 60px;
+        }
+
+        .d3 {
+            animation-delay: 2s;
+            width: 90px;
+            height: 90px;
+        }
+
+        .logo-l {
+            position: absolute;
+            font-size: 150px;
+            color: #000;
+            font-weight: 900;
+            z-index: 10;
+            mix-blend-mode: overlay;
+        }
+
+        @keyframes flow {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) translateX(50px) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) rotate(180deg) translateX(100px) rotate(-180deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) translateX(50px) rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Akışkan Varlıklar.</div>
+            <div class="sub-head">Anlık Likidite</div>
+            <div class="visual-container">
+                <div class="liquid-core">
+                    <div class="drop d1"></div>
+                    <div class="drop d2"></div>
+                    <div class="drop d3"></div>
+                </div>
+                <!-- SVG Filter for Gooey Effect -->
+                <svg style="visibility: hidden; position: absolute;" width="0" height="0">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

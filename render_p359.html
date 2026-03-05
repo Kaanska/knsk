@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .speedometer {
+            width: 500px;
+            height: 250px;
+            background: linear-gradient(to bottom, #111, #000);
+            border-radius: 250px 250px 0 0;
+            border: 10px solid #222;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .ticks {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-conic-gradient(from -90deg at 50% 100%, transparent 0deg, transparent 5deg, #333 5deg, #333 6deg);
+            opacity: 0.5;
+        }
+
+        .arc-fill {
+            position: absolute;
+            width: 90%;
+            height: 180%;
+            bottom: 0;
+            left: 5%;
+            border-radius: 50%;
+            border: 20px solid transparent;
+            border-top-color: #52a5ff;
+            border-right-color: #4ee2c0;
+            transform: rotate(-45deg);
+            opacity: 0.8;
+            filter: drop-shadow(0 0 10px #4ee2c0);
+        }
+
+        .needle {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 6px;
+            height: 220px;
+            background: #ff4757;
+            transform-origin: bottom center;
+            transform: rotate(60deg);
+            border-radius: 5px;
+            box-shadow: 0 0 20px #ff4757;
+            animation: rev-engine 2s infinite ease-out;
+        }
+
+        .center-hub {
+            position: absolute;
+            bottom: -20px;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .speed-text {
+            position: absolute;
+            bottom: 80px;
+            font-family: monospace;
+            font-size: 60px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        @keyframes rev-engine {
+            0% {
+                transform: rotate(50deg);
+            }
+
+            50% {
+                transform: rotate(85deg);
+            }
+
+            100% {
+                transform: rotate(60deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Hız<br><span class="gradient-word">Kesme.</span></div>
+            <div class="visual-container">
+                <div class="speedometer">
+                    <div class="ticks"></div>
+                    <div class="arc-fill"></div>
+                    <div class="speed-text">MAX</div>
+                    <div class="needle"></div>
+                    <div class="center-hub"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* Background Blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.45;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 900px;
+            height: 900px;
+            top: -200px;
+            right: -200px;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .blob-2 {
+            width: 800px;
+            height: 800px;
+            bottom: -200px;
+            left: -200px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        /* Layout Container */
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+            /* More top padding */
+        }
+
+        /* HEADER (Logo) */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: white;
+            background: linear-gradient(90deg, #5EE7DF 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* TEXT SECTION (Top) */
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 80px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #5EE7DF;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: #5EE7DF;
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        /* CARD (Bottom) */
+        .card {
+            width: 100%;
+            padding: 60px;
+            background: rgba(25, 25, 25, 0.6);
+            backdrop-filter: blur(60px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 60px;
+            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: row;
+            /* Changed to row for side-by-side layout with small graph */
+            align-items: center;
+            justify-content: space-between;
+            max-height: 400px;
+            /* Reduced height significantly */
+            margin-top: auto;
+            margin-bottom: 100px;
+        }
+
+        .card-left {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .total-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .total-amount {
+            font-size: 80px;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .total-label {
+            font-size: 24px;
+            color: #aaa;
+            font-weight: 600;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            width: 280px;
+            /* Much smaller! */
+            height: 280px;
+        }
+
+        .donut-chart {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#5EE7DF 0% 40%,
+                    #4facfe 40% 65%,
+                    #9370DB 65% 85%,
+                    #333 85% 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donut-center {
+            width: 180px;
+            height: 180px;
+            background: #111;
+            border-radius: 50%;
+        }
+
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+        }
+
+        .cat-name {
+            color: #ccc;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .cat-value {
+            color: white;
+            font-weight: 700;
+            font-size: 24px;
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <div class="content-container">
+            <!-- Logo Section -->
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <!-- Typography Section -->
+            <div class="text-section">
+                <div class="eyebrow">GELİR YÖNETİMİ</div>
+                <div class="main-headline">
+                    Gelirlerin<br>
+                    <span class="gradient-word">Kontrol Altında.</span>
+                </div>
+                <p class="sub-text">Maaş, kira veya ek gelirler. Tüm kazançlarını tek bir yerden takip et.</p>
+            </div>
+
+            <!-- Compact Card Section -->
+            <div class="card">
+                <div class="card-left">
+                    <div class="total-wrapper">
+                        <div class="total-label">Toplam Gelir</div>
+                        <div class="total-amount">₺84.500</div>
+                    </div>
+
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="dot" style="background: #5EE7DF;"></div>
+                            <span class="cat-name">Maaş</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="dot" style="background: #4facfe;"></div>
+                            <span class="cat-name">Kira</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="dot" style="background: #9370DB;"></div>
+                            <span class="cat-name">Freelance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-wrapper">
+                    <div class="donut-chart">
+                        <div class="donut-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

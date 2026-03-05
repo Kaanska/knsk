@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ui-glow {
+            position: absolute;
+            width: 1200px;
+            height: 1200px;
+            background: radial-gradient(circle, rgba(78, 226, 192, 0.08) 0%, transparent 70%);
+            filter: blur(120px);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 70px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 50px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #4ee2c0;
+            opacity: 0.5;
+        }
+
+        .headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -4px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .grad-text {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.5;
+            max-width: 800px;
+            font-weight: 500;
+        }
+
+        .prism-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        .ui-card {
+            width: 100%;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .claw-group {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .data-line {
+            width: 700px;
+            height: 12px;
+            background: linear-gradient(to right, transparent, #4ee2c0, #52a5ff, transparent);
+            box-shadow: 0 0 40px rgba(78, 226, 192, 0.4);
+            border-radius: 20px;
+            position: relative;
+            animation: claw-expand 4s infinite ease-in-out;
+            opacity: 0;
+        }
+
+        .data-line:nth-child(2) {
+            animation-delay: 0.4s;
+            height: 15px;
+            box-shadow: 0 0 50px rgba(82, 165, 255, 0.5);
+        }
+
+        .data-line:nth-child(3) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes claw-expand {
+            0% {
+                transform: scaleX(0);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+                transform: scaleX(1.1);
+            }
+
+            85% {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+
+            100% {
+                transform: scaleX(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="ui-glow"></div>
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="eyebrow">DİJİTAL GÜÇ</div>
+            <div class="headline">Tüm Kontrol<br><span class="grad-text">Senin Elinde.</span></div>
+            <div class="description">Karmaşık finansal süreçleri tek bir hamleyle yönetin. Vynto AI, gücü ve hızı senin
+                için bir araya getirir.</div>
+            <div class="prism-container">
+                <div class="ui-card">
+                    <div class="claw-group">
+                        <div class="data-line"></div>
+                        <div class="data-line"></div>
+                        <div class="data-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

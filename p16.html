@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 540px;
+            height: 675px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.5);
+            transform-origin: top left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 150px;
+        }
+
+        /* Background blobs from p13 */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 700px;
+            height: 700px;
+            top: -200px;
+            right: -100px;
+            background: linear-gradient(135deg, #00F260, #0575E6);
+        }
+
+        .blob-2 {
+            width: 600px;
+            height: 600px;
+            bottom: -100px;
+            left: -150px;
+            background: linear-gradient(135deg, #8E2DE2, #4A00E0);
+        }
+
+        .header {
+            width: 100%;
+            padding: 0 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            margin-bottom: 40px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .brand-name {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #00F260, #0575E6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Updated Card Design with Screenshot */
+        .feature-card {
+            width: 900px;
+            height: 700px;
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(50px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 60px;
+            position: relative;
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.6);
+            z-index: 10;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 60px;
+        }
+
+        .feature-title {
+            font-size: 48px;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .feature-subtitle {
+            font-size: 28px;
+            color: #888;
+            font-weight: 500;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* The "Mini Screenshot" Container */
+        .mini-screen-container {
+            width: 600px;
+            height: 500px;
+            /* Cropped view */
+            border-radius: 40px 40px 0 0;
+            border: 8px solid #222;
+            border-bottom: none;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .mini-screen-container img {
+            width: 100%;
+            height: auto;
+            position: relative;
+            top: 0;
+        }
+
+        /* Floating mini badge */
+        .floating-badge {
+            position: absolute;
+            top: 250px;
+            right: 80px;
+            background: white;
+            color: black;
+            padding: 20px 40px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 24px;
+            z-index: 20;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: rotate(5deg);
+        }
+
+        .headline {
+            margin-top: 60px;
+            font-size: 72px;
+            font-weight: 800;
+            text-align: center;
+            color: white;
+            line-height: 1.1;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <div class="header">
+            <div class="header-left">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-title">Varlığını Keşfet</div>
+            <div class="feature-subtitle">Tüm hesapların tek bir noktada.</div>
+
+            <div class="mini-screen-container">
+                <!-- Using screen_2.png which is likely a dashboard view -->
+                <img src="images/screen_2.png">
+            </div>
+        </div>
+
+        <div class="floating-badge">
+            🚀 Şimdi Başla
+        </div>
+
+        <h1 class="headline">Kontrol<br>Tamamen Sende.</h1>
+    </div>
+</body>
+
+</html>

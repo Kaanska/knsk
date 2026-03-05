@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            border-radius: 2px;
+        }
+
+        .eyebrow-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        /* VISUAL: Calendar Heatmap */
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .cal-grid {
+            width: 500px;
+            height: 400px;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            transform: rotateX(30deg) rotateZ(10deg);
+        }
+
+        .cal-day {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .cal-day:hover {
+            transform: translateY(-10px);
+        }
+
+        .d-low {
+            background: rgba(82, 165, 255, 0.2);
+            box-shadow: 0 0 10px rgba(82, 165, 255, 0.1);
+        }
+
+        .d-med {
+            background: rgba(82, 165, 255, 0.5);
+            box-shadow: 0 0 20px rgba(82, 165, 255, 0.3);
+            transform: translateZ(10px);
+        }
+
+        .d-high {
+            background: #4ee2c0;
+            box-shadow: 0 0 30px #4ee2c0;
+            transform: translateZ(30px);
+        }
+
+        .tooltip-pop {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 14px;
+            opacity: 0;
+            animation: fade-in-out 3s infinite;
+        }
+
+        .hover-effect .tooltip-pop {
+            opacity: 1;
+        }
+
+        @keyframes fade-in-out {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(10px);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="eyebrow-container">
+                <div class="eyebrow-line"></div>
+                <div class="eyebrow-text">HARCAMA TAKVİMİ</div>
+            </div>
+
+            <div class="headline">Gün Gün<br><span class="gradient-word">Analiz.</span></div>
+            <div class="description">Hangi gün daha çok harcıyorsun? Isı haritası ile harcama alışkanlıklarını
+                görselleştir ve bütçeni ona göre planla.</div>
+
+            <div class="visual-container">
+                <div class="cal-grid">
+                    <div class="cal-day"></div>
+                    <div class="cal-day d-low"></div>
+                    <div class="cal-day"></div>
+                    <div class="cal-day d-med"></div>
+                    <div class="cal-day"></div>
+                    <div class="cal-day d-low"></div>
+                    <div class="cal-day"></div>
+                    <div class="cal-day d-med"></div>
+                    <div class="cal-day d-high hover-effect">
+                        <div class="tooltip-pop">₺850</div>
+                    </div>
+                    <div class="cal-day d-low"></div>
+                    <div class="cal-day"></div>
+                    <div class="cal-day d-med"></div>
+                    <div class="cal-day"></div>
+                    <div class="cal-day d-low"></div>
+                    <div class="cal-day"></div>
+                    <div class="cal-day"></div>
+                    <div class="cal-day d-high"></div>
+                    <div class="cal-day d-med"></div>
+                    <div class="cal-day d-low"></div>
+                    <div class="cal-day"></div>
+                    <div class="cal-day d-med"></div>
+                    <div class="cal-day d-low"></div>
+                    <div class="cal-day d-med"></div>
+                    <div class="cal-day"></div>
+                    <div class="cal-day d-high"></div>
+                    <div class="cal-day"></div>
+                    <div class="cal-day d-low"></div>
+                    <div class="cal-day"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

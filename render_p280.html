@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            border-radius: 2px;
+        }
+
+        .eyebrow-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        /* VISUAL: Market Rates Board - Clean, No Percentages, No Crypto */
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .market-board {
+            width: 600px;
+            height: 500px;
+            background: rgba(20, 25, 30, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            transform: rotateY(-10deg);
+            justify-content: center;
+        }
+
+        .rate-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .rate-card:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .currency-info {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .curr-flag {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .curr-name {
+            color: #fff;
+            font-weight: 800;
+            font-size: 22px;
+        }
+
+        .curr-sub {
+            color: #888;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .rate-val {
+            text-align: right;
+        }
+
+        .rv-main {
+            color: #4ee2c0;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="eyebrow-container">
+                <div class="eyebrow-line"></div>
+                <div class="eyebrow-text">ANLIK PİYASA</div>
+            </div>
+
+            <div class="headline">Dünya<br><span class="gradient-word">Cebinde.</span></div>
+            <div class="description">Dövizden altına, güncel piyasa verileri anlık olarak Vynto'da. Birikimlerin toplam
+                değerini her an kontrol et.</div>
+
+            <div class="visual-container">
+                <div class="market-board">
+                    <div class="rate-card">
+                        <div class="currency-info">
+                            <div class="curr-flag">🇺🇸</div>
+                            <div>
+                                <div class="curr-name">DOLAR</div>
+                                <div class="curr-sub">USD/TRY</div>
+                            </div>
+                        </div>
+                        <div class="rv-main">35.42 ₺</div>
+                    </div>
+
+                    <div class="rate-card">
+                        <div class="currency-info">
+                            <div class="curr-flag">🇪🇺</div>
+                            <div>
+                                <div class="curr-name">EURO</div>
+                                <div class="curr-sub">EUR/TRY</div>
+                            </div>
+                        </div>
+                        <div class="rv-main">38.15 ₺</div>
+                    </div>
+
+                    <div class="rate-card">
+                        <div class="currency-info">
+                            <div class="curr-flag" style="background:gold; color:#000;">🥇</div>
+                            <div>
+                                <div class="curr-name">GRAM ALTIN</div>
+                                <div class="curr-sub">XAU/TRY</div>
+                            </div>
+                        </div>
+                        <div class="rv-main">2.450 ₺</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

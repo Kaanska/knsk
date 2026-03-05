@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            border-radius: 2px;
+        }
+
+        .eyebrow-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        /* THE "CRYSTAL VAULT" VISUAL */
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .crystal-box {
+            width: 400px;
+            height: 480px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 60px;
+            position: relative;
+            transform: rotateY(-15deg) rotateX(10deg);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), inset 0 0 60px rgba(78, 226, 192, 0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .liquid-fill {
+            position: absolute;
+            width: 200%;
+            height: 60%;
+            background: linear-gradient(to top, #4ee2c0, rgba(78, 226, 192, 0.4));
+            bottom: -50px;
+            left: -50%;
+            border-radius: 40%;
+            animation: liquid-wave 5s infinite ease-in-out;
+            opacity: 0.8;
+            box-shadow: 0 0 50px #4ee2c0;
+        }
+
+        .floating-label {
+            position: absolute;
+            top: 50px;
+            font-size: 24px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 2px;
+            z-index: 10;
+        }
+
+        .percentage {
+            position: absolute;
+            bottom: 120px;
+            font-size: 100px;
+            font-weight: 900;
+            color: #fff;
+            z-index: 10;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #fff;
+            animation: sparkle-float 3s infinite ease-in-out;
+        }
+
+        @keyframes liquid-wave {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(5deg) translateY(-20px);
+            }
+        }
+
+        @keyframes sparkle-float {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="eyebrow-container">
+                <div class="eyebrow-line"></div>
+                <div class="eyebrow-text">GÜVENLİ BİRİKİM</div>
+            </div>
+
+            <div class="headline">Geleceğin<br><span class="gradient-word">Korumamız Altında.</span></div>
+            <div class="description">Tasarruflarınız Vynto'nun dijital kasasında güvende. Hedeflerinize ulaşırken
+                paranızın büyümesini izleyin.</div>
+
+            <div class="visual-container">
+                <div class="crystal-box">
+                    <div class="floating-label">DİJİTAL KASA</div>
+                    <div class="liquid-fill"></div>
+                    <div class="percentage">%85</div>
+                    <div class="sparkle" style="left:20%; bottom:30%; animation-delay:0s;"></div>
+                    <div class="sparkle" style="left:70%; bottom:40%; animation-delay:1s;"></div>
+                    <div class="sparkle" style="left:40%; bottom:60%; animation-delay:0.5s;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

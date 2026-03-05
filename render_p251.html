@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 85% 15%, #0d323f 0%, #081116 65%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 900px;
+            z-index: 10;
+            padding-top: 120px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* LOGO: Colorful Branding Restored */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 95px;
+            height: 95px;
+            border-radius: 24px;
+        }
+
+        .brand-name {
+            font-size: 58px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: #4ee2c0;
+        }
+
+        .headline {
+            font-size: 110px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 35px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 36px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.45;
+            max-width: 820px;
+            font-weight: 500;
+        }
+
+        /* Feature Visual: Bank Integration */
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .bank-cards {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: -40px;
+            perspective: 1000px;
+        }
+
+        .card-ui {
+            width: 320px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            margin-left: -60px;
+            transform: rotateY(-20deg);
+            display: flex;
+            padding: 30px;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-ui:first-child {
+            margin-left: 0;
+        }
+
+        .card-ui.active {
+            background: rgba(78, 226, 192, 0.1);
+            border-color: #4ee2c0;
+            transform: rotateY(0) translateY(-20px);
+            z-index: 10;
+        }
+
+        .chip {
+            width: 50px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .balance-sm {
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="eyebrow">BANKA ENTEGRASYONU</div>
+            <div class="headline">Tüm Bankalar<br><span class="gradient-text">Tek Bir Uygulamada.</span></div>
+            <div class="description">Uygulamalar arasında kaybolmayın. Tüm banka hesaplarınızı Vynto'ya bağlayın,
+                varlıklarınızı tek ekrandan yönetin.</div>
+            <div class="visual-container">
+                <div class="bank-cards">
+                    <div class="card-ui">
+                        <div class="chip"></div>
+                        <div class="balance-sm">₺12,450</div>
+                    </div>
+                    <div class="card-ui active">
+                        <div class="chip" style="background: #4ee2c0;"></div>
+                        <div class="balance-sm">₺45,820</div>
+                    </div>
+                    <div class="card-ui">
+                        <div class="chip"></div>
+                        <div class="balance-sm">₺2,100</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

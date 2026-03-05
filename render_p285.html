@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 54px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .eyebrow-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            border-radius: 2px;
+        }
+
+        .eyebrow-text {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4ee2c0;
+            text-transform: uppercase;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        /* VISUAL: Export Sheet */
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .phone-export {
+            width: 300px;
+            height: 600px;
+            background: #000;
+            border: 2px solid #333;
+            border-radius: 40px;
+            position: relative;
+            transform: rotateY(-15deg);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sheet {
+            position: absolute;
+            background: #fff;
+            width: 240px;
+            height: 320px;
+            top: 200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: skewY(-5deg) translateX(40px);
+            animation: slide-out 3s infinite ease-in-out;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 10px;
+            color: #333;
+            font-family: monospace;
+            font-size: 10px;
+        }
+
+        .s-head {
+            height: 20px;
+            background: #ddd;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .s-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .file-icon {
+            position: absolute;
+            top: 150px;
+            right: 0px;
+            width: 80px;
+            height: 100px;
+            background: #e53e3e;
+            /* PDF Color */
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 900;
+            font-size: 24px;
+            box-shadow: 0 10px 30px rgba(229, 62, 62, 0.4);
+            transform: translateZ(50px) rotate(10deg);
+            z-index: 10;
+        }
+
+        .xls-icon {
+            position: absolute;
+            top: 250px;
+            right: -20px;
+            width: 80px;
+            height: 100px;
+            background: #2f855a;
+            /* Excel Color */
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 900;
+            font-size: 24px;
+            box-shadow: 0 10px 30px rgba(47, 133, 90, 0.4);
+            transform: translateZ(80px) rotate(-5deg);
+            z-index: 15;
+        }
+
+        @keyframes slide-out {
+
+            0%,
+            100% {
+                transform: skewY(-5deg) translateX(40px) translateY(0);
+            }
+
+            50% {
+                transform: skewY(-5deg) translateX(60px) translateY(-20px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="eyebrow-container">
+                <div class="eyebrow-line"></div>
+                <div class="eyebrow-text">KOLAY PAYLAŞIM</div>
+            </div>
+
+            <div class="headline">Raporlar<br><span class="gradient-word">Cebinde.</span></div>
+            <div class="description">Ay sonu geldiğinde stres yapma. Harcamalarını tek tıkla Excel veya PDF olarak
+                indir, muhasebecinle veya ailenle paylaş.</div>
+
+            <div class="visual-container">
+                <div class="phone-export">
+                    <!-- Screen content placeholder -->
+                    <div style="width:100%; height:100%; background:linear-gradient(to bottom, #111, #222);"></div>
+                </div>
+
+                <div class="sheet">
+                    <div class="s-head"></div>
+                    <div class="s-row"><span>Migros</span><span>120₺</span></div>
+                    <div class="s-row"><span>Shell</span><span>450₺</span></div>
+                    <div class="s-row"><span>Zara</span><span>890₺</span></div>
+                    <div class="s-row"><span>Netflix</span><span>150₺</span></div>
+                </div>
+
+                <div class="file-icon">PDF</div>
+                <div class="xls-icon">XLS</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

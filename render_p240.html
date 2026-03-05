@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 90% 10%, #0d323f 0%, #081116 60%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 900px;
+            z-index: 10;
+            padding-top: 120px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            color: #3da9eb;
+            letter-spacing: -1.5px;
+        }
+
+        .eyebrow {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #3da9eb;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: #3da9eb;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -4.5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .blue-text {
+            color: #3da9eb;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 820px;
+            font-weight: 500;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .oracle-pyramid {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pyramid-shape {
+            width: 0;
+            height: 0;
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-bottom: 350px solid rgba(13, 20, 24, 0.6);
+            position: relative;
+        }
+
+        .pyramid-glow {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #3da9eb 0%, transparent 50%);
+            opacity: 0.5;
+            animation: oracle-pulse 3s infinite ease-in-out;
+        }
+
+        .eye-of-ai {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 50px #3da9eb;
+            top: 150px;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+        }
+
+        @keyframes oracle-pulse {
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header"><img src="images/AppIcon.png" class="app-icon"><span class="brand-name">VYNTO</span>
+            </div>
+            <div class="eyebrow">DİJİTAL KEHANET</div>
+            <div class="headline">Belirsizliği<br><span class="blue-text">Netliğe Dönüştür.</span></div>
+            <div class="description">Gelecek bir sır değil, bir veridir. Vynto AI, finansal verilerinizdeki ipuçlarını
+                okur ve size en muhtemel başarı senaryolarını sunar.</div>
+            <div class="visual-container">
+                <div class="oracle-pyramid">
+                    <div class="pyramid-shape">
+                        <div class="pyramid-glow"></div>
+                    </div>
+                    <div class="eye-of-ai">👁️</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

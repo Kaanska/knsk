@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 540px;
+            height: 675px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.5);
+            transform-origin: top left;
+        }
+
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header img {
+            width: 70px;
+            height: 70px;
+            filter: grayscale(1) brightness(1.5);
+        }
+
+        .world-map {
+            position: absolute;
+            top: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1200px;
+            opacity: 0.1;
+            filter: invert(1);
+        }
+
+        .title {
+            margin-top: 400px;
+            text-align: center;
+            font-size: 120px;
+            font-weight: 800;
+            color: white;
+            line-height: 0.9;
+            letter-spacing: -5px;
+        }
+
+        .phone {
+            position: absolute;
+            bottom: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+        }
+
+        .badge {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            color: black;
+            padding: 20px 40px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <h1 class="title">Bütün Dünya<br>Tek Uygulama.</h1>
+        <img src="images/Simulator Screenshot - iPhone 16 Pro Max - 2026-02-04 at 02.29.58.png" class="phone">
+        <div class="badge">VYNTO GLOBAL</div>
+    </div>
+</body>
+
+</html>

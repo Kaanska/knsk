@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #111;
+            background: linear-gradient(135deg, #111 0%, #000 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .glass-box {
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5), inset 0 0 50px rgba(255, 255, 255, 0.05);
+            position: relative;
+            transform: rotateY(20deg) rotateX(10deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lock-interface {
+            width: 150px;
+            height: 150px;
+            border: 4px solid #4ee2c0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px #4ee2c0;
+            animation: unlock-pulse 2s infinite;
+        }
+
+        .key-symbol {
+            font-size: 60px;
+            color: #fff;
+        }
+
+        .reflection {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.1) 45%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .growth-data {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 90%;
+            height: 100px;
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            opacity: 0.5;
+        }
+
+        .bar {
+            width: 20px;
+            background: #52a5ff;
+            border-radius: 5px;
+            animation: grow-glass 2s infinite alternate;
+        }
+
+        @keyframes unlock-pulse {
+            0% {
+                box-shadow: 0 0 20px #4ee2c0;
+            }
+
+            50% {
+                box-shadow: 0 0 50px #4ee2c0, inset 0 0 20px #4ee2c0;
+            }
+
+            100% {
+                box-shadow: 0 0 20px #4ee2c0;
+            }
+        }
+
+        @keyframes grow-glass {
+            0% {
+                height: 20px;
+            }
+
+            100% {
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Şeffaf<br><span class="gradient-word">Güvenlik.</span></div>
+            <div class="visual-container">
+                <div class="glass-box">
+                    <div class="reflection"></div>
+                    <div class="lock-interface">
+                        <div class="key-symbol">🔒</div>
+                    </div>
+                    <div class="growth-data">
+                        <div class="bar" style="height: 30px; animation-delay: 0s;"></div>
+                        <div class="bar" style="height: 50px; animation-delay: 0.2s;"></div>
+                        <div class="bar" style="height: 70px; animation-delay: 0.4s;"></div>
+                        <div class="bar" style="height: 40px; animation-delay: 0.6s;"></div>
+                        <div class="bar" style="height: 90px; animation-delay: 0.8s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

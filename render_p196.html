@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 1000px;
+            height: 1000px;
+            top: -300px;
+            right: -300px;
+            background: radial-gradient(circle, #5EE7DF 0%, #b490ca 100%);
+        }
+
+        .blob-2 {
+            width: 800px;
+            height: 800px;
+            bottom: -200px;
+            left: -200px;
+            background: radial-gradient(circle, #f6d365 0%, #fda085 100%);
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: white;
+            background: linear-gradient(90deg, #5EE7DF 0%, #b490ca 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #5EE7DF;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: #5EE7DF;
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 90px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #5EE7DF, #b490ca);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .touch-card {
+            width: 100%;
+            padding: 60px;
+            background: rgba(25, 25, 25, 0.4);
+            backdrop-filter: blur(60px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            margin-top: auto;
+            margin-bottom: 120px;
+        }
+
+        .sparkle-icon {
+            font-size: 100px;
+            animation: glow 2s infinite ease-in-out;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 10px #5EE7DF);
+                opacity: 0.7;
+            }
+
+            50% {
+                filter: drop-shadow(0 0 40px #5EE7DF);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="content-container">
+            <div class="header"><img src="images/AppIcon.png" class="app-icon"><span class="brand-name">VYNTO</span>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">PREMİUM DENEYİM</div>
+                <div class="main-headline">Zekanın<br><span class="gradient-word">Hafif Dokunuşu.</span></div>
+                <p class="sub-text">Vynto'nun yapay zekası, siz harcamalarınızı girerken arka planda sessizce çalışır ve
+                    hayatınızı kolaylaştıracak kararlar almanıza yardım eder.</p>
+            </div>
+            <div class="touch-card">
+                <div class="sparkle-icon">✨</div>
+                <div style="font-size:36px; font-weight:800; color:white; text-align:center;">"Zeka Dokunuyor"<br><span
+                        style="color:#5EE7DF; font-size:24px;">Her işlem bir sanat eserine dönüşür.</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

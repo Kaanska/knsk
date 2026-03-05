@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 10% 20%, #0d323f 10%, #081116 70%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .phone-mockup {
+            width: 450px;
+            height: 850px;
+            background: #000;
+            border-radius: 55px;
+            border: 6px solid #222;
+            box-shadow: 0 50px 120px rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            transform: rotate(-10deg);
+        }
+
+        /* Debt Screen & Notification */
+        .debt-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #111, #081116);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-nav {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .contact-avatar {
+            width: 100px;
+            height: 100px;
+            background: #888;
+            border-radius: 50%;
+            margin: 10px auto;
+            border: 3px solid #ff6b6b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .debt-name {
+            text-align: center;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .debt-status {
+            text-align: center;
+            color: #ff6b6b;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .debt-card-detail {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .amount-detail {
+            font-size: 48px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .due-detail {
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .pay-btn {
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+            margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Push Notification Overlay */
+        .push-pop {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            background: rgba(40, 40, 40, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slide-in-top 0.5s ease-out;
+            display: flex;
+            gap: 15px;
+        }
+
+        .push-active {
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .p-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: #000;
+        }
+
+        .p-content h3 {
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 2px;
+            display: flex;
+            justify-content: space-between;
+            width: 230px;
+        }
+
+        .p-content p {
+            color: #ccc;
+            font-size: 13px;
+            line-height: 1.3;
+        }
+
+        @keyframes slide-in-top {
+            0% {
+                top: -100px;
+                opacity: 0;
+            }
+
+            100% {
+                top: 20px;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+
+            <div class="headline">Gecikme<br><span class="gradient-word">Yaşama.</span></div>
+
+            <div class="visual-container">
+                <div class="phone-mockup">
+                    <div class="push-pop push-active">
+                        <img src="images/AppIcon.png" class="p-icon">
+                        <div class="p-content">
+                            <h3>VYNTO <span style="color:#666">ŞİMDİ</span></h3>
+                            <p><strong>Son Gün Hatırlatması 🔔</strong><br>Ali'ye olan borcun (₺500) için son gün yarın.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="debt-screen">
+                        <div class="back-nav">← Borç Detayı</div>
+
+                        <div class="contact-avatar">AS</div>
+                        <div class="debt-name">Ali Sever</div>
+                        <div class="debt-status">⚠️ ÖDEME BEKLİYOR</div>
+
+                        <div class="debt-card-detail">
+                            <div class="amount-detail">₺500.00</div>
+                            <div class="due-detail">Son Ödeme Tarihi: <strong>11 Şubat 2026</strong></div>
+                        </div>
+
+                        <div class="pay-btn">ÖDENDİ İŞARETLE ✓</div>
+                        <div style="text-align:center; color:#666; font-size:12px; margin-top:20px;">Bu işlem sadece
+                            kayıt tutmak içindir.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

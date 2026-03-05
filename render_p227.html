@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 90% 10%, #0d323f 0%, #081116 60%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 900px;
+            z-index: 10;
+            padding-top: 120px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            color: #3da9eb;
+            letter-spacing: -1.5px;
+        }
+
+        .eyebrow {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #3da9eb;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: #3da9eb;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -4.5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .blue-text {
+            color: #3da9eb;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 820px;
+            font-weight: 500;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .compass-ui {
+            width: 500px;
+            height: 500px;
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .needle {
+            width: 10px;
+            height: 240px;
+            background: linear-gradient(to bottom, #3da9eb 50%, #fff 50%);
+            border-radius: 5px;
+            animation: navigate 5s infinite ease-in-out;
+        }
+
+        .label {
+            position: absolute;
+            font-weight: 800;
+            font-size: 24px;
+            color: #3da9eb;
+        }
+
+        .north {
+            top: 20px;
+        }
+
+        .south {
+            bottom: 20px;
+            color: #fff;
+        }
+
+        .freedom {
+            top: 100px;
+            right: 10px;
+            transform: rotate(45deg);
+            font-size: 30px;
+        }
+
+        @keyframes navigate {
+
+            0%,
+            100% {
+                transform: rotate(45deg);
+            }
+
+            50% {
+                transform: rotate(65deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header"><img src="images/AppIcon.png" class="app-icon"><span class="brand-name">VYNTO</span>
+            </div>
+            <div class="eyebrow">STRATEJİK REHBER</div>
+            <div class="headline">Finansal<br><span class="blue-text">Özgürlüğe Pusula.</span></div>
+            <div class="description">Yolunuzu kaybetmeyin. Vynto AI, her zaman hedeflerinize en kısa yoldan ulaşmanız
+                için dijital bir rehber gibi yanınızda.</div>
+            <div class="visual-container">
+                <div class="compass-ui">
+                    <div class="label north">POVERTY</div>
+                    <div class="label freedom">✨ FREEDOM</div>
+                    <div class="label south">DEBT</div>
+                    <div class="needle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

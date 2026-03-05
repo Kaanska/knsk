@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #081116;
+            background: radial-gradient(circle at 90% 10%, #0d323f 0%, #081116 60%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 900px;
+            z-index: 10;
+            padding-top: 120px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            color: #3da9eb;
+            letter-spacing: -1.5px;
+        }
+
+        .eyebrow {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #3da9eb;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: #3da9eb;
+        }
+
+        .headline {
+            font-size: 115px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -4.5px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .blue-text {
+            color: #3da9eb;
+        }
+
+        .description {
+            font-size: 34px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 820px;
+            font-weight: 500;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .weather-card {
+            width: 600px;
+            height: 350px;
+            background: rgba(13, 20, 24, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            backdrop-filter: blur(30px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .cloud {
+            font-size: 100px;
+            opacity: 0.5;
+            animation: move-cloud 4s infinite ease-in-out;
+        }
+
+        .sun {
+            font-size: 150px;
+            filter: drop-shadow(0 0 50px #3da9eb);
+            animation: sun-beam 3s infinite ease-in-out;
+        }
+
+        @keyframes move-cloud {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-30px);
+            }
+        }
+
+        @keyframes sun-beam {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header"><img src="images/AppIcon.png" class="app-icon"><span class="brand-name">VYNTO</span>
+            </div>
+            <div class="eyebrow">BÜTÇE ANALİZİ</div>
+            <div class="headline">Bulutlar Dağılır,<br><span class="blue-text">Vynto AI Parlar.</span></div>
+            <div class="description">Harcama karmaşası bütçenizi gölgelemesin. Vynto AI, tüm gizli masrafları bir güneş
+                gibi aydınlatır ve netliği geri getirir.</div>
+            <div class="visual-container">
+                <div class="weather-card">
+                    <div class="cloud">☁️</div>
+                    <div class="sun">🌞</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

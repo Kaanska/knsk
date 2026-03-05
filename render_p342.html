@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #111;
+            background: linear-gradient(135deg, #222, #000);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sub-head {
+            color: #888;
+            font-size: 24px;
+            text-align: center;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .brushed-metal {
+            width: 400px;
+            height: 500px;
+            background: repeating-linear-gradient(45deg, #333 0, #333 1px, #444 1px, #444 2px);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid #555;
+        }
+
+        .lock-pad {
+            width: 200px;
+            height: 300px;
+            background: #222;
+            border-radius: 10px;
+            border: 2px solid #555;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: inset 0 0 20px #000;
+        }
+
+        .scanner {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #0f0;
+            border-radius: 10px;
+            background: repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(0, 255, 0, 0.1) 10px, rgba(0, 255, 0, 0.1) 20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scan-line {
+            width: 100%;
+            height: 2px;
+            background: #0f0;
+            position: absolute;
+            top: 0;
+            animation: scan 2s infinite linear;
+            box-shadow: 0 0 10px #0f0;
+        }
+
+        .status-led {
+            width: 10px;
+            height: 10px;
+            background: #0f0;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #0f0;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes scan {
+            0% {
+                top: 0;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Aşılamaz.</div>
+            <div class="sub-head">Titanyum Koruma</div>
+            <div class="visual-container">
+                <div class="brushed-metal">
+                    <div class="lock-pad">
+                        <div class="status-led"></div>
+                        <div class="scanner">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div style="color: #555; font-family: monospace;">ACCESS GRANTED</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

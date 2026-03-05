@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1e 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .isometric-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(30deg, rgba(6, 182, 212, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(6, 182, 212, 0.05) 87.5%, rgba(6, 182, 212, 0.05)),
+                linear-gradient(150deg, rgba(6, 182, 212, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(6, 182, 212, 0.05) 87.5%, rgba(6, 182, 212, 0.05)),
+                linear-gradient(30deg, rgba(6, 182, 212, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(6, 182, 212, 0.05) 87.5%, rgba(6, 182, 212, 0.05)),
+                linear-gradient(150deg, rgba(6, 182, 212, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(6, 182, 212, 0.05) 87.5%, rgba(6, 182, 212, 0.05));
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+            z-index: 0;
+        }
+
+        .city-glow {
+            position: absolute;
+            width: 800px;
+            height: 600px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(ellipse at bottom, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
+            filter: blur(100px);
+            z-index: 1;
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            box-shadow: 0 20px 60px rgba(6, 182, 212, 0.6);
+        }
+
+        .brand-name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, #5EE7DF 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #06b6d4;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #06b6d4, #14b8a6);
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(135deg, #5EE7DF, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .isometric-city {
+            width: 100%;
+            height: 500px;
+            margin-top: auto;
+            margin-bottom: 100px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 20px;
+            perspective: 1000px;
+        }
+
+        .building {
+            position: relative;
+            transform-style: preserve-3d;
+            animation: buildingFloat 4s ease-in-out infinite;
+        }
+
+        .building:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .building:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .building:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .building:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes buildingFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .building-front {
+            width: 120px;
+            background: linear-gradient(180deg, rgba(6, 182, 212, 0.3), rgba(6, 182, 212, 0.1));
+            border: 2px solid rgba(6, 182, 212, 0.5);
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 20px;
+            box-shadow:
+                0 0 40px rgba(6, 182, 212, 0.4),
+                inset 0 0 30px rgba(6, 182, 212, 0.1);
+        }
+
+        .building:nth-child(1) .building-front {
+            height: 280px;
+        }
+
+        .building:nth-child(2) .building-front {
+            height: 380px;
+        }
+
+        .building:nth-child(3) .building-front {
+            height: 420px;
+            border-color: rgba(94, 231, 223, 0.6);
+            background: linear-gradient(180deg, rgba(94, 231, 223, 0.4), rgba(94, 231, 223, 0.2));
+            box-shadow:
+                0 0 60px rgba(94, 231, 223, 0.6),
+                inset 0 0 40px rgba(94, 231, 223, 0.2);
+        }
+
+        .building:nth-child(4) .building-front {
+            height: 320px;
+        }
+
+        .building-windows {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .window {
+            width: 20px;
+            height: 20px;
+            background: rgba(6, 182, 212, 0.6);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
+            animation: windowBlink 3s ease-in-out infinite;
+        }
+
+        @keyframes windowBlink {
+
+            0%,
+            100% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .building-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .building-value {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #5EE7DF, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .building:nth-child(3) .building-value {
+            font-size: 36px;
+        }
+
+        .city-base {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #06b6d4, transparent);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="isometric-bg"></div>
+        <div class="city-glow"></div>
+        <div class="content-container">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">VARLIK YÖNETİMİ</div>
+                <div class="main-headline">Zenginlik<br><span class="gradient-word">Şehrinde.</span></div>
+                <p class="sub-text">Her varlık bir gökdelen. Finansal imparatorluğunu inşa et.</p>
+            </div>
+            <div class="isometric-city">
+                <div class="building">
+                    <div class="building-front">
+                        <div class="building-windows">
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                        </div>
+                        <div class="building-label">Nakit</div>
+                        <div class="building-value">₺85K</div>
+                    </div>
+                </div>
+                <div class="building">
+                    <div class="building-front">
+                        <div class="building-windows">
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                        </div>
+                        <div class="building-label">Yatırım</div>
+                        <div class="building-value">₺240K</div>
+                    </div>
+                </div>
+                <div class="building">
+                    <div class="building-front">
+                        <div class="building-windows">
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                        </div>
+                        <div class="building-label">Gayrimenkul</div>
+                        <div class="building-value">₺1.2M</div>
+                    </div>
+                </div>
+                <div class="building">
+                    <div class="building-front">
+                        <div class="building-windows">
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                            <div class="window"></div>
+                        </div>
+                        <div class="building-label">Kripto</div>
+                        <div class="building-value">₺125K</div>
+                    </div>
+                </div>
+                <div class="city-base"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

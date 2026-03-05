@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .light-beam {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(94, 231, 223, 0.5), transparent);
+            animation: beamSweep 6s linear infinite;
+        }
+
+        .beam-1 {
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .beam-2 {
+            left: 50%;
+            animation-delay: 2s;
+        }
+
+        .beam-3 {
+            left: 80%;
+            animation-delay: 4s;
+        }
+
+        @keyframes beamSweep {
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .content-container {
+            width: 900px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-top: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0a2540, #1a3a52);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(94, 231, 223, 0.3);
+        }
+
+        .check-mark {
+            font-size: 48px;
+            background: linear-gradient(135deg, #5EE7DF, #06b6d4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .brand-text {
+            font-size: 64px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #5EE7DF;
+            text-shadow: 0 0 30px rgba(94, 231, 223, 0.5);
+        }
+
+        .text-section {
+            margin-bottom: 60px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #5EE7DF;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #5EE7DF, #06b6d4);
+            display: block;
+        }
+
+        .main-headline {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: white;
+        }
+
+        .gradient-word {
+            background: linear-gradient(135deg, #5EE7DF, #06b6d4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-text {
+            margin-top: 30px;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+
+        .category-bars {
+            margin-top: auto;
+            margin-bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .bar-label {
+            width: 150px;
+            font-size: 20px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 25px;
+            background: linear-gradient(90deg, #5EE7DF, #06b6d4);
+            box-shadow: 0 0 20px rgba(94, 231, 223, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 20px;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="light-beam beam-1"></div>
+        <div class="light-beam beam-2"></div>
+        <div class="light-beam beam-3"></div>
+        <div class="content-container">
+            <div class="header">
+                <div class="logo-icon">
+                    <div class="check-mark">✓</div>
+                </div>
+                <div class="brand-text">VYNTO</div>
+            </div>
+            <div class="text-section">
+                <div class="eyebrow">KATEGORİ BAZLI</div>
+                <div class="main-headline">Harcama<br><span class="gradient-word">Dağılımı.</span></div>
+                <p class="sub-text">Paranın nereye gittiğini görselleştir. Her kategori net.</p>
+            </div>
+            <div class="category-bars">
+                <div class="bar-item">
+                    <div class="bar-label">🍽️ Yemek</div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width: 65%;">₺8.4K</div>
+                    </div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-label">🚗 Ulaşım</div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width: 35%;">₺3.2K</div>
+                    </div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-label">🏠 Ev</div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width: 85%;">₺9.8K</div>
+                    </div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-label">🎬 Eğlence</div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width: 45%;">₺4.5K</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

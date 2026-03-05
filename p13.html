@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 540px;
+            height: 675px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.5);
+            transform-origin: top left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 150px;
+        }
+
+        /* Abstract Background blobs - derived from p12 but shifted for variety */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        /* Green/Blue combo for Growth/Wealth feel */
+        .blob-1 {
+            width: 700px;
+            height: 700px;
+            top: -200px;
+            right: -100px;
+            background: linear-gradient(135deg, #00F260, #0575E6);
+        }
+
+        .blob-2 {
+            width: 600px;
+            height: 600px;
+            bottom: -100px;
+            left: -150px;
+            background: linear-gradient(135deg, #8E2DE2, #4A00E0);
+        }
+
+        .header {
+            width: 100%;
+            padding: 0 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            margin-bottom: 60px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+        }
+
+        .brand-name {
+            font-size: 36px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        .stats-card {
+            width: 900px;
+            height: 600px;
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(50px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50px;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.6);
+            z-index: 10;
+            position: relative;
+        }
+
+        .card-title {
+            font-size: 32px;
+            color: #888;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .amount {
+            font-size: 96px;
+            color: white;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .badge-growth {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 24px;
+            background: rgba(0, 242, 96, 0.15);
+            border: 1px solid rgba(0, 242, 96, 0.3);
+            border-radius: 100px;
+            color: #00F260;
+            font-weight: 700;
+            font-size: 24px;
+            margin-left: 20px;
+            vertical-align: middle;
+        }
+
+        /* Mock Chart Bars */
+        .chart-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            height: 300px;
+            padding-top: 40px;
+        }
+
+        .bar {
+            width: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px 20px 0 0;
+            position: relative;
+            transition: height 0.3s;
+        }
+
+        .bar.active {
+            background: linear-gradient(to top, #00F260, #0575E6);
+            box-shadow: 0 0 30px rgba(5, 117, 230, 0.4);
+        }
+
+        .bottom-text {
+            margin-top: 80px;
+            font-size: 64px;
+            font-weight: 800;
+            text-align: center;
+            color: white;
+            line-height: 1.1;
+            z-index: 10;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00F260, #0575E6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <div class="header">
+            <div class="header-left">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+        </div>
+
+        <div class="stats-card">
+            <div>
+                <div class="card-title">Toplam Varlık</div>
+                <div class="amount">₺124.500 <span class="badge-growth">▲ %12</span></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="bar" style="height: 40%;"></div>
+                <div class="bar" style="height: 60%;"></div>
+                <div class="bar" style="height: 35%;"></div>
+                <div class="bar" style="height: 75%;"></div>
+                <div class="bar" style="height: 50%;"></div>
+                <div class="bar" style="height: 90%;"></div>
+                <div class="bar active" style="height: 100%;"></div>
+            </div>
+        </div>
+
+        <h1 class="bottom-text">Paran seninle<br><span class="gradient-text">büyüsün.</span></h1>
+    </div>
+</body>
+
+</html>

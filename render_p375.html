@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 1080px;
+            height: 1350px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #111;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 920px;
+            z-index: 10;
+            padding-top: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #4ee2c0 0%, #52a5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gradient-word {
+            background: linear-gradient(to right, #4ee2c0, #52a5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            perspective: 2000px;
+        }
+
+        .grid-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, transparent 24%, rgba(82, 165, 255, 0.1) 25%, rgba(82, 165, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(82, 165, 255, 0.1) 75%, rgba(82, 165, 255, 0.1) 76%, transparent 77%),
+                linear-gradient(90deg, transparent 24%, rgba(82, 165, 255, 0.1) 25%, rgba(82, 165, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(82, 165, 255, 0.1) 75%, rgba(82, 165, 255, 0.1) 76%, transparent 77%);
+            background-size: 50px 50px;
+            transform: rotateX(60deg) translateY(200px);
+            opacity: 0.5;
+        }
+
+        .liquid-container {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .tube {
+            width: 80px;
+            height: 350px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .liquid-fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-radius: 40px;
+            animation: rise-liquid 3s infinite alternate ease-in-out;
+            box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .l-up {
+            background: linear-gradient(to top, #4ee2c0, #a0ffe6);
+            box-shadow: 0 0 30px #4ee2c0;
+            opacity: 0.8;
+        }
+
+        .l-down {
+            background: linear-gradient(to top, #ff6b6b, #ff9e93);
+            box-shadow: 0 0 30px #ff6b6b;
+            opacity: 0.8;
+        }
+
+        .bubble {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            bottom: 0;
+            left: 50%;
+            animation: bubble-rise 2s infinite linear;
+        }
+
+        @keyframes rise-liquid {
+            0% {
+                height: 20%;
+            }
+
+            100% {
+                height: 80%;
+            }
+        }
+
+        @keyframes bubble-rise {
+            0% {
+                bottom: 10px;
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                bottom: 200px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="content">
+            <div class="header">
+                <img src="images/AppIcon.png" class="app-icon">
+                <span class="brand-name">VYNTO</span>
+            </div>
+            <div class="headline">Canlı<br><span class="gradient-word">Veri.</span></div>
+            <div class="visual-container">
+                <div class="grid-bg"></div>
+                <div class="liquid-container">
+                    <div class="tube">
+                        <div class="liquid-fill l-up" style="animation-delay: 0s; height: 60%;">
+                            <div class="bubble"></div>
+                            <div class="bubble" style="animation-delay: 0.5s"></div>
+                        </div>
+                    </div>
+                    <div class="tube">
+                        <div class="liquid-fill l-down" style="animation-delay: 0.5s; height: 30%;">
+                            <div class="bubble"></div>
+                            <div class="bubble" style="animation-delay: 1s"></div>
+                        </div>
+                    </div>
+                    <div class="tube">
+                        <div class="liquid-fill l-up" style="animation-delay: 1s; height: 90%;">
+                            <div class="bubble"></div>
+                            <div class="bubble" style="animation-delay: 1.5s"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

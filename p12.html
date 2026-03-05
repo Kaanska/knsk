@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #000;
+            width: 540px;
+            height: 675px;
+            overflow: hidden;
+        }
+
+        .canvas {
+            width: 1080px;
+            height: 1350px;
+            background: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.5);
+            transform-origin: top left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Abstract Background blobs */
+        .blob {
+            position: absolute;
+            background: linear-gradient(135deg, #00C6FF, #0072FF);
+            filter: blur(80px);
+            opacity: 0.4;
+            border-radius: 50%;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            top: -100px;
+            left: -100px;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            bottom: -100px;
+            right: -100px;
+            background: linear-gradient(135deg, #FF0099, #493240);
+        }
+
+        .notification-card {
+            width: 800px;
+            background: rgba(25, 25, 25, 0.8);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 48px;
+            padding: 50px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .notif-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .notif-icon-bg {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #333, #111);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .notif-icon-bg img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+        }
+
+        .notif-meta {
+            flex-grow: 1;
+        }
+
+        .app-name {
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .time {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 500;
+        }
+
+        .notif-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .notif-body {
+            font-size: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        .headline {
+            margin-top: 100px;
+            text-align: center;
+            font-size: 72px;
+            font-weight: 800;
+            color: white;
+            z-index: 10;
+            line-height: 1.1;
+        }
+
+        .accent {
+            color: #00C6FF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <div class="notification-card">
+            <div class="notif-header">
+                <div class="notif-icon-bg">
+                    <img src="images/AppIcon.png">
+                </div>
+                <div class="notif-meta">
+                    <div class="app-name">VYNTO <span class="time">Şimdi</span></div>
+                </div>
+            </div>
+            <h3 class="notif-title">Haftalık Raporun Hazır 📈</h3>
+            <p class="notif-body">Bu hafta harcamalarını geçen haftaya göre %20 azalttın. Harikasın!</p>
+        </div>
+
+        <h1 class="headline">Başarını<br>Anlık <span class="accent">Takip Et.</span></h1>
+    </div>
+</body>
+
+</html>
