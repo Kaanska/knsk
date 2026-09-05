@@ -4,71 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gizlilik Politikası - Plenio | Kaan Saka</title>
+    <title>Plenio Gizlilik Politikası | Kaan Saka</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="plenio.css">
+    <meta name="description" content="Plenio iOS uygulamasının gizlilik politikası: yerel veri kullanımı, bildirimler, yedekleme ve iletişim.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="images/code.svg">
-    <style>
-        .privacy-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 40px;
-            line-height: 1.8;
-            color: var(--text-main);
-        }
-
-        .privacy-content h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            background: var(--vynto-grad);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .privacy-content h2 {
-            font-size: 24px;
-            margin: 40px 0 20px;
-            color: var(--accent);
-        }
-
-        .privacy-content p {
-            margin-bottom: 20px;
-            color: var(--text-muted);
-            font-size: 16px;
-        }
-
-        .privacy-content ul {
-            margin-bottom: 20px;
-            padding-left: 20px;
-            color: var(--text-muted);
-        }
-
-        .privacy-content li {
-            margin-bottom: 10px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 40px;
-            transition: var(--transition);
-        }
-
-        .back-link:hover {
-            transform: translateX(-5px);
-        }
-
-        @media (max-width: 768px) {
-            .mobile-toggle {
-                display: none !important;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -94,65 +35,61 @@
         </div>
     </nav>
 
-    <main class="container" style="margin-top: 120px;">
-        <div class="privacy-content animate">
-            <a href="apps" class="back-link">
-                <i class="fas fa-arrow-left"></i> Uygulamalara Dön
-            </a>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="/"><i class="fa-solid fa-house"></i> Ana Sayfa</a>
+        <a href="programming"><i class="fa-solid fa-code"></i> Programlama</a>
+        <a href="apps"><i class="fa-solid fa-layer-group"></i> Uygulamalar</a>
+        <a href="contact"><i class="fa-solid fa-envelope"></i> İletişim</a>
+    </div>
 
-            <h1>Plenio Gizlilik Politikası</h1>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <p style="margin: 0;">Son Güncelleme: 10 Mart 2026</p>
-            </div>
-
-            <p>Plenio ailesi olarak gizliliğinize en az sizin kadar önem veriyoruz. Bu politika, uygulamamızı
-                kullanırken verilerinizin nasıl yönetildiğini şeffaf ve anlaşılır bir şekilde açıklamak amacıyla
-                hazırlanmıştır.</p>
-
-            <h2>1. Temel Prensimiz: "Sizin Veriniz, Sizin Cihazınız"</h2>
-            <p>Plenio, verimliliğinizi artırmak için tasarlanmış bir araçtır ve en temel gizlilik prensibimiz
-                verilerinizin kontrolünün tamamen sizde olmasıdır. Uygulama içerisinde oluşturduğunuz görevler, notlar,
-                kategoriler ve zamanlama bilgileri asla bizim sunucularımıza gönderilmez. Tüm verileriniz sadece
-                kullandığınız iPhone cihazının güvenli hafızasında saklanır.</p>
-
-            <h2>2. Hangi Bilgileri Tutuyoruz?</h2>
-            <p>Uygulamayı kullanırken oluşturduğunuz şu bilgiler cihazınızda yerel olarak saklanır:</p>
-            <ul>
-                <li><strong>Görev Detayları:</strong> Görev başlıkları, açıklamalar ve notlar.</li>
-                <li><strong>Planlama Bilgileri:</strong> Görevlerin tarih ve saatleri.</li>
-                <li><strong>Kişiselleştirme:</strong> Seçtiğiniz kategoriler, öncelik seviyeleri ve "Vibe" (Ruh Hali)
-                    etiketleri.</li>
-                <li><strong>Uygulama Ayarları:</strong> Dil tercihiniz ve bildirim ayarlarınız.</li>
-            </ul>
-            <p>Bu bilgilerin hiçbirine Plenio ekibi veya herhangi bir üçüncü şahıs dışarıdan erişemez.</p>
-
-            <h2>3. Bildirimler ve Hatırlatıcılar</h2>
-            <p>Plenio, size görevlerinizi hatırlatmak için bildirimler gönderir. Bu bildirimler <strong>"Yerel
-                    Bildirimler"</strong>dir. Yani, bildirimleriniz internet üzerinden bir sunucu aracılığıyla değil,
-                doğrudan telefonunuzun kendi işletim sistemi tarafından tetiklenir. Bildirim içeriğiniz (görev adı vb.)
-                cihazınızdan dışarı çıkmaz.</p>
-
-            <h2>4. Veri Paylaşımı ve Üçüncü Taraflar</h2>
-            <p>Biz verilerinizi satmayız, kiralamayız ve paylaşmayız. Çünkü teknik olarak bu verilere sahip değiliz.
-                Uygulama içinde herhangi bir reklam ağı veya veri toplayan analiz aracı (tracking) bulunmamaktadır.</p>
-
-            <h2>5. Verilerinizin Güvenliği</h2>
-            <p>Verileriniz, Apple'ın iOS işletim sisteminin sağladığı güvenlik katmanları altında korunur. Cihazınızın
-                şifresi, FaceID veya TouchID güvenliği, aynı zamanda Plenio verilerinizin de güvenliğidir. Cihazınızı
-                yedeklediğinizde (iCloud veya bilgisayar yedeklemesi), Plenio verileriniz de bu yedeklemenin bir parçası
-                olarak sizin kontrolünüzde yedeklenir.</p>
-
-            <h2>6. Verilerinizin Nasıl Silebilirsiniz?</h2>
-            <p>Kontrol tamamen sizde! Oluşturduğunuz görevleri tek tek silebileceğiniz gibi, Ayarlar kısmındaki "Tüm
-                Görevleri Sil" seçeneği ile cihazınızdaki tüm Plenio verilerini tek bir dokunuşla kalıcı olarak
-                temizleyebilirsiniz. Uygulamayı cihazınızdan kaldırdığınızda, yerel olarak saklanan tüm verileriniz de
-                otomatik olarak silinir.</p>
-
-
-
-        </div>
-    </main>
-
+    <main class="container plenio-policy-main"><article class="plenio-policy"><a class="plenio-back" href="apps#plenio">← Uygulamalara Dön</a><h1>Plenio Gizlilik Politikası</h1>
+<p>Son güncelleme: 5 Eylül 2026<br>Kapsam: Plenio iOS uygulaması, sürüm 1.0.0</p>
+<p>Plenio, görevlerinizi, planlarınızı ve hatırlatıcılarınızı düzenlemenize yardımcı olur. Uygulama hesap oluşturmanızı istemez. Görev içerikleriniz cihazınızda işlenir ve saklanır; Plenio bu içerikleri geliştiriciye ait bir sunucuya otomatik olarak göndermez.</p>
+<p>Bu politika, uygulamanın yerel veri kullanımını ve kendi isteğinizle bizimle iletişim kurduğunuzda gerçekleşen veri işlemeyi açıklar.</p>
+<h2>1. Geliştirici ve iletişim</h2>
+<p>Plenio&#x27;nun geliştiricisi Kaan Saka&#x27;dır. Geliştiriciye ilettiğiniz destek ve gizlilik başvuruları kapsamında işlenen kişisel veriler bakımından veri sorumlusu Kaan Saka&#x27;dır.</p>
+<p>Gizlilik soruları ve kişisel veri başvuruları için iletişim: <strong><a href="mailto:vyontoinfo@gmail.com">vyontoinfo@gmail.com</a></strong></p>
+<h2>2. Cihazınızda kullanılan bilgiler</h2>
+<p>Plenio, tercih ettiğiniz özelliklere ve girdiğiniz içeriğe göre aşağıdaki bilgileri cihazınızda saklar:</p>
+<ul><li>Görev başlıkları, açıklamalar, notlar ve alt görevler.</li><li>Görev tarihleri, başlangıç ve bitiş saatleri, oluşturulma zamanı ve tamamlanma durumu.</li><li>Kategori, öncelik, tekrar bilgileri, çıkartma seçimi ve kayıtlara eklenen yer bilgisi gibi görev ayrıntıları.</li><li>Görevleri ve tekrar serilerini uygulama içinde birbirinden ayıran rastgele kayıt kimlikleri. Bunlar reklam veya cihaz takip kimlikleri değildir.</li><li>Uygulama dili, bildirim tercihi ve titreşim tercihi gibi ayarlar.</li></ul>
+<p>Bu bilgiler görevlerinizi görüntülemek, aramak, düzenlemek, takvim üzerinde göstermek, ilerleme istatistiklerini hesaplamak ve hatırlatıcıları planlamak için kullanılır. Takvim ve istatistik işlemleri cihazda yapılır. Kayıtlardaki yer bilgisi, cihazınızdan otomatik konum alındığı anlamına gelmez.</p>
+<p>Uygulama, kullanım için ad, e-posta adresi, telefon numarası veya hesap şifresi istemez. Görevlerinize kendi tercihinizle kişisel bilgiler yazmanız mümkündür; bu içerikler de aynı yerel saklama düzenine tabidir.</p>
+<h2>3. İzinler ve bildirimler</h2>
+<p>Plenio, görev hatırlatıcıları ve günlük hatırlatma için iOS üzerinden bildirim izni ister. Bildirimler cihazınızda planlanır; uzak bildirim gönderen bir Plenio sunucusu kullanılmaz.</p>
+<p>Görev hatırlatıcıları görev başlığınızı içerebilir. iOS bildirim önizleme ayarlarınıza bağlı olarak bu başlık kilit ekranında görünebilir. Görünürlüğü iOS bildirim ayarlarından değiştirebilirsiniz.</p>
+<p>Bildirimleri uygulamanın Ayarlar bölümünden kapatabilir veya iOS Ayarlar uygulamasından Plenio&#x27;nun bildirim iznini kaldırabilirsiniz. Bildirim izni vermeden de görevlerinizi kullanabilirsiniz.</p>
+<p>Mevcut sürüm kamera, mikrofon, fotoğraf arşivi, kişiler, cihaz konumu, Apple Takvim kayıtları veya Sağlık verilerine erişim istemez. Uygulamanın kendi takvim görünümü, Apple Takvim hesabınızla eşitleme yapmaz.</p>
+<h2>4. Saklama ve yedekleme</h2>
+<p>Görevler ve tercihler uygulamanın cihazdaki yerel depolama alanında tutulur. Mevcut sürümde Plenio&#x27;ya ait bir bulut hesabı, sunucu yedeği veya cihazlar arası otomatik eşitleme bulunmaz.</p>
+<p>Cihazınızın iCloud veya bilgisayar yedekleme ayarlarına bağlı olarak uygulama verileri işletim sistemi yedeklerine dahil olabilir. Bu durum, Plenio&#x27;nun kendi bulut hizmetini sunduğu anlamına gelmez. Bu yedekleri Apple&#x27;ın ve kullandığınız yedekleme hizmetinin ayarlarından yönetirsiniz.</p>
+<p>“Verileri dışa aktar” işlemi, görev kayıtlarınızın bir JSON dosyasını oluşturur. Bu dosya görev içeriklerini içerir ve Plenio tarafından ayrıca parola ile korunmaz veya şifrelenmez. Kaydetmek için iCloud Drive ya da başka bir dosya sağlayıcısı seçerseniz dosyanız seçtiğiniz hizmete aktarılabilir. Dosyanın nerede saklanacağına ve kiminle paylaşılacağına siz karar verirsiniz.</p>
+<p>“Verileri içe aktar” işlemi seçtiğiniz yedek dosyasını cihazda okur ve mevcut görev listesini yedekteki kayıtlarla değiştirir. Dosyanın içeriği bu işlem nedeniyle geliştiriciye gönderilmez.</p>
+<h2>5. Destek için paylaştığınız bilgiler</h2>
+<p>E-posta ile iletişim kurmayı seçerseniz e-posta adresiniz, mesajınız, gönderim bilgileri ve kendi isteğinizle eklediğiniz dosyalar bize ulaşır. Uygulama, geri bildirim e-postasına görev listenizi veya yedek dosyanızı otomatik olarak eklemez.</p>
+<p>Bu bilgiler talebinizi yanıtlamak, bildirdiğiniz sorunu araştırmak ve gizlilik başvurularınızı sonuçlandırmak amacıyla kullanılır. Gerekmedikçe görev yedeği, hassas içerik veya başka kişilere ait bilgi göndermeyin.</p>
+<p>Destek yazışmaları Google&#x27;ın Gmail hizmeti üzerinden alınır ve saklanır. Mesajı gönderirken kullandığınız hizmetin koşulları ve Gmail&#x27;in işlediği bilgiler bakımından <a href="https://policies.google.com/privacy?hl=tr">Google Gizlilik Politikası</a> geçerlidir. Destek bilgileri reklam, pazarlama veya kullanıcı profili oluşturmak için tarafımızca kullanılmaz.</p>
+<h2>6. Paylaşım, reklam ve dış hizmetler</h2>
+<p>Plenio görev verilerinizi satmaz ve reklam amacıyla paylaşmaz. Mevcut uygulama reklam ağı, üçüncü taraf kullanım analitiği, üçüncü taraf hata izleme SDK&#x27;sı veya yapay zekâ hizmeti içermez. Uygulamalar ve internet siteleri arasında takip yapmaz; reklam kimliği toplamaz.</p>
+<p>Görevleriniz uygulama tarafından geliştiricinin ya da üçüncü bir tarafın sunucusuna otomatik olarak aktarılmaz. Seçtiğiniz dosya sağlayıcısına yedek kaydetmeniz veya kendi isteğinizle e-posta göndermeniz, yukarıda açıklanan ayrı işlemlerdir. Bu hizmetlerin altyapısına bağlı olarak veriler farklı ülkelerde işlenebilir.</p>
+<p>App Store üzerinden indirme, uygulamayı değerlendirme ve işletim sisteminin tanılama veya yedekleme hizmetleri Apple tarafından sunulur. Apple&#x27;ın kendi hizmetleri kapsamında işlediği bilgiler için <a href="https://www.apple.com/legal/privacy/">Apple Gizlilik Politikası</a> geçerlidir.</p>
+<p>Geçerli bir hukuki yükümlülük doğarsa, yalnızca elimizde bulunan ve talebin kapsamına giren bilgiler yetkili mercilerle paylaşılabilir. Cihazınızda bulunan ve bize iletmediğiniz görevlerinize uzaktan erişimimiz yoktur.</p>
+<h2>7. Saklama süresi ve silme</h2>
+<p>Görevler, siz silene veya yerel uygulama verileri kaldırılana kadar cihazınızda tutulur. Görevleri tek tek silebilir ya da <strong>Ayarlar → Veri Yönetimi → Tüm Görevleri Sil</strong> yoluyla mevcut görev listesini temizleyebilirsiniz. Toplu silme, bekleyen yerel bildirimleri de iptal eder; dil ve titreşim gibi tercihleri sıfırlamaz.</p>
+<p>Daha önce gösterilmiş bildirimler Bildirim Merkezi&#x27;nde kalabilir; bunları iOS üzerinden ayrıca temizleyebilirsiniz.</p>
+<p>Uygulamayı iOS&#x27;taki “Uygulamayı Sil” seçeneğiyle kaldırmak cihazdaki uygulama verilerini de kaldırır. “Uygulamayı Kaldır” (Offload App) seçeneği ise belgeleri ve verileri koruyabilir.</p>
+<p>Görev silmek veya uygulamayı cihazdan silmek, dışa aktardığınız dosyaları, gönderdiğiniz e-posta eklerini ya da eski cihaz yedeklerini silmez. Bunları ilgili hizmetten ayrıca yönetmeniz gerekir. Eski bir yedeği geri yüklemek, o yedekteki görevleri yeniden getirebilir. Geliştirici, elinde kopyası bulunmayan silinmiş görevleri kurtaramaz.</p>
+<p>Destek yazışmaları, talebin çözümü ve ilgili takip işlemleri için gerekli olduğu sürece tutulur. Saklama ihtiyacı sona erdiğinde silinir veya anonimleştirilir; uygulanabilir hukuki saklama yükümlülüğü veya bir hakkın korunması için gerekli kayıtlar ilgili süre boyunca saklanabilir.</p>
+<h2>8. Veri güvenliği</h2>
+<p>Plenio yerel veriler için iOS&#x27;un uygulama yalıtımı ve cihaz güvenliği mekanizmalarından yararlanır. Uygulama ayrıca bir parola kasası veya uçtan uca şifreli yedekleme hizmeti sunmaz. Cihaz güvenliği ve dışa aktarılan dosyaların korunması bu nedenle önemlidir.</p>
+<p>Cihazınızda ekran kilidi kullanın, işletim sistemini güncel tutun ve yedek dosyalarını yalnızca güvendiğiniz konumlara kaydedin. Hiçbir depolama veya iletişim yöntemi mutlak güvenlik garantisi sağlamaz.</p>
+<h2>9. Haklarınız ve başvurularınız</h2>
+<p>Yerel görevlerinizi uygulama içinde görüntüleyebilir, düzenleyebilir, dışa aktarabilir ve silebilirsiniz. Geliştiricinin cihazınızdaki kayıtlara erişimi olmadığından bu işlemler sizin cihazınız üzerinden yapılır.</p>
+<p>Bize doğrudan ilettiğiniz kişisel veriler bakımından, uygulanabilir mevzuat çerçevesinde verilerinizin işlenip işlenmediğini öğrenme, işleme hakkında bilgi alma, amaç ve alıcıları öğrenme, yanlış bilgileri düzeltme ve şartları oluştuğunda silme isteme haklarınız vardır. KVKK kapsamında ayrıca düzeltme veya silmenin aktarım yapılan kişilere bildirilmesini isteme, yalnızca otomatik analizden doğan aleyhinize bir sonuca itiraz etme ve hukuka aykırı işleme nedeniyle zararın giderilmesini talep etme hakları geçerlidir.</p>
+<p>Destek ve başvuru bilgileri elektronik iletişim yoluyla elde edilir. İşleme, talebin niteliğine göre hizmetin sunulması için gerekli sözleşmesel işlemler, hukuki yükümlülüklerin yerine getirilmesi veya bir hakkın kurulması, kullanılması ya da korunması gibi uygulanabilir hukuki sebeplere dayanır. Rıza gerektiren bir işleme faaliyeti için ayrıca rıza alınması gerekir; bu politikayı okumak veya uygulamayı kullanmak tek başına genel bir veri işleme rızası değildir.</p>
+<p>Başvurunuzu yukarıdaki iletişim adresine iletebilirsiniz. Talebinizi ve hangi bilgilerle ilgili olduğunu belirtmeniz yeterlidir; şifre veya görev yedeği göndermeniz gerekmez. Gerektiğinde kimliğinizi doğrulamak için taleple orantılı ek bilgi istenebilir. Başvurular uygulanabilir yasal süreler içinde yanıtlanır. Yetkili veri koruma makamına başvurma haklarınız saklıdır.</p>
+<h2>10. Politika değişiklikleri</h2>
+<p>Veri kullanımını etkileyen bir özellik değiştiğinde bu politika güncellenir ve son güncelleme tarihi değiştirilir. Önemli değişiklikler uygulama veya ilgili yayın kanalı üzerinden duyurulur. Yeni bir işlem için izin veya rıza gerekiyorsa bu, ilgili işlem başlamadan önce ayrıca istenir.</p></article></main>
     <footer style="padding: 100px 0; border-top: 1px solid var(--card-border); text-align: center;">
         <div class="container">
             <p style="color: var(--text-muted); font-weight: 500;">&copy; 2026 Kaan Saka. Tüm Hakları Saklıdır.</p>
@@ -164,7 +101,9 @@
             const menu = document.getElementById('mobile-menu');
             const toggle = document.getElementById('mobile-toggle');
             const icon = toggle.querySelector('i');
+
             menu.classList.toggle('active');
+
             if (icon) {
                 if (menu.classList.contains('active')) {
                     icon.classList.replace('fa-bars', 'fa-times');
@@ -173,9 +112,24 @@
                 }
             }
         }
+
         const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
         if (mobileToggle) {
             mobileToggle.addEventListener('click', toggleMobileMenu);
+        }
+
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.replace('fa-times', 'fa-bars');
+                    }
+                });
+            });
         }
     </script>
 </body>
