@@ -17,12 +17,43 @@
     let height = 0;
     let dpr = 1;
     let frame = 0;
+    let protectionFrame = 0;
     let previousTime = performance.now();
 
     const hash = (column, row) => {
         const value = Math.sin(column * 91.7 + row * 217.3) * 43758.5453;
         return value - Math.floor(value);
     };
+
+    function updateProtectedAreas() {
+        protectionFrame = 0;
+        const padding = 22;
+        const textElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, a, button, label');
+        const protectedAreas = [];
+
+        for (const element of textElements) {
+            const rect = element.getBoundingClientRect();
+            if (rect.width === 0 || rect.height === 0 || rect.bottom < 0 || rect.top > height) continue;
+            protectedAreas.push({
+                left: rect.left - padding,
+                right: rect.right + padding,
+                top: rect.top - padding,
+                bottom: rect.bottom + padding
+            });
+        }
+
+        for (const cell of cells) {
+            cell.protected = protectedAreas.some((area) => (
+                cell.x >= area.left && cell.x <= area.right &&
+                cell.y >= area.top && cell.y <= area.bottom
+            ));
+        }
+    }
+
+    function scheduleProtectedAreaUpdate() {
+        if (protectionFrame) return;
+        protectionFrame = requestAnimationFrame(updateProtectedAreas);
+    }
 
     function resize() {
         width = window.innerWidth;
@@ -51,6 +82,7 @@
                 });
             }
         }
+        updateProtectedAreas();
         draw(performance.now(), 0);
     }
 
@@ -95,7 +127,7 @@
             const target = 0.12 + idlePulse + strength * 2.45;
             const easing = 1 - Math.exp(-delta * (target > cell.scale ? 10 : 5));
             cell.scale += (target - cell.scale) * easing;
-            context.globalAlpha = 0.18 + Math.min(0.7, strength * 0.78);
+            context.globalAlpha = cell.protected ? 0 : 0.18 + Math.min(0.7, strength * 0.78);
             drawShape(cell, cell.scale);
         }
         context.globalAlpha = 1;
@@ -129,6 +161,8 @@
     }, { passive: true });
 
     window.addEventListener('resize', resize, { passive: true });
+    window.addEventListener('scroll', scheduleProtectedAreaUpdate, { passive: true });
+    if (document.fonts?.ready) document.fonts.ready.then(scheduleProtectedAreaUpdate);
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
             cancelAnimationFrame(frame);
