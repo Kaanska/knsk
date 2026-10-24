@@ -9,8 +9,13 @@
     :root { color-scheme: light dark; --accent:#0b7d69; --card:#ffffff; --ink:#163047; --muted:#667988; --bg:#eef9f7; --line:#d9e7e4; }
     @media (prefers-color-scheme: dark) { :root { --card:#142331; --ink:#f4fbf9; --muted:#b7c7c5; --bg:#0c1721; --line:#29404a; } }
     * { box-sizing:border-box; }
-    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
-    main { width:min(880px,calc(100% - 32px)); margin:40px auto; padding:clamp(24px,5vw,56px); background:var(--card); border:1px solid var(--line); border-radius:28px; box-shadow:0 20px 70px rgba(18,68,61,.10); }
+    html { background:#080d18; }
+    body { margin:0; background:transparent; color:var(--ink); font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { position:relative; z-index:1; width:min(880px,calc(100% - 32px)); margin:40px auto; padding:clamp(24px,5vw,56px); background:var(--card); border:1px solid var(--line); border-radius:28px; box-shadow:0 20px 70px rgba(18,68,61,.10); }
+    .bg-animate { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; background:radial-gradient(circle at 14% 18%,rgba(78,226,192,.08),transparent 31%),radial-gradient(circle at 84% 25%,rgba(82,165,255,.08),transparent 30%),linear-gradient(145deg,#080d18 0%,#0d1728 54%,#0b1321 100%); }
+    .bg-animate::before { content:""; position:absolute; inset:0; z-index:2; background:radial-gradient(circle at center,transparent 32%,rgba(2,6,13,.24) 100%); }
+    .bg-animate::after { content:""; position:absolute; inset:0; z-index:1; opacity:.42; background-image:linear-gradient(rgba(255,255,255,.016) 1px,transparent 1px); background-size:100% 4px; }
+    .cursor-wave-canvas { position:absolute; inset:0; z-index:0; width:100%; height:100%; opacity:.9; }
     h1 { margin:0 0 8px; font-size:clamp(32px,6vw,52px); line-height:1.05; letter-spacing:-1.4px; }
     h2 { margin:34px 0 8px; font-size:22px; }
     p, li { color:var(--muted); }
@@ -25,6 +30,7 @@
   </style>
 </head>
 <body>
+<div class="bg-animate" aria-hidden="true"></div>
 <main>
   <a href="apps#pofloria" style="display:inline-block;margin-bottom:24px;">← Uygulamalara Dön</a>
   <h1>Pofloria Gizlilik Politikası</h1>
@@ -125,5 +131,6 @@
 
   <footer>© 2026 Pofloria</footer>
 </main>
+<script src="cursor-wave.js?v=cursor-wave-preview"></script>
 </body>
 </html>
