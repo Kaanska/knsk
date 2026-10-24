@@ -82,8 +82,6 @@ body {
     opacity: 0.9;
 }
 
-body > nav,
-body > .mobile-menu,
 body > main,
 body > footer {
     position: relative;
