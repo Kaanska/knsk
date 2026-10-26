@@ -67,3 +67,12 @@
 }
 
 .plenio-privacy-link:focus-visible, .plenio-policy a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+
+/* Pipterra keeps the site's dark gallery while borrowing the game's warm
+   passport-paper palette and rust-red boarding passes. */
+.pipterra-showcase { margin-top: 80px; border-color: rgba(202,76,42,.28); background: radial-gradient(circle at 16% 18%,rgba(239,188,111,.09),transparent 38%),var(--card-bg); }
+.pipterra-text { color:#f3c170; background:linear-gradient(100deg,#fff0c5 4%,#efb45d 46%,#dc6441 92%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.pipterra-showcase .plenio-platform,.pipterra-showcase .plenio-category,.pipterra-showcase .plenio-privacy-link:hover { color:#efb45d; }
+.pipterra-showcase .plenio-feature-icon { color:#f1b66a; background:rgba(202,76,42,.13); }
+.pipterra-phone { border-color:#cba77d; background:linear-gradient(115deg,#f4dfb8 0%,#8b6a4b 18%,#ead1a6 42%,#725540 72%,#f7e5c5 100%); }
+.pipterra-download { cursor:default; background:linear-gradient(110deg,#c94b2c,#e48349); color:#fff7df; box-shadow:0 14px 30px rgba(201,75,44,.18); }
